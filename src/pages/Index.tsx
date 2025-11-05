@@ -1,13 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Header } from "@/components/layouts/Header";
+import { Footer } from "@/components/layouts/Footer";
+import { HeroSection } from "@/components/home/HeroSection";
+import { ProjectsSection } from "@/components/home/ProjectsSection";
+import { WhyChooseSection } from "@/components/home/WhyChooseSection";
+import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { CTASection } from "@/components/home/CTASection";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>LandWise - Premier Land Investment Opportunities</title>
+        <meta name="description" content="Discover prime land investment opportunities with LandWise. Explore curated properties, historical landmarks, and promising projects for your future." />
+      </Helmet>
+      <div className="min-h-screen">
+        <Header />
+        <main className="pt-16">
+          <HeroSection />
+          <ProjectsSection />
+          <WhyChooseSection />
+          <TestimonialsSection />
+          <CTASection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
