@@ -3,6 +3,7 @@ import { Footer } from "@/components/layouts/Footer";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { WhyChooseSection } from "@/components/home/WhyChooseSection";
+import { LandHoldingsGallery } from "@/components/LandHoldingsGallery";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { CTASection } from "@/components/home/CTASection";
 import { Helmet } from "react-helmet";
@@ -20,6 +21,7 @@ const Index = () => {
           <HeroSection />
           <ProjectsSection />
           <WhyChooseSection />
+          <LandHoldingsGallery />
           <TestimonialsSection />
           <CTASection />
         </main>
