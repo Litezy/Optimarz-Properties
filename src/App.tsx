@@ -13,6 +13,7 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Waitlist from "./pages/Waitlist";
 import NotFound from "./pages/NotFound";
+import { ClientPages } from "./utils/pageLinks";
 
 const queryClient = new QueryClient();
 
@@ -21,18 +22,20 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/summer-program" element={<SummerProgram />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/waitlist" element={<Waitlist />} />
-          <Route path="*" element={<NotFound />} />
+            {ClientPages.map((item, index) => (
+              <Route
+                key={index}
+                path={item.path}
+                element={<item.component/>}
+              />
+            ))}
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -15,7 +15,7 @@ const Index = () => {
         <title>Optimarz Properties - Premier Land Investment Opportunities</title>
         <meta name="description" content="Discover prime land investment opportunities with Optimarz Properties. Explore curated properties, historical landmarks, and promising projects for your future." />
       </Helmet>
-      <div className="min-h-screen">
+      <div className="min-h-screen w-full overflow-x-hidden">
         <Header />
         <main className="pt-16">
           <HeroSection />

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import optimarzLogoDark from "@/assets/optimarz-logo-dark.png";
+import optimarzLogoDark from "@/assets/logo.png";
 
 export const Footer = () => {
   return (

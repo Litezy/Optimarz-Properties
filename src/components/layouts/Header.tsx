@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
-import optimarzLogo from "@/assets/optimarz-logo.png";
-import optimarzLogoDark from "@/assets/optimarz-logo-dark.png";
+import optimarzLogo from "@/assets/logo.png";
+import optimarzLogoDark from "@/assets/logo.png";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ export const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur supports-[backdrop-filter]:bg-background bg-white border-b border-border/50 shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -51,7 +51,7 @@ export const Header = () => {
             <img 
               src={isDarkMode ? optimarzLogoDark : optimarzLogo} 
               alt="Optimarz Properties" 
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
