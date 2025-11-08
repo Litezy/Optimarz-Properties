@@ -8,68 +8,69 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 15%;
+    --background: 42 33% 95%;
+    --foreground: 90 31% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 90 31% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 90 31% 16%;
 
-    --primary: 168 45% 32%;
+    --primary: 76 59% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 168 25% 88%;
-    --secondary-foreground: 168 45% 32%;
+    --secondary: 42 28% 57%;
+    --secondary-foreground: 90 31% 16%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 10% 80%;
+    --muted-foreground: 90 15% 40%;
 
-    --accent: 168 45% 32%;
+    --accent: 76 59% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 168 45% 32%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 76 59% 45%;
 
     --radius: 0.5rem;
 
-    --dark-bg: 0 0% 12%;
-    --dark-text: 0 0% 100%;
+    --gold: 42 28% 57%;
+    --dark-green: 90 31% 16%;
+    --light-cream: 42 33% 95%;
   }
 
   .dark {
-    --background: 0 0% 12%;
-    --foreground: 0 0% 100%;
+    --background: 90 31% 16%;
+    --foreground: 42 33% 95%;
 
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 100%;
+    --card: 90 25% 20%;
+    --card-foreground: 42 33% 95%;
 
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 90 25% 20%;
+    --popover-foreground: 42 33% 95%;
 
-    --primary: 168 45% 42%;
+    --primary: 76 59% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 168 15% 25%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 42 28% 57%;
+    --secondary-foreground: 90 31% 16%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 90 20% 30%;
+    --muted-foreground: 40 10% 70%;
 
-    --accent: 168 45% 42%;
+    --accent: 76 59% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 168 45% 42%;
+    --border: 90 20% 30%;
+    --input: 90 20% 30%;
+    --ring: 76 59% 45%;
   }
 }
 
@@ -109,7 +110,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-cinzel;
   }
   
   .prose h2 {

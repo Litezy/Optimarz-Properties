@@ -16,7 +16,7 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Welcome to LandWise
+          Welcome to Optimarz Properties
         </h1>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
           Are you ready to explore rich land opportunities? Dive into prime locations 

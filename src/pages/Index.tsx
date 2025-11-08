@@ -12,8 +12,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>LandWise - Premier Land Investment Opportunities</title>
-        <meta name="description" content="Discover prime land investment opportunities with LandWise. Explore curated properties, historical landmarks, and promising projects for your future." />
+        <title>Optimarz Properties - Premier Land Investment Opportunities</title>
+        <meta name="description" content="Discover prime land investment opportunities with Optimarz Properties. Explore curated properties, historical landmarks, and promising projects for your future." />
       </Helmet>
       <div className="min-h-screen">
         <Header />

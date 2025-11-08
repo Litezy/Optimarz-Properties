@@ -1,45 +1,67 @@
 import { Link } from "react-router-dom";
-import { Building2 } from "lucide-react";
+import optimarzLogoDark from "@/assets/optimarz-logo-dark.png";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[hsl(var(--dark-bg))] text-[hsl(var(--dark-text))] py-12">
+    <footer className="bg-dark-green text-light-cream py-12 border-t border-gold/20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Logo & Description */}
-          <div className="md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 text-xl font-bold mb-4">
-              <Building2 className="w-8 h-8 text-primary" />
-              <span className="text-primary">LANDWISE</span>
-            </Link>
-            <p className="text-sm text-gray-400 max-w-md">
-              Your gateway to discovering prime land investment opportunities. 
-              Explore curated properties and make informed decisions for your future.
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div>
+            <img 
+              src={optimarzLogoDark} 
+              alt="Optimarz Properties" 
+              className="h-10 w-auto mb-4"
+            />
+            <p className="text-sm opacity-90">
+              Your trusted partner in land investment and exploration opportunities.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h4 className="font-semibold mb-4 text-gold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/projects" className="text-gray-400 hover:text-primary transition-colors">
+                <Link to="/projects" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
                   Projects
                 </Link>
               </li>
               <li>
-                <Link to="/summer-program" className="text-gray-400 hover:text-primary transition-colors">
+                <Link to="/summer-program" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
                   Summer Program
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-gray-400 hover:text-primary transition-colors">
+                <Link to="/resources" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
                   Resources
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-primary transition-colors">
+                <Link to="/blog" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
                   Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-semibold mb-4 text-gold">Company</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/about" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/waitlist" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
+                  Join VIP Waitlist
                 </Link>
               </li>
             </ul>
@@ -47,30 +69,17 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <Link to="/about" className="hover:text-primary transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-primary transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/waitlist" className="hover:text-primary transition-colors">
-                  Join VIP Waitlist
-                </Link>
-              </li>
+            <h4 className="font-semibold mb-4 text-gold">Contact</h4>
+            <ul className="space-y-2 text-sm opacity-90">
+              <li>contact@optimarzproperties.com</li>
+              <li>+1 (555) 123-4567</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} LandWise. All rights reserved.</p>
+        {/* Copyright */}
+        <div className="border-t border-gold/20 mt-8 pt-8 text-center text-sm opacity-90">
+          <p>&copy; {new Date().getFullYear()} Optimarz Properties. All rights reserved.</p>
         </div>
       </div>
     </footer>
