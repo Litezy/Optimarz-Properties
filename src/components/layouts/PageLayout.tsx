@@ -1,15 +1,18 @@
 import React from 'react'
 import { Header } from './Header'
-import { Footer } from 'react-day-picker'
+import { Footer } from './Footer'
 
-interface childNodes {
+interface PageLayoutProps {
     children: React.ReactNode
 }
-const PageLayout = ({ children }: childNodes) => {
+
+const PageLayout = ({ children }: PageLayoutProps) => {
     return (
-        <div className='w-full overflow-x-hidden flex items-start flex-col gap-5'>
+        <div className='min-h-screen w-full overflow-x-hidden flex flex-col'>
             <Header />
-            <div className="pt-10">{children}</div>
+            <main className="flex-grow pt-16">
+                {children}
+            </main>
             <Footer />
         </div>
     )

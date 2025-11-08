@@ -1,6 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { Header } from "@/components/layouts/Header";
-import { Footer } from "@/components/layouts/Footer";
+import PageLayout from "@/components/layouts/PageLayout";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -18,17 +17,16 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} - LandWise Blog</title>
+        <title>{post.title} - Optimarz Properties Blog</title>
         <meta name="description" content={post.excerpt} />
       </Helmet>
-      <div className="min-h-screen">
-        <Header />
-        <main className="pt-24 pb-20">
+      <PageLayout>
+        <div className="py-20">
           <article className="container mx-auto px-4 max-w-4xl">
             <Button asChild variant="ghost" className="mb-6">
               <Link to="/blog">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
+                Back to blog
               </Link>
             </Button>
 
@@ -69,13 +67,12 @@ const BlogPost = () => {
 
             <div className="mt-12 pt-8 border-t">
               <Button asChild size="lg">
-                <Link to="/contact">Interested in Learning More?</Link>
+                <Link to="/contact">Interested in learning more?</Link>
               </Button>
             </div>
           </article>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </PageLayout>
     </>
   );
 };

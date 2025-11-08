@@ -1,17 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-landscape.jpg";
+import { useState, useEffect } from "react";
+import heroImage1 from "@/assets/hero-landscape.jpg";
+import heroImage2 from "@/assets/hero-landscape-2.jpg";
 
 export const HeroSection = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [heroImage1, heroImage2];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+      {/* Background Images with Transition */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ${
+            currentImage === index
+              ? "opacity-100 translate-x-0"
+              : index < currentImage
+              ? "opacity-0 -translate-x-full"
+              : "opacity-0 translate-x-full"
+          }`}
+          style={{ backgroundImage: `url(${image})` }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+      ))}
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
@@ -28,7 +50,7 @@ export const HeroSection = () => {
           size="lg" 
           className="bg-white text-primary hover:bg-white/90 text-lg px-8"
         >
-          <Link to="/about">About Us</Link>
+          <Link to="/gainesville">Learn More</Link>
         </Button>
       </div>
     </section>

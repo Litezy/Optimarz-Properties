@@ -1,5 +1,4 @@
-import { Header } from "@/components/layouts/Header";
-import { Footer } from "@/components/layouts/Footer";
+import PageLayout from "@/components/layouts/PageLayout";
 import { Helmet } from "react-helmet";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { blogPosts } from "@/data/blogPosts";
@@ -8,12 +7,11 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Blog - LandWise</title>
+        <title>Blog - Optimarz Properties</title>
         <meta name="description" content="Read the latest insights, news, and updates about land investment and real estate." />
       </Helmet>
-      <div className="min-h-screen">
-        <Header />
-        <main className="pt-24 pb-20">
+      <PageLayout>
+        <div className="py-20">
           <div className="container mx-auto px-4">
             <div className="mb-12 animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog</h1>
@@ -35,9 +33,8 @@ const Blog = () => {
               ))}
             </div>
           </div>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </PageLayout>
     </>
   );
 };

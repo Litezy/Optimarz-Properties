@@ -33,6 +33,7 @@ export const Header = () => {
 
   const navItems = [
     { label: "Projects", path: "/projects" },
+    { label: "Gainesville", path: "/gainesville" },
     { label: "Summer Program", path: "/summer-program" },
     { label: "Resources", path: "/resources" },
     { label: "About Us", path: "/about" },

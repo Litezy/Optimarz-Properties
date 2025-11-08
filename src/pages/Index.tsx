@@ -6,6 +6,7 @@ import { WhyChooseSection } from "@/components/home/WhyChooseSection";
 import { LandHoldingsGallery } from "@/components/LandHoldingsGallery";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { CTASection } from "@/components/home/CTASection";
+import { DownloadModal } from "@/components/modals/DownloadModal";
 import { Helmet } from "react-helmet";
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
           <CTASection />
         </main>
         <Footer />
+        <DownloadModal />
       </div>
     </>
   );

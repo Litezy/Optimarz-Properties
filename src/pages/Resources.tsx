@@ -1,5 +1,4 @@
-import { Header } from "@/components/layouts/Header";
-import { Footer } from "@/components/layouts/Footer";
+import PageLayout from "@/components/layouts/PageLayout";
 import { Helmet } from "react-helmet";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,33 +8,33 @@ import resourceGuide from "@/assets/resource-guide.jpg";
 const resources = [
   {
     icon: FileText,
-    title: "Land Investment Guide",
+    title: "Land investment guide",
     description: "Comprehensive guide covering everything from due diligence to closing deals.",
     action: "Download PDF",
   },
   {
     icon: Calculator,
-    title: "ROI Calculator",
+    title: "ROI calculator",
     description: "Calculate potential returns on your land investments with our interactive tool.",
-    action: "Use Calculator",
+    action: "Use calculator",
   },
   {
     icon: TrendingUp,
-    title: "Market Reports",
+    title: "Market reports",
     description: "Quarterly market analysis and trends in land investment across all regions.",
-    action: "View Reports",
+    action: "View reports",
   },
   {
     icon: BookOpen,
-    title: "Investment Glossary",
+    title: "Investment glossary",
     description: "Essential terminology and concepts every land investor should know.",
-    action: "Read More",
+    action: "Read more",
   },
   {
     icon: MapPin,
-    title: "Location Guides",
+    title: "Location guides",
     description: "Detailed profiles of investment hotspots and emerging markets.",
-    action: "Explore Locations",
+    action: "Explore locations",
   },
 ];
 
@@ -43,12 +42,11 @@ const Resources = () => {
   return (
     <>
       <Helmet>
-        <title>Resources - LandWise</title>
+        <title>Resources - Optimarz Properties</title>
         <meta name="description" content="Access valuable resources, guides, and tools for land investment success." />
       </Helmet>
-      <div className="min-h-screen">
-        <Header />
-        <main className="pt-24 pb-20">
+      <PageLayout>
+        <div className="py-20">
           <div className="container mx-auto px-4">
             <div className="mb-12 animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Resources</h1>
@@ -70,7 +68,7 @@ const Resources = () => {
                 </div>
                 <CardContent className="p-8 flex flex-col justify-center">
                   <CardTitle className="text-3xl mb-4">
-                    Complete Land Investment Guide 2024
+                    Complete land investment guide 2024
                   </CardTitle>
                   <CardDescription className="text-lg mb-6">
                     Our most comprehensive resource yet. This 50-page guide covers everything from 
@@ -79,7 +77,7 @@ const Resources = () => {
                   </CardDescription>
                   <Button size="lg" className="w-fit">
                     <Download className="w-4 h-4 mr-2" />
-                    Download Free Guide
+                    Download free guide
                   </Button>
                 </CardContent>
               </div>
@@ -113,22 +111,21 @@ const Resources = () => {
             </div>
 
             {/* CTA Section */}
-            <Card className="mt-12 bg-primary text-white animate-slide-up">
+            <Card className="mt-12 bg-primary text-primary-foreground animate-slide-up">
               <CardContent className="p-8 text-center">
-                <h2 className="text-3xl font-bold mb-4">Need Personalized Guidance?</h2>
+                <h2 className="text-3xl font-bold mb-4">Need personalized guidance?</h2>
                 <p className="text-lg mb-6 opacity-90">
                   Our team of experts is ready to help you navigate your land investment journey. 
                   Schedule a free consultation today.
                 </p>
                 <Button size="lg" variant="secondary">
-                  Schedule Consultation
+                  Schedule consultation
                 </Button>
               </CardContent>
             </Card>
           </div>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </PageLayout>
     </>
   );
 };
