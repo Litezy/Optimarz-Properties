@@ -53,11 +53,11 @@ export const LandHoldingsGallery = () => {
                     <h3 className="text-2xl font-bold mb-2 text-foreground">{property.title}</h3>
                     <div className="flex items-center gap-2 text-muted-foreground mb-2">
                       <MapPin className="w-4 h-4" />
-                      <span className="text-sm">{property.location}</span>
+                      <span className="text-base">{property.location}</span>
                     </div>
                     <div className="flex items-center gap-2 text-primary font-semibold">
                       <Maximize2 className="w-4 h-4" />
-                      <span>{property.acreage}</span>
+                      <span className="text-lg">{property.acreage}</span>
                     </div>
                   </div>
                 </div>

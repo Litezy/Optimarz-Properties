@@ -14,7 +14,7 @@ const features = [
   {
     icon: Landmark,
     title: "Historic Significance",
-    description: "Experience rich history and cultural heritage of North Texas through our curated selection of historic landmarks, North Texas is steeped in history waiting to be explored.",
+    description: "Experience rich history and cultural heritage of North Texas through our curated selection of historic landmarks, North Texas is steeped in h istory waiting to be explored.",
   },
 ];
 
@@ -32,13 +32,13 @@ export const WhyChooseSection = () => {
             return (
               <div 
                 key={index}
-                className="text-center p-6 bg-white  rounded-md animate-slide-up"
+                className="text-center p-6 bg-card/20  rounded-md animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                <h1 className="text-xl text-muted-foreground font-semibold mb-3">{feature.title}</h1>
                 <p className="text-muted-foreground text-lg leading-relaxed">
                   {feature.description}
                 </p>

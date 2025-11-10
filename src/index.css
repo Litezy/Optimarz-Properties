@@ -111,7 +111,7 @@ All colors MUST be HSL.
                         @apply bg-background text-foreground font-playfair;
                     }
                     h1 {
-                        @apply font-bold text-foreground;
+                        @apply font-bold mb-6 text-foreground;
                     }
                     h1,
                     h2,
