@@ -27,7 +27,7 @@ const SmallTownCharm = () => {
           </div>
 
           <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl !text-white md:text-5xl font-bold mb-6">
               Wolfe City, Texas – Small town charm & rising opportunity
             </h1>
             <h2 className="text-2xl md:text-3xl mb-6">A heritage town, poised for growth</h2>

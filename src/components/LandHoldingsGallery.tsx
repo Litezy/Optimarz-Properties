@@ -63,7 +63,7 @@ export const LandHoldingsGallery = () => {
                 </div>
 
                 <Button asChild>
-                  <Link to="/contact">Learn More</Link>
+                  <Link to={property.url}>Learn More</Link>
                 </Button>
               </CardContent>
             </Card>
