@@ -1,26 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
+import project1 from "@/assets/opti4.jpg";
+import project2 from "@/assets/opti5.jpg";
+import project3 from "@/assets/opti6.jpg";
 
 const projects = [
   {
     id: 1,
-    title: "Heritage County",
-    description: "Delve into enchanting beauty where rolling hills meet picturesque landscapes and explore the historical significance that makes this area a true treasure for investors.",
+    title: "Fannin County",
+    description: "Delve into the enchanting beauty of Fannin County, where rolling hills meet picturesque landscapes and explore the historical significance that makes Fannin County a true treasure for investors.",
     image: project1,
   },
   {
     id: 2,
-    title: "Valley Springs",
-    description: "Discover where rural serenity meets modern growth. Explore curated projects and investment opportunities with strong potential for prosperity.",
+    title: "Hunt Springs",
+    description: "Discover Hunt County serenity meets modern growth. Explore curated projects and investment opportunities with strong potential for prosperity.",
     image: project2,
   },
   {
     id: 3,
-    title: "Coastal Meadows",
-    description: "Discover where natural beauty meets a thriving economy. Positioned at a prime gateway, it offers premier investment opportunities and lasting prosperity.",
+    title: "Cooke County",
+    description: "Discover Cooke County, where North Texas beauty meets a thriving economy. Positioned at the Texas–Oklahoma gateway, it offers prime investment opportunities and lasting prosperity.",
     image: project3,
   },
 ];
@@ -33,7 +32,7 @@ export const ProjectsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Our Projects
           </h2>
-          <p className="text-primary text-lg font-semibold">Explore Prime Locations</p>
+          <p className="text-primary text-lg font-semibold">Explore North Texas</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -54,7 +53,7 @@ export const ProjectsSection = () => {
                 <h3 className="text-2xl font-bold mb-3 text-primary">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 text-lg leading-relaxed">
                   {project.description}
                 </p>
               </CardContent>

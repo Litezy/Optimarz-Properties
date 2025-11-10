@@ -11,7 +11,7 @@ export const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const isDark = localStorage.getItem("theme") === "dark" || 
+    const isDark = localStorage.getItem("theme") === "dark" ||
       (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
     setIsDarkMode(isDark);
     if (isDark) {
@@ -32,12 +32,11 @@ export const Header = () => {
   };
 
   const navItems = [
+    { label: "Home", path: "/" },
     { label: "Projects", path: "/projects" },
-    { label: "Gainesville", path: "/gainesville" },
     { label: "Summer Program", path: "/summer-program" },
     { label: "Resources", path: "/resources" },
     { label: "About Us", path: "/about" },
-    { label: "Blog", path: "/blog" },
     { label: "Contact Us", path: "/contact" },
   ];
 
@@ -49,9 +48,9 @@ export const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img 
-              src={isDarkMode ? optimarzLogoDark : optimarzLogo} 
-              alt="Optimarz Properties" 
+            <img
+              src={isDarkMode ? optimarzLogoDark : optimarzLogo}
+              alt="Optimarz Properties"
               className="h-16 w-auto"
             />
           </Link>
@@ -62,11 +61,10 @@ export const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors relative group ${
-                  isActive(item.path) 
-                    ? "text-primary" 
+                className={`text-base capitalize font-medium transition-colors relative group ${isActive(item.path)
+                    ? "text-primary"
                     : "text-foreground hover:text-primary"
-                }`}
+                  }`}
               >
                 {item.label}
                 {isActive(item.path) && (
@@ -129,11 +127,10 @@ export const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium py-2 transition-colors ${
-                  isActive(item.path) 
-                    ? "text-primary border-l-2 border-primary pl-3" 
+                className={`text-sm font-medium py-2 transition-colors ${isActive(item.path)
+                    ? "text-primary border-l-2 border-primary pl-3"
                     : "text-foreground hover:text-primary pl-3"
-                }`}
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}

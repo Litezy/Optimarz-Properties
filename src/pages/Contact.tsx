@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { MailIcon, MapPin, PhoneCall } from "lucide-react";
 
 const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -11,6 +12,23 @@ const Contact = () => {
     // Form submission logic will be added later
   };
 
+  const contact = [
+    {
+      icon: <PhoneCall className="w-8 h-8 text-primary" />,
+      title: "Phone",
+      details: "+1 (555) 123-4567"
+    },
+    {
+      icon: <MailIcon className="w-8 h-8 text-primary" />,
+      title: "Email",
+      details: "info@optimarzproperties.com"
+    },
+    {
+      icon: <MapPin className="w-8 h-8 text-primary" />,
+      title: "Address",
+      details: "2150 south central highway, McKinney, Texas"
+    }
+  ]
   return (
     <>
       <Helmet>
@@ -18,35 +36,50 @@ const Contact = () => {
         <meta name="description" content="Get in touch with Optimarz Properties for inquiries about land investment opportunities." />
       </Helmet>
       <PageLayout>
-        <div className="py-20">
-          <div className="container mx-auto px-4 max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Contact us</h1>
-            <p className="text-xl text-muted-foreground mb-12 animate-slide-up">
-              Have questions about our projects or services? We'd love to hear from you. 
-              Fill out the form below and we'll get back to you shortly.
-            </p>
-            
-            <form onSubmit={handleSubmit} className="space-y-6 animate-slide-up">
-              <div>
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" placeholder="Your name" required />
+        <div className="py-10">
+          <div className="container mx-auto px-4 w-11/12 ">
+            <div className="flex items-center flex-col justify-center">
+              <h1 className="text-4xl md:text-5xl text-center font-bold mb-6 animate-fade-in">Contact us</h1>
+              <p className="text-xl max-w-3xl text-center text-muted-foreground mb-12 animate-slide-up">
+                Have questions about our projects or services? We'd love to hear from you.
+                Fill out the form below and we'll get back to you shortly.
+              </p>
+            </div>
+
+            <div className="flex items-start gap-10">
+              <form onSubmit={handleSubmit} className="space-y-6 w-full lg:w-1/2 animate-slide-up">
+                <div>
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" placeholder="Your name" required />
+                </div>
+                <div>
+                  <Label htmlFor="email">Email</Label>
+                  <Input id="email" type="email" placeholder="your@email.com" required />
+                </div>
+
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea id="message" placeholder="Tell us how we can help..." rows={6} required />
+                </div>
+                <Button type="submit" size="lg" className="w-full">
+                  Send message
+                </Button>
+              </form>
+              <div className="w-full lg:w-1/2">
+                <h2 className="text-2xl font-bold text-primary">Contact Details</h2>
+                <div className="w-full flex items-start flex-col gap-3">
+                  {contact.map((item, index) => (
+                    <div key={index} className="flex items-center gap-4 mt-6">
+                      {item.icon}
+                      <div>
+                        <h3 className="">{item.title}</h3>
+                        <p className="text-lg text-muted-foreground">{item.details}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="your@email.com" required />
-              </div>
-              <div>
-                <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" type="tel" placeholder="Your phone number" />
-              </div>
-              <div>
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Tell us how we can help..." rows={6} required />
-              </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send message
-              </Button>
-            </form>
+            </div>
           </div>
         </div>
       </PageLayout>

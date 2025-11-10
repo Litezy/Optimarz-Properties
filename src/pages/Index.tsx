@@ -9,6 +9,8 @@ import { CTASection } from "@/components/home/CTASection";
 import { DownloadModal } from "@/components/modals/DownloadModal";
 import { Helmet } from "react-helmet";
 
+export const CompanyName = "Optimarz Properties";
+
 const Index = () => {
   return (
     <>
@@ -27,7 +29,7 @@ const Index = () => {
           <CTASection />
         </main>
         <Footer />
-        <DownloadModal />
+        {/* <DownloadModal /> */}
       </div>
     </>
   );

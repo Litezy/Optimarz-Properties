@@ -5,7 +5,7 @@ import PageLayout from "@/components/layouts/PageLayout";
 import gainesvilleHero from "@/assets/gainesville-hero.jpg";
 import landImage from "@/assets/land-1.jpg";
 
-const Gainesville = () => {
+const Optiville = () => {
   return (
     <>
       <Helmet>
@@ -241,4 +241,4 @@ const Gainesville = () => {
   );
 };
 
-export default Gainesville;
+export default Optiville;

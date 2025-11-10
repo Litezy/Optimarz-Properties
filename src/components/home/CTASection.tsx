@@ -9,7 +9,7 @@ export const CTASection = () => {
           Begin Your Land Ownership Journey
         </h2>
         <p className="text-lg max-w-3xl mx-auto mb-8 leading-relaxed animate-slide-up">
-          Ready to embark on your journey into diverse landscapes and thriving communities? 
+          Ready to embark on your journey into diverse landscapes and thriving communities of North Texas? 
           Dive into our website to learn more about exciting projects, landmarks, and discover 
           the endless possibilities that await you. Whether you're seeking investment opportunities, 
           recreational retreats, or simply a place to call home, we have something for everyone.
@@ -27,7 +27,7 @@ export const CTASection = () => {
             asChild 
             size="lg" 
             variant="outline"
-            className="border-white text-white hover:bg-white/10"
+            className="border-white text-primary hover:bg-white/10"
           >
             <Link to="/contact">Contact Us</Link>
           </Button>

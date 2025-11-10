@@ -13,15 +13,15 @@ export const Footer = () => {
               alt="Optimarz Properties" 
               className="h-10 w-auto mb-4"
             />
-            <p className="text-sm opacity-90">
-              Your trusted partner in land investment and exploration opportunities.
+            <p className="text-base opacity-90">
+              Your trusted partner in land investment and exploration opportunities. Have more questions or need more information? Reach out to us today and take the first step towards securing your finacial future with Optimarz
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4 text-gold">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-base">
               <li>
                 <Link to="/projects" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
                   Projects
@@ -48,7 +48,7 @@ export const Footer = () => {
           {/* Company */}
           <div>
             <h4 className="font-semibold mb-4 text-gold">Company</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-base">
               <li>
                 <Link to="/about" className="hover:text-gold transition-colors opacity-90 hover:opacity-100">
                   About Us
@@ -70,9 +70,8 @@ export const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4 text-gold">Contact</h4>
-            <ul className="space-y-2 text-sm opacity-90">
+            <ul className="space-y-2 text-base opacity-90">
               <li>contact@optimarzproperties.com</li>
-              <li>+1 (555) 123-4567</li>
             </ul>
           </div>
         </div>

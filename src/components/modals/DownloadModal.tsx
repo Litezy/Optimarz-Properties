@@ -61,7 +61,7 @@ export const DownloadModal = () => {
           {/* Right side - Form */}
           <div className="p-8 bg-background">
             <DialogHeader className="mb-6">
-              <DialogTitle className="text-2xl md:text-3xl font-bold text-foreground">
+              <DialogTitle className="text-2xl md:text-xl font-bold text-foreground">
                 Download Optimarz's e-Magazine (October Edition)
               </DialogTitle>
             </DialogHeader>

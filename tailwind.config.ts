@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'cinzel': ['Cinzel', 'serif'],
+        'franklin-gothic': ['FranklinGothic', 'sans-serif'],
+        'playfair': ['PlayfairText', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

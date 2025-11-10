@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, Maximize2, CheckCircle2 } from "lucide-react";
+import { MapPin, Maximize2 } from "lucide-react";
 import { landHoldings } from "@/data/landHoldings";
 import { Link } from "react-router-dom";
 
@@ -24,13 +23,13 @@ export const LandHoldingsGallery = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-slide-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Land Holdings</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our curated selection of prime land opportunities. Each property has been 
-            carefully vetted for quality, location, and investment potential.
+          <h4 className="text-xl my-2">Discover North Texas Gems: Projects and Landmarks</h4>
+          <p className="text-lg text-mute max-w-4xl mx-auto">
+            Explore the unique charm and promising opportunities of Bonham, Honey Grove, Wolfe City, Greenville, Celeste, and the pristine lakes of Bois d'Arc, Lake Ralph, Lake Bonham, and Lake Moss. Dive deeper into each location and uncover the wealth of possibilities that await you in these vibrant communities and scenic destinations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {landHoldings.map((property, index) => (
             <Card
               key={property.id}
@@ -43,12 +42,12 @@ export const LandHoldingsGallery = () => {
                   alt={property.title}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
-                <Badge className={`absolute top-4 right-4 ${getStatusColor(property.status)}`}>
+                {/* <Badge className={`absolute top-4 right-4 ${getStatusColor(property.status)}`}>
                   {property.status.charAt(0).toUpperCase() + property.status.slice(1)}
-                </Badge>
+                </Badge> */}
               </div>
 
-              <CardContent className="p-6">
+              <CardContent className="p-4">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold mb-2 text-foreground">{property.title}</h3>
@@ -63,33 +62,9 @@ export const LandHoldingsGallery = () => {
                   </div>
                 </div>
 
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {property.description}
-                </p>
-
-                <div className="mb-4">
-                  <div className="flex flex-wrap gap-2">
-                    {property.features.map((feature, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center gap-1 text-xs bg-primary/10 text-primary px-3 py-1 rounded-full"
-                      >
-                        <CheckCircle2 className="w-3 h-3" />
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Price Range</p>
-                    <p className="text-lg font-bold text-primary">{property.price}</p>
-                  </div>
-                  <Button asChild>
-                    <Link to="/contact">Learn More</Link>
-                  </Button>
-                </div>
+                <Button asChild>
+                  <Link to="/contact">Learn More</Link>
+                </Button>
               </CardContent>
             </Card>
           ))}
