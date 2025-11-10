@@ -31,7 +31,7 @@ export const HeroSection = () => {
           }`}
           style={{ backgroundImage: `url(${image})` }}
         >
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/65" />
         </div>
       ))}
 
@@ -50,7 +50,7 @@ export const HeroSection = () => {
           size="lg" 
           className="bg-white text-primary hover:bg-white/90 text-lg px-8"
         >
-          <Link to="/optiville">Learn More</Link>
+          <Link to="/heritage-bloom">Learn More</Link>
         </Button>
       </div>
     </section>

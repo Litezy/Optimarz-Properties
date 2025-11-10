@@ -8,12 +8,18 @@ import Resources from "@/pages/Resources";
 import SummerProgram from "@/pages/SummerProgram";
 import Waitlist from "@/pages/Waitlist";
 import BlogPost from "@/pages/BlogPost";
-import Optiville from "@/pages/Optiville";
+import HeritageBloom from "@/pages/HeritageBloom";
+import TranquilRetreat from "@/pages/TranquilRetreat";
+import BonhamRenaissance from "@/pages/BonhamRenaissance";
+import SmallTownCharm from "@/pages/SmallTownCharm";
 
 export const ClientPages = [
     { component: Index, path: "/" },
     { component: Projects, path: "/projects" },
-    { component: Optiville, path: "/optiville" },
+    { component: HeritageBloom, path: "/heritage-bloom" },
+    { component: TranquilRetreat, path: "/tranquil-retreat" },
+    { component: BonhamRenaissance, path: "/bonham-renaissance" },
+    { component: SmallTownCharm, path: "/small-town-charm" },
     { component: SummerProgram, path: "/summer-program" },
     { component: Resources, path: "/resources" },
     { component: About, path: "/about" },

@@ -2,17 +2,18 @@ import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import PageLayout from "@/components/layouts/PageLayout";
+import { Link } from "react-router-dom";
 import gainesvilleHero from "@/assets/gainesville-hero.jpg";
 import landImage from "@/assets/land-1.jpg";
 
-const Optiville = () => {
+const HeritageBloom = () => {
   return (
     <>
       <Helmet>
-        <title>Invest in Prime Land Opportunities | Optimarz Properties</title>
+        <title>Heritage Bloom - Gainesville, TX | Optimarz Properties</title>
         <meta
           name="description"
-          content="Discover prime land investment opportunities with Optimarz Properties. Explore strategic locations with high growth potential and excellent ROI."
+          content="Invest in Gainesville, TX – Prime land opportunities in Cooke County with Optimarz Properties. Explore strategic locations with high growth potential."
         />
       </Helmet>
       <PageLayout>
@@ -22,44 +23,45 @@ const Optiville = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${gainesvilleHero})` }}
           >
-            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 bg-black/60" />
           </div>
 
           <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Invest in Prime Land – Exceptional Opportunities Await
+              Invest in Gainesville, TX – Prime Land Opportunities in Cooke County
             </h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed">
-              Optimarz Properties is excited to announce a new land acquisition project in strategic locations across thriving markets. We invite investors to join us in securing prime land parcels in these rapidly growing areas.
+              Optimarz Properties is excited to announce a new land acquisition project in Gainesville, Texas, the vibrant county seat of Cooke County. We invite investors to join us in securing prime land parcels in this rapidly growing North Texas market.
             </p>
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 text-lg px-8"
+              asChild
             >
-              Learn More
+              <a href="#more">Learn More</a>
             </Button>
           </div>
         </section>
 
         {/* Main Content */}
-        <section className="py-20 bg-background">
+        <section id="more" className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-6xl">
             {/* Why Invest Section */}
             <div className="mb-20 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">
-                Why Invest in Prime Land Opportunities?
+                Why invest in Gainesville and Cooke County?
               </h2>
 
               <Card className="mb-8">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4 text-foreground">
-                    Strategic Location & Accessibility
+                    Strategic location & accessibility
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Our featured properties are strategically located with easy access to major highways and metropolitan areas. This proximity combines the charm of open land with metropolitan convenience, making it ideal for investors seeking growth near major urban centers.
+                    Gainesville is located just 71 miles north of Dallas along Interstate 35 (I-35) and U.S. Highway 82, offering easy access to the Dallas-Fort Worth metroplex. This proximity combines small-town charm with metropolitan convenience, making it ideal for investors seeking growth near a major urban center.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    The areas we focus on border several key regions and counties, enriching the regional community with nearby towns and cities that provide essential amenities and services.
+                    Cooke County borders several counties, including Love County, Oklahoma (~18 miles north), enriching the regional community with nearby towns and cities that provide essential amenities and services.
                   </p>
                 </CardContent>
               </Card>
@@ -68,10 +70,10 @@ const Optiville = () => {
                 <Card>
                   <CardContent className="p-8">
                     <h3 className="text-xl font-bold mb-4 text-foreground">
-                      Population & Growth Trends
+                      Population & growth trends
                     </h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      The areas we serve are experiencing steady growth, driven by economic development, quality of life, and infrastructure improvements, supporting strong land value appreciation.
+                      Cooke County has experienced steady growth, with a population of approximately 41,668 as of the 2020 Census. Gainesville itself is home to around 17,394 residents, driven by economic development, quality of life, and infrastructure improvements, supporting strong land value appreciation.
                     </p>
                     <p className="text-muted-foreground leading-relaxed">
                       Growing populations and expanding communities create increasing demand for residential, commercial, and agricultural land use.
@@ -82,13 +84,13 @@ const Optiville = () => {
                 <Card>
                   <CardContent className="p-8">
                     <h3 className="text-xl font-bold mb-4 text-foreground">
-                      Amenities & Public Services
+                      Amenities & public services
                     </h3>
                     <ul className="space-y-2 text-muted-foreground">
-                      <li><strong>Parks & Recreation:</strong> Local parks, lakes, and recreational facilities offer fishing, boating, hiking, and camping opportunities.</li>
-                      <li><strong>Schools:</strong> Served by quality school districts with multiple educational options and nearby higher education institutions.</li>
-                      <li><strong>Healthcare:</strong> Comprehensive healthcare services including emergency care and medical centers.</li>
-                      <li><strong>Shopping & Services:</strong> Historic downtown areas and nearby retail hubs provide convenient access to shopping and dining.</li>
+                      <li><strong>Parks & recreation:</strong> Leonard Park, Depot Park, Lake Kiowa, and Red River offer fishing, boating, hiking, and camping opportunities.</li>
+                      <li><strong>Schools:</strong> Served by Gainesville Independent School District with multiple educational options and nearby North Central Texas College.</li>
+                      <li><strong>Healthcare:</strong> North Texas Medical Center provides comprehensive healthcare services including emergency care.</li>
+                      <li><strong>Shopping & services:</strong> Historic downtown Gainesville and nearby retail hubs provide convenient access to shopping and dining.</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -97,7 +99,7 @@ const Optiville = () => {
               <div className="mb-12">
                 <img
                   src={landImage}
-                  alt="Prime land investment opportunity"
+                  alt="Prime land investment opportunity in Gainesville"
                   className="w-full h-96 object-cover rounded-lg shadow-lg"
                 />
               </div>
@@ -105,23 +107,23 @@ const Optiville = () => {
               <Card className="mb-8">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4 text-foreground">
-                    Recent Developments & Economic Growth
+                    Recent developments & economic growth
                   </h3>
                   <div className="space-y-4 text-muted-foreground">
                     <div>
                       <h4 className="font-bold text-foreground mb-2">Infrastructure</h4>
                       <p className="leading-relaxed">
-                        Expansion of major highways and local roads enhances connectivity and land desirability throughout our target markets.
+                        Expansion of Interstate 35 and local roads enhances connectivity and land desirability throughout Cooke County.
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground mb-2">Economic Incentives</h4>
+                      <h4 className="font-bold text-foreground mb-2">Economic incentives</h4>
                       <p className="leading-relaxed">
-                        Local economic development corporations offer tax abatements, grants, and workforce training to attract businesses, creating new opportunities for land investors.
+                        The Gainesville Economic Development Corporation offers tax abatements, grants, and workforce training to attract businesses, creating new opportunities for land investors.
                       </p>
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground mb-2">Business & Industrial Growth</h4>
+                      <h4 className="font-bold text-foreground mb-2">Business & industrial growth</h4>
                       <p className="leading-relaxed">
                         New commercial and industrial projects create jobs and increase demand for residential and commercial land throughout the region.
                       </p>
@@ -129,7 +131,7 @@ const Optiville = () => {
                     <div>
                       <h4 className="font-bold text-foreground mb-2">Agribusiness</h4>
                       <p className="leading-relaxed">
-                        Our target areas remain key agri-business hubs, supporting diverse land use and investment opportunities across multiple sectors.
+                        Cooke County remains a key agri-business hub, supporting diverse land use and investment opportunities across multiple sectors.
                       </p>
                     </div>
                   </div>
@@ -139,23 +141,23 @@ const Optiville = () => {
               <Card className="bg-primary/5">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4 text-foreground">
-                    ROI Projection Based on Market Data
+                    ROI projection based on market data
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    Land markets near major metros have shown strong appreciation, with many counties posting annual land value increases of 10-40%+ in recent years. While some areas are more rural, they benefit from spillover growth and infrastructure improvements.
+                    Land markets near major metros have shown strong appreciation, with many North Texas counties posting annual land value increases of 10-40%+ in recent years. Cooke County, while more rural, benefits from spillover growth and infrastructure improvements.
                   </p>
                   <div className="space-y-3 text-muted-foreground">
                     <div>
-                      <h4 className="font-bold text-foreground mb-1">Property Values</h4>
-                      <p>Average property values in our target markets have increased by 5-8% year-over-year, with continued growth expected.</p>
+                      <h4 className="font-bold text-foreground mb-1">Property values</h4>
+                      <p>Average property values in Gainesville have increased by 5-8% year-over-year, with continued growth expected.</p>
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground mb-1">Land Appreciation</h4>
+                      <h4 className="font-bold text-foreground mb-1">Land appreciation</h4>
                       <p>Based on regional trends and infrastructure projects, investors can expect annual land appreciation rates between 8-15% over the next 3-5 years.</p>
                     </div>
                     <div>
-                      <h4 className="font-bold text-foreground mb-1">Market Liquidity</h4>
-                      <p>Our markets offer a balanced environment with growing demand and attractive entry prices, ideal for both medium- and long-term investors.</p>
+                      <h4 className="font-bold text-foreground mb-1">Market liquidity</h4>
+                      <p>Gainesville offers a balanced environment with growing demand and attractive entry prices, ideal for both medium- and long-term investors.</p>
                     </div>
                   </div>
                   <p className="text-muted-foreground leading-relaxed mt-4">
@@ -168,13 +170,13 @@ const Optiville = () => {
             {/* Why Invest with Optimarz */}
             <div className="mb-20 animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-foreground">
-                Why Invest with Optimarz Properties?
+                Why invest with Optimarz Properties?
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <Card>
                   <CardContent className="p-6 text-center">
                     <h3 className="text-lg font-bold mb-3 text-foreground">
-                      Comprehensive Due Diligence
+                      Comprehensive due diligence
                     </h3>
                     <p className="text-muted-foreground text-sm">
                       Title searches, zoning, and environmental assessments ensure clear, market-ready land.
@@ -184,7 +186,7 @@ const Optiville = () => {
                 <Card>
                   <CardContent className="p-6 text-center">
                     <h3 className="text-lg font-bold mb-3 text-foreground">
-                      Local Market Expertise
+                      Local market expertise
                     </h3>
                     <p className="text-muted-foreground text-sm">
                       Deep knowledge of local real estate trends and emerging opportunities.
@@ -194,7 +196,7 @@ const Optiville = () => {
                 <Card>
                   <CardContent className="p-6 text-center">
                     <h3 className="text-lg font-bold mb-3 text-foreground">
-                      Transparent Communication
+                      Transparent communication
                     </h3>
                     <p className="text-muted-foreground text-sm">
                       Regular updates and support throughout your investment journey.
@@ -204,7 +206,7 @@ const Optiville = () => {
                 <Card>
                   <CardContent className="p-6 text-center">
                     <h3 className="text-lg font-bold mb-3 text-foreground">
-                      Flexible Investment Options
+                      Flexible investment options
                     </h3>
                     <p className="text-muted-foreground text-sm">
                       Tailored opportunities for first-time and seasoned investors alike.
@@ -217,17 +219,17 @@ const Optiville = () => {
             {/* CTA Section */}
             <div className="text-center py-16 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg animate-slide-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Ready to Invest in Growing Markets?
+                Ready to invest in Gainesville?
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Secure your place in one of the fastest-growing land markets. Whether for residential, commercial, or agricultural land, Optimarz Properties offers unmatched potential.
+                Secure your place in one of North Texas's fastest-growing land markets. Whether for residential, commercial, or agricultural land, Optimarz Properties offers unmatched potential.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="text-lg px-8">
-                  Contact Us Today
+                <Button size="lg" className="text-lg px-8" asChild>
+                  <Link to="/contact">Contact us today</Link>
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8">
-                  Join the VIP Waitlist
+                <Button size="lg" variant="outline" className="text-lg px-8" asChild>
+                  <Link to="/waitlist">Join the VIP waitlist</Link>
                 </Button>
               </div>
               <p className="mt-6 text-muted-foreground">
@@ -241,4 +243,4 @@ const Optiville = () => {
   );
 };
 
-export default Optiville;
+export default HeritageBloom;
