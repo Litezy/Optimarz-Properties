@@ -47,7 +47,7 @@ const BlogPost = () => {
         <meta name="description" content={post.excerpt} />
       </Helmet>
       <PageLayout>
-        <div className="py-12 bg-muted/30">
+        <div className="py-12 bg-background">
           <article className="container mx-auto px-4 max-w-4xl">
             <Button asChild variant="ghost" className="mb-8 hover:bg-muted">
               <Link to="/blog">
@@ -66,13 +66,13 @@ const BlogPost = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight text-foreground">
               {post.title}
             </h1>
 
             {/* Content */}
             <div
-              className="prose prose-lg max-w-none mb-12 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
+              className="prose prose-lg max-w-none mb-12 dark:prose-invert prose-headings:text-foreground prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:text-muted-foreground"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
@@ -158,8 +158,8 @@ const BlogPost = () => {
             </div>
 
             {/* CTA */}
-            <div className="bg-muted/50 rounded-xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Interested in Learning More?</h3>
+            <div className="bg-card border border-border rounded-xl p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4 text-card-foreground">Interested in Learning More?</h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Connect with our team to explore investment opportunities and discover how Optimarz Properties can help you achieve your land investment goals.
               </p>

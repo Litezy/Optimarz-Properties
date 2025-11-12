@@ -119,9 +119,9 @@ const About = () => {
                   <p>These commitments reflect our promise: to educate, empower, and deliver land investments that stand the test of time.</p>
                 </div>
 
-                <div className="w-full bg-primary/10 p-8 mt-10">
-                  <h2 className="text-3xl font-bold text-center mb-3">Why Land Matters</h2>
-                  <h3 className="text-center fair text-lg">At {CompanyName}, we believe land is more than property- it's a possibility </h3>
+                <div className="w-full bg-card border border-border p-8 mt-10 rounded-lg">
+                  <h2 className="text-3xl font-bold text-center mb-3 text-card-foreground">Why Land Matters</h2>
+                  <h3 className="text-center fair text-lg text-muted-foreground">At {CompanyName}, we believe land is more than property- it's a possibility </h3>
                   <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-3">
                     {landMatters.map((item, index) => (
                       <div
@@ -134,7 +134,7 @@ const About = () => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-center">We help you see it's worth, unlock it's promises and turn acres into lasting impact</p>
+                  <p className="text-center text-muted-foreground">We help you see it's worth, unlock it's promises and turn acres into lasting impact</p>
                 </div>
               </div>
             </div>

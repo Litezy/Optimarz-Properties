@@ -53,27 +53,30 @@ All colors MUST be HSL.
                         --dark-green: 90 31% 16%;
                         --light-cream: 42 33% 95%;
                     }
-                    .dark {
-                        --background: 90 31% 16%;
-                        --foreground: 42 33% 95%;
-                        --card: 90 25% 20%;
-                        --card-foreground: 42 33% 95%;
-                        --popover: 90 25% 20%;
-                        --popover-foreground: 42 33% 95%;
-                        --primary: 76 59% 45%;
-                        --primary-foreground: 0 0% 100%;
-                        --secondary: 42 28% 57%;
-                        --secondary-foreground: 90 31% 16%;
-                        --muted: 90 20% 30%;
-                        --muted-foreground: 40 10% 70%;
-                        --accent: 76 59% 45%;
-                        --accent-foreground: 0 0% 100%;
-                        --destructive: 0 62.8% 30.6%;
-                        --destructive-foreground: 0 0% 100%;
-                        --border: 90 20% 30%;
-                        --input: 90 20% 30%;
-                        --ring: 76 59% 45%;
-                    }
+    .dark {
+        --background: 90 31% 16%;
+        --foreground: 42 33% 95%;
+        --card: 90 25% 22%;
+        --card-foreground: 42 33% 95%;
+        --popover: 90 25% 22%;
+        --popover-foreground: 42 33% 95%;
+        --primary: 76 59% 55%;
+        --primary-foreground: 90 31% 16%;
+        --secondary: 42 28% 65%;
+        --secondary-foreground: 90 31% 16%;
+        --muted: 90 20% 25%;
+        --muted-foreground: 42 20% 80%;
+        --accent: 76 59% 55%;
+        --accent-foreground: 90 31% 16%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 90 15% 35%;
+        --input: 90 15% 35%;
+        --ring: 76 59% 55%;
+        --gold: 42 28% 65%;
+        --dark-green: 42 33% 95%;
+        --light-cream: 90 31% 16%;
+    }
                 }
                 
                 @layer utilities {
