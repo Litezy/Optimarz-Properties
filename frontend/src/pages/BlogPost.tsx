@@ -48,8 +48,8 @@ const BlogPost = () => {
       </Helmet>
       <PageLayout>
         <div className="py-12 bg-muted/30">
-          <article className="container mx-auto px-4 max-w-4xl">
-            <Button asChild variant="ghost" className="mb-8 hover:bg-muted">
+          <article className="container mx-auto  max-w-6xl bg-white rounded-xl shadow-lg p-8">
+            <Button asChild variant="ghost" className="mb-8 hover:bg-primary">
               <Link to="/blog">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Blog
@@ -98,7 +98,7 @@ const BlogPost = () => {
                   variant="outline"
                   size="icon"
                   onClick={() => handleShare("twitter")}
-                  className="hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-colors"
+                  className="hover:bg-black hover:text-white hover:border-black transition-colors"
                   aria-label="Share on Twitter"
                 >
                   <Twitter className="w-5 h-5" />
@@ -107,12 +107,12 @@ const BlogPost = () => {
                   variant="outline"
                   size="icon"
                   onClick={() => handleShare("linkedin")}
-                  className="hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-colors"
+                  className="hover:bg-blue-800 hover:text-white hover:border-blue-800 transition-colors"
                   aria-label="Share on LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </Button>
-                <Button
+                {/* <Button
                   variant="outline"
                   size="icon"
                   onClick={() => handleShare("email")}
@@ -120,7 +120,7 @@ const BlogPost = () => {
                   aria-label="Share via Email"
                 >
                   <Mail className="w-5 h-5" />
-                </Button>
+                </Button> */}
               </div>
             </div>
 
@@ -129,13 +129,10 @@ const BlogPost = () => {
             {/* Navigation */}
             <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 mb-12">
               {previousPost ? (
-                <Button asChild variant="outline" className="flex-1 justify-start group">
+                <Button asChild variant="outline" className="w-1/3 justify-center group">
                   <Link to={`/blog/${previousPost.slug}`} className="flex items-center gap-2">
-                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                    <div className="text-left">
-                      <div className="text-xs text-muted-foreground mb-1">Previous</div>
-                      <div className="font-semibold line-clamp-1">{previousPost.title}</div>
-                    </div>
+                    <ArrowLeft className="text-lg group-hover:-translate-x-1 transition-transform" />
+                      <div className="text-base">Previous</div>
                   </Link>
                 </Button>
               ) : (
@@ -143,13 +140,10 @@ const BlogPost = () => {
               )}
 
               {nextPost ? (
-                <Button asChild variant="outline" className="flex-1 justify-end group">
+                <Button asChild variant="outline" className="w-1/3 justify-center items-center group">
                   <Link to={`/blog/${nextPost.slug}`} className="flex items-center gap-2">
-                    <div className="text-right">
-                      <div className="text-xs text-muted-foreground mb-1">Next</div>
-                      <div className="font-semibold line-clamp-1">{nextPost.title}</div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <div className="text-base">Next</div>
+                    <ArrowRight className=" text-lg group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
               ) : (
