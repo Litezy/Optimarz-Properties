@@ -20,7 +20,7 @@ const Blog = () => {
               alt="Blog"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-black/70 dark:bg-black/80" />
           </div>
           <div className="relative z-10">
             <h1 className="text-5xl md:text-6xl font-bold text-white text-center">

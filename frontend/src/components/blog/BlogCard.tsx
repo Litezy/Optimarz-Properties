@@ -20,7 +20,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
         </div>
 
         <div className="p-6 flex flex-col flex-grow">
-          <h2 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors uppercase leading-tight">
+          <h2 className="text-xl font-bold mb-3 text-card-foreground group-hover:text-primary transition-colors uppercase leading-tight">
             {post.title}
           </h2>
 

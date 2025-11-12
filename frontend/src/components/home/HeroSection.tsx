@@ -48,7 +48,7 @@ export const HeroSection = () => {
         <Button 
           asChild 
           size="lg" 
-          className="bg-white text-primary hover:bg-white/90 text-lg px-8"
+          className="bg-white text-[#253019] font-bold hover:bg-white/90 text-lg px-8"
         >
           <Link to="/heritage-bloom">Learn More</Link>
         </Button>

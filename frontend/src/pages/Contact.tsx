@@ -72,7 +72,7 @@ const Contact = () => {
                     <div key={index} className="flex items-center gap-4 mt-6">
                       {item.icon}
                       <div>
-                        <h3 className="">{item.title}</h3>
+                        <h3 className="text-foreground font-semibold">{item.title}</h3>
                         <p className="text-lg text-muted-foreground">{item.details}</p>
                       </div>
                     </div>

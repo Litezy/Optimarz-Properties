@@ -44,7 +44,7 @@ const Projects = () => {
           <div className="container mx-auto px-4">
             <div className="mb-12 pt-8 flex items-center justify-center flex-col animate-fade-in">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Projects</h1>
-              <p className="text-xl text-muted-foreground max-w-3xl">
+              <p className="text-xl text-center text-muted-foreground max-w-3xl">
                 Discover our carefully curated land investment projects across premium locations.
                 Each project is selected for its unique potential and investment value.
               </p>

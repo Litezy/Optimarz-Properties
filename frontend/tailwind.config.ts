@@ -64,6 +64,13 @@ export default {
         gold: "hsl(var(--gold))",
         "dark-green": "hsl(var(--dark-green))",
         "light-cream": "hsl(var(--light-cream))",
+        // Enhanced footer colors for better alignment
+        footer: {
+          bg: "hsl(var(--footer-bg))",
+          text: "hsl(var(--footer-text))",
+          accent: "hsl(var(--gold))",
+          border: "hsl(var(--gold) / 0.2)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
