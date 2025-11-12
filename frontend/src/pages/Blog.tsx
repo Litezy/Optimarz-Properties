@@ -2,6 +2,7 @@ import PageLayout from "@/components/layouts/PageLayout";
 import { Helmet } from "react-helmet";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { blogPosts } from "@/data/blogPosts";
+import heroImage from "@/assets/hero-landscape.jpg";
 
 const Blog = () => {
   return (
@@ -11,16 +12,26 @@ const Blog = () => {
         <meta name="description" content="Read the latest insights, news, and updates about land investment and real estate." />
       </Helmet>
       <PageLayout>
-        <div className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="mb-12 animate-fade-in">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog</h1>
-              <p className="text-xl text-muted-foreground max-w-3xl">
-                Stay updated with the latest insights, market trends, and expert advice on land 
-                investment and real estate development.
-              </p>
-            </div>
+        {/* Hero Section */}
+        <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
+          <div className="absolute inset-0">
+            <img
+              src={heroImage}
+              alt="Blog"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+          <div className="relative z-10">
+            <h1 className="text-5xl md:text-6xl font-bold text-white text-center">
+              Blog
+            </h1>
+          </div>
+        </div>
 
+        {/* Blog Posts Grid */}
+        <div className="py-16 bg-background">
+          <div className="container mx-auto px-4 max-w-7xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post, index) => (
                 <div

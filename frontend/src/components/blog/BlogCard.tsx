@@ -1,9 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Calendar, Clock, User } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { BlogPost } from "@/data/blogPosts";
+import { ArrowRight } from "lucide-react";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -11,46 +9,31 @@ interface BlogCardProps {
 
 export const BlogCard = ({ post }: BlogCardProps) => {
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-      <div className="relative h-64 overflow-hidden">
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-        />
-        <Badge className="absolute top-4 left-4 bg-primary text-white">
-          {post.category}
-        </Badge>
-      </div>
-
-      <CardContent className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold mb-3 text-foreground hover:text-primary transition-colors">
-          <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-        </h3>
-
-        <p className="text-muted-foreground mb-4 leading-relaxed flex-grow">
-          {post.excerpt}
-        </p>
-
-        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-          <div className="flex items-center gap-1">
-            <User className="w-4 h-4" />
-            <span>{post.author}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            <span>{new Date(post.date).toLocaleDateString()}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4" />
-            <span>{post.readTime}</span>
-          </div>
+    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col group bg-card border-border">
+      <Link to={`/blog/${post.slug}`} className="flex flex-col h-full">
+        <div className="relative h-56 overflow-hidden bg-muted">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
         </div>
 
-        <Button asChild variant="outline" className="w-full">
-          <Link to={`/blog/${post.slug}`}>Read More</Link>
-        </Button>
-      </CardContent>
+        <div className="p-6 flex flex-col flex-grow">
+          <h2 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors uppercase leading-tight">
+            {post.title}
+          </h2>
+
+          <p className="text-muted-foreground mb-4 leading-relaxed flex-grow line-clamp-3">
+            {post.excerpt}
+          </p>
+
+          <div className="flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
+            Read More
+            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+      </Link>
     </Card>
   );
 };
