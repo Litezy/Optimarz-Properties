@@ -34,36 +34,14 @@ export const ClientPages = [
     { component: BlogPost, path: "/blog/:slug" },
     { component: Contact, path: "/contact" },
     { component: NotFound, path: "*" },
+     { component: AdminLogin, path: "/admin/login" },
 ]
 
-const ProtectedAdminProfile = () => (
-    <AdminAuthGuard>
-        <AdminProfile />
-    </AdminAuthGuard>
-);
 
-const ProtectedCreateBlog = () => (
-    <AdminAuthGuard>
-        <CreateBlog />
-    </AdminAuthGuard>
-);
-
-const ProtectedAdminContacts = () => (
-    <AdminAuthGuard>
-        <AdminContacts />
-    </AdminAuthGuard>
-);
-
-const ProtectedAdminWaitlist = () => (
-    <AdminAuthGuard>
-        <AdminWaitlist />
-    </AdminAuthGuard>
-);
 
 export const AdminPages = [
-    { component: AdminLogin, path: "/admin/login" },
-    { component: ProtectedAdminProfile, path: "/admin/profile" },
-    { component: ProtectedCreateBlog, path: "/admin/create-blog" },
-    { component: ProtectedAdminContacts, path: "/admin/contacts" },
-    { component: ProtectedAdminWaitlist, path: "/admin/waitlist" },
+    { component: AdminProfile, path: "/admin/profile" },
+    { component: CreateBlog, path: "/admin/create-blog" },
+    { component: AdminContacts, path: "/admin/contacts" },
+    { component: AdminWaitlist, path: "/admin/waitlist" },
 ]

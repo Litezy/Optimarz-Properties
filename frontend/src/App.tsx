@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import { AdminPages, ClientPages } from "./utils/pageLinks";
+import AdminAuthGuard from "./components/guards/AdminAuthGuard";
 
 const queryClient = new QueryClient();
 
@@ -48,7 +49,7 @@ const AppContent = () => {
           <Route
             key={index}
             path={item.path}
-            element={<item.component/>}
+            element={<AdminAuthGuard><item.component/></AdminAuthGuard>}
           />
         ))}
       </Routes>
