@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
@@ -8,18 +8,38 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Lock } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
+import { setCookie, getCookie, ADMIN_AUTH_COOKIE, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // Check if already logged in
+    const authCookie = getCookie(ADMIN_AUTH_COOKIE);
+    if (authCookie) {
+      navigate("/admin/profile");
+    }
+  }, [navigate]);
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     
     // Mock authentication - replace with actual auth later
     if (email === "admin@optimarz.com" && password === "admin123") {
-      localStorage.setItem("adminAuth", "true");
+      // Mock admin profile data
+      const mockProfile = {
+        name: "Admin User",
+        email: "admin@optimarz.com",
+        bio: "Administrator at Optimarz Properties",
+        avatar: ""
+      };
+
+      // Set cookies
+      setCookie(ADMIN_AUTH_COOKIE, "true", 7);
+      setCookie(ADMIN_PROFILE_COOKIE, JSON.stringify(mockProfile), 7);
+      
       toast({
         title: "Login successful",
         description: "Welcome back to the admin dashboard",

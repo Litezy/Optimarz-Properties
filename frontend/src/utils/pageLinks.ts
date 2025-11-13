@@ -17,6 +17,7 @@ import AdminProfile from "@/pages/admin/Profile";
 import CreateBlog from "@/pages/admin/CreateBlog";
 import AdminContacts from "@/pages/admin/Contacts";
 import AdminWaitlist from "@/pages/admin/Waitlist";
+import AdminAuthGuard from "@/components/guards/AdminAuthGuard";
 
 export const ClientPages = [
     { component: Index, path: "/" },
@@ -35,10 +36,34 @@ export const ClientPages = [
     { component: NotFound, path: "*" },
 ]
 
+const ProtectedAdminProfile = () => (
+    <AdminAuthGuard>
+        <AdminProfile />
+    </AdminAuthGuard>
+);
+
+const ProtectedCreateBlog = () => (
+    <AdminAuthGuard>
+        <CreateBlog />
+    </AdminAuthGuard>
+);
+
+const ProtectedAdminContacts = () => (
+    <AdminAuthGuard>
+        <AdminContacts />
+    </AdminAuthGuard>
+);
+
+const ProtectedAdminWaitlist = () => (
+    <AdminAuthGuard>
+        <AdminWaitlist />
+    </AdminAuthGuard>
+);
+
 export const AdminPages = [
     { component: AdminLogin, path: "/admin/login" },
-    { component: AdminProfile, path: "/admin/profile" },
-    { component: CreateBlog, path: "/admin/create-blog" },
-    { component: AdminContacts, path: "/admin/contacts" },
-    { component: AdminWaitlist, path: "/admin/waitlist" },
+    { component: ProtectedAdminProfile, path: "/admin/profile" },
+    { component: ProtectedCreateBlog, path: "/admin/create-blog" },
+    { component: ProtectedAdminContacts, path: "/admin/contacts" },
+    { component: ProtectedAdminWaitlist, path: "/admin/waitlist" },
 ]

@@ -7,15 +7,41 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getCookie, setCookie, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
 
 const AdminProfile = () => {
-  const [name, setName] = useState("Admin User");
-  const [email, setEmail] = useState("admin@optimarz.com");
-  const [bio, setBio] = useState("Administrator at Optimarz Properties");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [bio, setBio] = useState("");
+
+  useEffect(() => {
+    // Load profile from cookie
+    const profileData = getCookie(ADMIN_PROFILE_COOKIE);
+    if (profileData) {
+      try {
+        const profile = JSON.parse(profileData);
+        setName(profile.name);
+        setEmail(profile.email);
+        setBio(profile.bio);
+      } catch (error) {
+        console.error("Failed to parse profile data", error);
+      }
+    }
+  }, []);
 
   const handleSave = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Update profile in cookie
+    const updatedProfile = {
+      name,
+      email,
+      bio,
+      avatar: ""
+    };
+    setCookie(ADMIN_PROFILE_COOKIE, JSON.stringify(updatedProfile), 7);
+    
     toast({
       title: "Profile updated",
       description: "Your profile has been updated successfully",

@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, FileEdit, Mail, Users } from "lucide-react";
+import { LogOut, User, FileEdit, Mail, Users, Moon, Sun } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
+import { deleteCookie, getCookie, ADMIN_AUTH_COOKIE, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
+import type { AdminProfile } from "@/components/guards/AdminAuthGuard";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -12,21 +14,53 @@ interface AdminLayoutProps {
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [adminProfile, setAdminProfile] = useState<AdminProfile | null>(null);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark');
+    }
+    return false;
+  });
 
   useEffect(() => {
-    const isAuth = localStorage.getItem("adminAuth");
-    if (!isAuth) {
+    // Verify authentication
+    const authCookie = getCookie(ADMIN_AUTH_COOKIE);
+    if (!authCookie) {
       navigate("/admin/login");
+      return;
+    }
+
+    // Fetch admin profile data from cookie
+    const profileData = getCookie(ADMIN_PROFILE_COOKIE);
+    if (profileData) {
+      try {
+        const profile = JSON.parse(profileData);
+        setAdminProfile(profile);
+      } catch (error) {
+        console.error("Failed to parse admin profile", error);
+        navigate("/admin/login");
+      }
     }
   }, [navigate]);
 
   const handleLogout = () => {
-    localStorage.removeItem("adminAuth");
+    deleteCookie(ADMIN_AUTH_COOKIE);
+    deleteCookie(ADMIN_PROFILE_COOKIE);
     toast({
       title: "Logged out",
       description: "You have been successfully logged out",
     });
     navigate("/admin/login");
+  };
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    if (newMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   };
 
   const navItems = [
@@ -44,12 +78,31 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
               <img src={optimarzLogo} alt="Optimarz Properties" className="h-8 w-auto" />
-              <span className="text-xl font-bold">Admin Dashboard</span>
+              <div>
+                <span className="text-xl font-bold">Admin Dashboard</span>
+                {adminProfile && (
+                  <p className="text-xs text-muted-foreground">{adminProfile.email}</p>
+                )}
+              </div>
             </div>
-            <Button variant="outline" onClick={handleLogout} size="sm">
-              <LogOut className="w-4 h-4 mr-2" />
-              Logout
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={toggleDarkMode}
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+              <Button variant="outline" onClick={handleLogout} size="sm">
+                <LogOut className="w-4 h-4 mr-2" />
+                Logout
+              </Button>
+            </div>
           </div>
         </div>
       </header>
