@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
-import { ClientPages } from "./utils/pageLinks";
+import { AdminPages, ClientPages } from "./utils/pageLinks";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +38,13 @@ const AppContent = () => {
       <ScrollToTop />
       <Routes>
         {ClientPages.map((item, index) => (
+          <Route
+            key={index}
+            path={item.path}
+            element={<item.component/>}
+          />
+        ))}
+        {AdminPages.map((item, index) => (
           <Route
             key={index}
             path={item.path}

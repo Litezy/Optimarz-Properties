@@ -12,6 +12,11 @@ import HeritageBloom from "@/pages/HeritageBloom";
 import TranquilRetreat from "@/pages/TranquilRetreat";
 import BonhamRenaissance from "@/pages/BonhamRenaissance";
 import SmallTownCharm from "@/pages/SmallTownCharm";
+import AdminLogin from "@/pages/admin/Login";
+import AdminProfile from "@/pages/admin/Profile";
+import CreateBlog from "@/pages/admin/CreateBlog";
+import AdminContacts from "@/pages/admin/Contacts";
+import AdminWaitlist from "@/pages/admin/Waitlist";
 
 export const ClientPages = [
     { component: Index, path: "/" },
@@ -28,4 +33,12 @@ export const ClientPages = [
     { component: BlogPost, path: "/blog/:slug" },
     { component: Contact, path: "/contact" },
     { component: NotFound, path: "*" },
+]
+
+export const AdminPages = [
+    { component: AdminLogin, path: "/admin/login" },
+    { component: AdminProfile, path: "/admin/profile" },
+    { component: CreateBlog, path: "/admin/create-blog" },
+    { component: AdminContacts, path: "/admin/contacts" },
+    { component: AdminWaitlist, path: "/admin/waitlist" },
 ]

@@ -3,7 +3,7 @@ import optimarzLogoDark from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#1f2914] text-footer-text py-12 border-t border-footer-border">
+    <footer className="bg-[hsl(90,31%,16%)] text-[hsl(42,33%,95%)] py-12 border-t border-[hsl(42,28%,57%)]/20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -20,25 +20,25 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-footer-accent">Quick Links</h4>
+            <h4 className="font-semibold mb-4 text-[hsl(42,28%,57%)]">Quick Links</h4>
             <ul className="space-y-2 text-base">
               <li>
-                <Link to="/projects" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/projects" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   Projects
                 </Link>
               </li>
               <li>
-                <Link to="/summer-program" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/summer-program" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   Summer Program
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/resources" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   Resources
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/blog" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   Blog
                 </Link>
               </li>
@@ -47,20 +47,20 @@ export const Footer = () => {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold mb-4 text-footer-accent">Company</h4>
+            <h4 className="font-semibold mb-4 text-[hsl(42,28%,57%)]">Company</h4>
             <ul className="space-y-2 text-base">
               <li>
-                <Link to="/about" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/about" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/contact" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/waitlist" className="hover:text-footer-accent transition-colors opacity-90 hover:opacity-100">
+                <Link to="/waitlist" className="hover:text-[hsl(42,28%,57%)] transition-colors opacity-90 hover:opacity-100">
                   Join VIP Waitlist
                 </Link>
               </li>
@@ -69,7 +69,7 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-footer-accent">Contact</h4>
+            <h4 className="font-semibold mb-4 text-[hsl(42,28%,57%)]">Contact</h4>
             <ul className="space-y-2 text-base opacity-90">
               <li>contact@optimarzproperties.com</li>
             </ul>
@@ -77,7 +77,7 @@ export const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-footer-border mt-8 pt-8 text-center text-sm opacity-90">
+        <div className="border-t border-[hsl(42,28%,57%)]/20 mt-8 pt-8 text-center text-sm opacity-90">
           <p>&copy; {new Date().getFullYear()} Optimarz Properties. All rights reserved.</p>
         </div>
       </div>
