@@ -29,7 +29,7 @@ const Index = () => {
           <CTASection />
         </main>
         <Footer />
-        {/* <DownloadModal /> */}
+        <DownloadModal />
       </div>
     </>
   );
