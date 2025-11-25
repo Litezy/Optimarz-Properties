@@ -1,4 +1,34 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
+import { WaitListDto } from './waitlist.dto';
+import prisma from '../lib/prisma';
 
 @Injectable()
-export class WaitlistService {}
+export class WaitlistService {
+    async createWaitlist(waitlistDto: WaitListDto) {
+        const { email } = waitlistDto
+        const duplicateEmail = await prisma.waitlist.findUnique({
+            where: { email }
+        })
+        if (duplicateEmail) {
+            throw new ConflictException('Email already used');
+        }
+        const newUser = await prisma.waitlist.create({
+            data: { ...waitlistDto }
+        })
+        return newUser
+    }
+
+    async findAll() {
+        const allInWait = await prisma.waitlist.findMany({
+            select: {
+                email: true,
+                firstName: true,
+                lastName: true,
+                phoneNumber: true,
+                createdAt: true,
+                id: true
+            }
+        })
+        return allInWait
+    }
+}

@@ -1,4 +1,25 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Get, Post, SetMetadata, UseGuards, ValidationPipe } from '@nestjs/common';
+import { WaitlistService } from './waitlist.service';
+import { WaitListDto } from './waitlist.dto';
+import { SuccessMessage } from 'src/decorators/success.decorator';
+import { AuthGuard } from '@nestjs/passport';
+import { RoleGuard } from 'src/guards/role.guard';
 
 @Controller('waitlist')
-export class WaitlistController {}
+export class WaitlistController {
+    constructor(private readonly waitListService: WaitlistService) { }
+
+
+    @Post('create')
+    async createWaitlist(@Body(ValidationPipe) waitlistDto: WaitListDto) {
+        return await this.waitListService.createWaitlist(waitlistDto)
+    }
+
+    @SuccessMessage('Fetch success')
+    @Get('all')
+    @UseGuards(AuthGuard('jwt'), RoleGuard)
+    @SetMetadata('roles', ['admin'])
+    async getWaitlists() {
+       return  await this.waitListService.findAll()
+    }
+}
