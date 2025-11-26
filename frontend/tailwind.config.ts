@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        'franklin-gothic': ['FranklinGothic', 'sans-serif'],
-        'playfair': ['PlayfairText', 'serif'],
+        'cabinet': ['Cabinet', 'sans-serif'],
+        'satoshi': ['Satoshi', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

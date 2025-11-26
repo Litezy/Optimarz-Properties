@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { Save, Eye } from "lucide-react";
+import ApiLoader from "@/components/ApiLoader";
 
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
@@ -18,6 +19,7 @@ const CreateBlog = () => {
   const [category, setCategory] = useState("");
   const [author, setAuthor] = useState("");
   const [readTime, setReadTime] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleTitleChange = (value: string) => {
     setTitle(value);
@@ -29,19 +31,35 @@ const CreateBlog = () => {
     setSlug(generatedSlug);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // TODO: Replace with AuthFormDataPostApi from Apis.service.ts
     toast({
       title: "Blog post saved",
       description: "Your blog post has been saved as a draft",
     });
+    
+    setIsLoading(false);
   };
 
-  const handlePublish = () => {
+  const handlePublish = async () => {
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // TODO: Replace with AuthFormDataPostApi from Apis.service.ts
     toast({
       title: "Blog post published",
       description: "Your blog post is now live",
     });
+    
+    setIsLoading(false);
   };
 
   return (
@@ -50,6 +68,7 @@ const CreateBlog = () => {
         <title>Create Blog - Admin - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <ApiLoader isLoading={isLoading} message="Saving blog post..." />
       <AdminLayout>
         <div className="max-w-5xl mx-auto space-y-6">
           <div className="flex items-center justify-between">

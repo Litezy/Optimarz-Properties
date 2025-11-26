@@ -9,10 +9,12 @@ import { Lock } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
 import { setCookie, getCookie, ADMIN_AUTH_COOKIE, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
+import ApiLoader from "@/components/ApiLoader";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,8 +25,12 @@ const AdminLogin = () => {
     }
   }, [navigate]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Mock authentication - replace with actual auth later
     if (email === "admin@optimarz.com" && password === "admin123") {
@@ -52,6 +58,8 @@ const AdminLogin = () => {
         variant: "destructive",
       });
     }
+    
+    setIsLoading(false);
   };
 
   return (
@@ -60,6 +68,7 @@ const AdminLogin = () => {
         <title>Admin Login - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <ApiLoader isLoading={isLoading} message="Logging in..." />
       <div className="min-h-screen flex items-center justify-center bg-background px-4">
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-4 text-center">

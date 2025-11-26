@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Calendar, Download, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ApiLoader from "@/components/ApiLoader";
 
 // Mock data for waitlist
 const mockWaitlist = [
@@ -86,6 +87,20 @@ const mockWaitlist = [
 
 const AdminWaitlist = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Simulate fetching waitlist on mount
+  useEffect(() => {
+    const fetchWaitlist = async () => {
+      setIsLoading(true);
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      // TODO: Replace with AuthGetApi from Apis.service.ts
+      setIsLoading(false);
+    };
+    
+    fetchWaitlist();
+  }, []);
 
   const filteredWaitlist = mockWaitlist.filter(
     (person) =>
@@ -124,6 +139,7 @@ const AdminWaitlist = () => {
         <title>Waitlist - Admin - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <ApiLoader isLoading={isLoading} message="Loading waitlist..." />
       <AdminLayout>
         <div className="space-y-6">
           <div className="flex items-center justify-between">
