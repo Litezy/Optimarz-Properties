@@ -97,7 +97,7 @@ export class BlogController {
   }
 
   @SuccessMessage('Blog deleted successfully')
-  @Delete(':id')
+  @Delete('delete/:id')
   @UseGuards(AuthGuard('jwt'), RoleGuard)
   @SetMetadata('roles', ['admin'])
   async deleteBlog(@Param('id', ParseIntPipe) id: number) {

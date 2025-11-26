@@ -182,6 +182,9 @@ export class AdminService {
             throw new BadRequestException('Email is required to delete admin');
         }
 
+        await prisma.blog.deleteMany({
+            where: { author: { email } }
+        });
         const deletedAdmin = await prisma.admin.delete({
             where: { email },
             select: {

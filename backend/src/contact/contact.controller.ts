@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, SetMetadata, UseGuards, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, SetMetadata, UseGuards, ValidationPipe } from '@nestjs/common';
 import { ContactService } from './contact.service';
 import { ContactDto } from './contact.tdto';
 import { AuthGuard } from '@nestjs/passport';
@@ -22,5 +22,14 @@ export class ContactController {
     @SetMetadata('roles', ['admin'])
     getAllMessages() {
         return this.contactService.findAll()
+    }
+
+
+    @SuccessMessage('Message deleted succesfully')
+    @Delete('delete/:id')
+    @UseGuards(AuthGuard('jwt'), RoleGuard)
+    @SetMetadata('roles', ['admin'])
+    deleteMessage(@Param('id', ParseIntPipe) id: number) {
+        return this.contactService.deleteMsg(id)
     }
 }

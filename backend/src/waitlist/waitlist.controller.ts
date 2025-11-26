@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, SetMetadata, UseGuards, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, SetMetadata, UseGuards, ValidationPipe } from '@nestjs/common';
 import { WaitlistService } from './waitlist.service';
 import { WaitListDto } from './waitlist.dto';
 import { SuccessMessage } from 'src/decorators/success.decorator';
@@ -20,6 +20,15 @@ export class WaitlistController {
     @UseGuards(AuthGuard('jwt'), RoleGuard)
     @SetMetadata('roles', ['admin'])
     async getWaitlists() {
-       return  await this.waitListService.findAll()
+        return await this.waitListService.findAll()
+    }
+
+
+    @SuccessMessage('User deleted from waitlist')
+    @Delete('delete/:id')
+    @UseGuards(AuthGuard('jwt'), RoleGuard)
+    @SetMetadata('roles', ['admin'])
+    deleteWaitlist(@Param('id', ParseIntPipe) id: number) {
+        return this.waitListService.deleteUserFromWaitlist(id)
     }
 }

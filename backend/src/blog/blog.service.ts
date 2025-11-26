@@ -257,22 +257,29 @@ export class BlogService {
     }
 
     async getBlogsByCategory(category: string) {
-        const blogs = await prisma.blog.findMany({
-            where: { category },
-            include: {
-                author: {
-                    select: {
-                        id: true,
-                        email: true,
-                        fullname: true,
-                    },
+    const normalizedCategory = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+    
+    const blogs = await prisma.blog.findMany({
+        where: { 
+            category: {
+                equals: normalizedCategory,
+                mode: 'insensitive' // Case-insensitive comparison
+            }
+        },
+        include: {
+            author: {
+                select: {
+                    id: true,
+                    email: true,
+                    fullname: true,
                 },
             },
-            orderBy: {
-                createdAt: 'desc',
-            },
-        });
+        },
+        orderBy: {
+            createdAt: 'desc',
+        },
+    });
 
-        return blogs;
-    }
+    return blogs;
+}
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ContactDto } from './contact.tdto';
 import prisma from '../lib/prisma';
 
@@ -28,5 +28,18 @@ export class ContactService {
         )
 
         return allMsgs
+    }
+
+    async deleteMsg(id: number) {
+        const findMsg = await prisma.contactMessage.findUnique({
+            where: { id }
+        })
+        if (!findMsg) {
+            throw new BadRequestException(`Message with the ID:${id} not found`)
+        }
+
+        await prisma.contactMessage.delete({
+            where: { id }
+        })
     }
 }

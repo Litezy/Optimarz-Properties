@@ -1,4 +1,4 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import { BadRequestException, ConflictException, Injectable } from '@nestjs/common';
 import { WaitListDto } from './waitlist.dto';
 import prisma from '../lib/prisma';
 
@@ -30,5 +30,19 @@ export class WaitlistService {
             }
         })
         return allInWait
+    }
+
+    async deleteUserFromWaitlist(id: number) {
+        const findUser = await prisma.waitlist.findUnique({
+            where: { id }
+        })
+        if (!findUser) {
+            throw new BadRequestException(`User with the ID:${id} not found in waitlist`)
+        }
+
+        await prisma.waitlist.delete({
+            where: { id }
+        })
+       
     }
 }
