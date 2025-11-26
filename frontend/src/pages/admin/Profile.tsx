@@ -9,11 +9,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "@/hooks/use-toast";
 import { useState, useEffect } from "react";
 import { getCookie, setCookie, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
+import ApiLoader from "@/components/ApiLoader";
 
 const AdminProfile = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // Load profile from cookie
@@ -30,10 +32,15 @@ const AdminProfile = () => {
     }
   }, []);
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    
+    // Simulate API call delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Update profile in cookie
+    // TODO: Replace with AuthPutApi from Apis.service.ts
     const updatedProfile = {
       name,
       email,
@@ -46,6 +53,8 @@ const AdminProfile = () => {
       title: "Profile updated",
       description: "Your profile has been updated successfully",
     });
+    
+    setIsLoading(false);
   };
 
   return (
@@ -54,6 +63,7 @@ const AdminProfile = () => {
         <title>Admin Profile - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <ApiLoader isLoading={isLoading} message="Saving profile..." />
       <AdminLayout>
         <div className="max-w-4xl mx-auto space-y-6">
           <div>

@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Calendar, Eye } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ApiLoader from "@/components/ApiLoader";
 
 // Mock data for contacts
 const mockContacts = [
@@ -64,6 +65,20 @@ const mockContacts = [
 
 const AdminContacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Simulate fetching contacts on mount
+  useEffect(() => {
+    const fetchContacts = async () => {
+      setIsLoading(true);
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      // TODO: Replace with AuthGetApi from Apis.service.ts
+      setIsLoading(false);
+    };
+    
+    fetchContacts();
+  }, []);
 
   const filteredContacts = mockContacts.filter(
     (contact) =>
@@ -91,6 +106,7 @@ const AdminContacts = () => {
         <title>Contacts - Admin - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
+      <ApiLoader isLoading={isLoading} message="Loading contacts..." />
       <AdminLayout>
         <div className="space-y-6">
           <div className="flex items-center justify-between">
