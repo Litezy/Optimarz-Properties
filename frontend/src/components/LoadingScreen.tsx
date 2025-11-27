@@ -21,16 +21,15 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
 
   return (
     <div
-      className={`
-        fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-background/60 backdrop-blur-sm transition-opacity duration-300 ${
         isLoading ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4 ">
         <img
           src={logo}
           alt="Optimarz Properties"
-          className="h-20 w-auto animate-pulse"
+          className="h-16 w-auto animate-pulse"
         />
         <div className="flex gap-2">
           <div className="h-2 w-2 rounded-full bg-primary animate-bounce [animation-delay:-0.3s]"></div>

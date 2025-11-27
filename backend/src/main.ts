@@ -29,6 +29,7 @@ async function bootstrap() {
     optionsSuccessStatus: 200,
   });
 
+
   // Set global API prefix (all routes will be prefixed with /api/v1)
   app.setGlobalPrefix('api/v1');
 
@@ -38,7 +39,7 @@ async function bootstrap() {
   // Rate limiting
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 50,
+    max: 100,
     message: {
       statusCode: 429,
       error: 'Too Many Requests',

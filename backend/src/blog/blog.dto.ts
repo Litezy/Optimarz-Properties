@@ -1,5 +1,6 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsFile } from 'nestjs-form-data';
 
 export class CreateBlogDto {
     @IsString()
@@ -21,6 +22,7 @@ export class CreateBlogDto {
     @IsString()
     @IsNotEmpty()
     description: string;
+    
 }
 
 export class UpdateBlogDto extends PartialType(CreateBlogDto) {}
