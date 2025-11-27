@@ -5,11 +5,48 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MailIcon, MapPin, PhoneCall } from "lucide-react";
+import { useState } from "react";
+import { ErrorMessage } from "@/lib/utils";
+import { toast } from "@/hooks/use-toast";
+import { contactService } from "@/services/contact.service";
+import ApiLoader from "@/components/ApiLoader";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [form, setForm] = useState({
+    name: "", email: "", message: ""
+  })
+  const [loading, setIsLoading] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be added later
+    const isValid = Object.values(form).every(value => value.trim() !== "");
+    if (!isValid) {
+      ErrorMessage("Please fill all fields");
+      return;
+    }
+    setIsLoading(true)
+
+    try {
+      const response = await contactService.sendContactMessage(form)
+      if (response.status === 'success')
+        setForm({ name: "", email: "", message: "" })
+      toast({
+        title: "Success",
+        description: "Message sentsuccessfully.",
+        variant: "default",
+      });
+    } catch (error) {
+      console.log(error)
+    }finally{
+      setIsLoading(false)
+    }
+
   };
 
   const contact = [
@@ -36,7 +73,8 @@ const Contact = () => {
         <meta name="description" content="Get in touch with Optimarz Properties for inquiries about land investment opportunities." />
       </Helmet>
       <PageLayout>
-        <div className="py-10">
+        <div className="py-20 lg:py-12">
+          <ApiLoader isLoading={loading} message="Sending message..."/>
           <div className="container mx-auto px-4 w-11/12 ">
             <div className="flex items-center flex-col justify-center">
               <h1 className="text-4xl md:text-5xl text-center font-bold mb-6 animate-fade-in">Contact us</h1>
@@ -46,20 +84,20 @@ const Contact = () => {
               </p>
             </div>
 
-            <div className="flex items-start gap-10">
+            <div className="flex items-start flex-col lg:flex-row gap-10">
               <form onSubmit={handleSubmit} className="space-y-6 w-full lg:w-1/2 animate-slide-up">
                 <div>
                   <Label htmlFor="name">Name</Label>
-                  <Input id="name" placeholder="Your name" required />
+                  <Input name="name" value={form.name} onChange={handleChange} placeholder="Your name" required />
                 </div>
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" required />
+                  <Input name="email" value={form.email} onChange={handleChange} type="email" placeholder="your@email.com" required />
                 </div>
 
                 <div>
                   <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Tell us how we can help..." rows={6} required />
+                  <Textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us how we can help..." rows={6} required />
                 </div>
                 <Button type="submit" size="lg" className="w-full">
                   Send message

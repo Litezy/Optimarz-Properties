@@ -1,7 +1,7 @@
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw } from "lucide-react";
+import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw, File, Menu, X } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
 import { deleteCookie, ADMIN_AUTH_COOKIE } from "@/utils/cookies";
@@ -32,6 +32,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     return false;
   });
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const fetchAdminValues = async (showToast = false) => {
     setIsRefreshing(true);
@@ -110,13 +111,18 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   };
 
   // Initial data fetch on mount
-  // useEffect(() => {
-  //   fetchAdminValues(false);
-  // }, []);
+  useEffect(() => {
+    fetchAdminValues(false);
+  }, []);
 
-  // const handleRefresh = () => {
-  //   fetchAdminValues(true);
-  // };
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  const handleRefresh = () => {
+    fetchAdminValues(true);
+  };
 
   const handleLogout = () => {
     deleteCookie(ADMIN_AUTH_COOKIE);
@@ -138,8 +144,13 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   const navItems = [
     { path: "/admin/profile", label: "Profile", icon: User },
+    { path: "/admin/all-blogs", label: "Blogs", icon: File },
     { path: "/admin/create-blog", label: "Create Blog", icon: FileEdit },
     { path: "/admin/contacts", label: "Contacts", icon: Mail },
     { path: "/admin/waitlist", label: "Waitlist", icon: Users },
@@ -154,22 +165,25 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
             <div className="flex items-center gap-3">
               <img src={optimarzLogo} alt="Optimarz Properties" className="h-8 w-auto" />
               <div>
-                <span className="text-xl font-bold">Admin Dashboard</span>
+                <span className="text-sm lg:text-xl font-bold">Dashboard</span>
                 {admin && (
                   <p className="text-xs text-muted-foreground">{admin.email}</p>
                 )}
               </div>
             </div>
-            <div className="flex items-center gap-2">
+
+            {/* Desktop Actions */}
+            <div className="hidden md:flex items-center gap-2">
               {/* Refresh Button */}
               <Button
                 variant="outline"
                 size="icon"
-                // onClick={handleRefresh}
+                onClick={handleRefresh}
                 disabled={isRefreshing}
                 aria-label="Refresh data"
               >
-                <RefreshCw className={`h-5 w-5 ${isRefreshing ? 'animate-spin' : ''}`} />
+                <RefreshCw  
+                className={`h-5 w-5 ${isRefreshing ? 'animate-spin' : ''}`} />
               </Button>
               
               <Button
@@ -190,12 +204,96 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                 Logout
               </Button>
             </div>
+
+            {/* Mobile Hamburger Menu */}
+            <div className="flex md:hidden items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={toggleDarkMode}
+                aria-label="Toggle dark mode"
+              >
+                {isDarkMode ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Navigation Tabs */}
-      <div className="bg-muted border-b border-border">
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={toggleMobileMenu}>
+          <div 
+            className="absolute right-0 top-16 w-64 h-[calc(100vh-4rem)] bg-card border-l border-border overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-4 space-y-4">
+              {/* Refresh Button in Mobile Menu */}
+              <Button
+                variant="outline"
+                className="w-full justify-start"
+                onClick={handleRefresh}
+                disabled={isRefreshing}
+              >
+                <RefreshCw className={`h-4 w-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
+                Refresh Data
+              </Button>
+
+              {/* Navigation Items in Mobile Menu */}
+              <div className="space-y-2">
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`flex items-center gap-3 px-3 py-2 font-medium transition-colors rounded-lg ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Logout Button in Mobile Menu */}
+              <Button 
+                variant="outline" 
+                className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50"
+                onClick={handleLogout}
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Logout
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Navigation Tabs - Hidden on mobile, shown on desktop */}
+      <div className="bg-muted border-b border-border hidden md:block">
         <div className="container mx-auto px-4">
           <nav className="flex gap-1 overflow-x-auto">
             {navItems.map((item) => {

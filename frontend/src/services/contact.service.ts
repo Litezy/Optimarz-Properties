@@ -10,6 +10,7 @@ export class ContactMessage {
                 if (response.status === 'success' && !response.error) {
                     return {
                         message: response.message,
+                        status:response.status
                     }
                 }
                 throw new Error(response.message || 'Messages fetch failed');
@@ -24,6 +25,7 @@ export class ContactMessage {
                 if (response.status === 'success' && !response.error) {
                     return {
                         message: response.message,
+                        status:response.status
                     }
                 }
                 throw new Error(response.message || 'Faileed to delete message');

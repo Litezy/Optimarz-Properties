@@ -9,7 +9,7 @@ export class WaitListService {
                 if (response.status === 'success' && !response.error) {
                     return {
                         message: response.message,
-                        data: response.data
+                        status:response.status
                     }
                 }
                 throw new Error(response.message || 'Failed to create waitlist');

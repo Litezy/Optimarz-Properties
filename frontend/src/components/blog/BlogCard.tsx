@@ -1,19 +1,20 @@
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { BlogPost } from "@/data/blogPosts";
 import { ArrowRight } from "lucide-react";
+import { Blog } from "@/types/admin.types";
 
 interface BlogCardProps {
-  post: BlogPost;
+  post: Blog;
+  auth?: boolean
 }
 
-export const BlogCard = ({ post }: BlogCardProps) => {
+export const BlogCard = ({ post, auth = false }: BlogCardProps) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col group bg-card border-border">
-      <Link to={`/blog/${post.slug}`} className="flex flex-col h-full">
+      <Link to={auth ? `/admin/edit-blog?id=${post.id}` : `/blog/${post.slug}`} className="flex flex-col h-full">
         <div className="relative h-56 overflow-hidden bg-muted">
           <img
-            src={post.image}
+            src={post.featuredImage}
             alt={post.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
@@ -25,11 +26,11 @@ export const BlogCard = ({ post }: BlogCardProps) => {
           </h2>
 
           <p className="text-muted-foreground mb-4 leading-relaxed flex-grow line-clamp-3">
-            {post.excerpt}
+            {post.description}
           </p>
 
           <div className="flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
-            Read More
+            {auth ? 'Edit Blog' : ' Read More'}
             <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </div>
         </div>

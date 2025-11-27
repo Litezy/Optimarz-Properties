@@ -3,8 +3,33 @@ import { Helmet } from "react-helmet";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { blogPosts } from "@/data/blogPosts";
 import heroImage from "@/assets/hero-landscape.jpg";
+import { useEffect, useState } from "react";
+import { blogService } from "@/services/blog.service";
+import { useBlogsStore } from "@/store/blogs.store";
+import ApiLoader from "@/components/ApiLoader";
 
 const Blog = () => {
+  const {blogs,setBlogs}= useBlogsStore()
+  const [isLoading,setIsLoading] = useState(false)
+
+  // Fetch blogs if not already loaded
+    useEffect(() => {
+      const fetchBlogs = async () => {
+        if (blogs.length === 0) {
+          setIsLoading(true);
+          try {
+            const data = await blogService.fetchBlogs();
+            setBlogs(data.data);
+          } catch (error) {
+            console.error('Failed to fetch blogs:', error);
+          } finally {
+            setIsLoading(false);
+          }
+        }
+      };
+  
+      fetchBlogs();
+    }, [blogs.length, setBlogs]);
   return (
     <>
       <Helmet>
@@ -14,6 +39,8 @@ const Blog = () => {
       <PageLayout>
         {/* Hero Section */}
         <div className="relative h-[40vh] min-h-[300px] flex items-center justify-center">
+
+          <ApiLoader isLoading={isLoading} message="loading blogs.."/>
           <div className="absolute inset-0">
             <img
               src={heroImage}
@@ -33,7 +60,7 @@ const Blog = () => {
         <div className="py-16 bg-background">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post, index) => (
+              {blogs.map((post, index) => (
                 <div
                   key={post.id}
                   className="animate-slide-up"

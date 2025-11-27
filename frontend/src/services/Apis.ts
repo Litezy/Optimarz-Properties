@@ -22,6 +22,7 @@ export const blogUrls = {
     create_blog: "blogs/create",
     update_blog: "blogs/update",
     fetch_single_blog: "blogs",
+    fetch_by_slug:'blogs/slug',
     fetch_all_blogs: "blogs/all",
     fetch_by_category: "blogs/category",
     delete_blog: "blogs/delete",

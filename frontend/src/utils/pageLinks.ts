@@ -18,6 +18,8 @@ import CreateBlog from "@/pages/admin/CreateBlog";
 import AdminContacts from "@/pages/admin/Contacts";
 import AdminWaitlist from "@/pages/admin/Waitlist";
 import AdminAuthGuard from "@/components/guards/AdminAuthGuard";
+import AllBlogs from "@/pages/admin/AllBlogs";
+import EditBlog from "@/pages/admin/EditBlog";
 
 export const ClientPages = [
     { component: Index, path: "/" },
@@ -42,6 +44,8 @@ export const ClientPages = [
 export const AdminPages = [
     { component: AdminProfile, path: "/admin/profile" },
     { component: CreateBlog, path: "/admin/create-blog" },
+    { component: AllBlogs, path: "/admin/all-blogs" },
+    { component: EditBlog, path: "/admin/edit-blog" },
     { component: AdminContacts, path: "/admin/contacts" },
     { component: AdminWaitlist, path: "/admin/waitlist" },
 ]

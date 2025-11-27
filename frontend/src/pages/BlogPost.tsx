@@ -1,22 +1,55 @@
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PageLayout from "@/components/layouts/PageLayout";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Facebook, Twitter, Linkedin, Mail, Share2 } from "lucide-react";
-import { blogPosts } from "@/data/blogPosts";
+import { ArrowLeft, ArrowRight, Facebook, Twitter, Linkedin, Share2, Clock, Calendar } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useBlogsStore } from "@/store/blogs.store";
+import { blogService } from "@/services/blog.service";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
-  const post = blogPosts[currentIndex];
+  const { blogs, setBlogs, getBlogBySlug } = useBlogsStore();
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Fetch blogs if not already loaded
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      if (blogs.length === 0) {
+        setIsLoading(true);
+        try {
+          const data = await blogService.fetchBlogs();
+          setBlogs(data.data);
+        } catch (error) {
+          console.error('Failed to fetch blogs:', error);
+        } finally {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    fetchBlogs();
+  }, [blogs.length, setBlogs]);
+
+  const post = getBlogBySlug(slug || "");
+  const currentIndex = blogs.findIndex((p) => p.slug === slug);
+  const previousPost = currentIndex > 0 ? blogs[currentIndex - 1] : null;
+  const nextPost = currentIndex < blogs.length - 1 ? blogs[currentIndex + 1] : null;
+
+  if (isLoading) {
+    return (
+      <PageLayout>
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+        </div>
+      </PageLayout>
+    );
+  }
 
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
-
-  const previousPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogPosts.length - 1 ? blogPosts[currentIndex + 1] : null;
 
   const shareUrl = window.location.href;
   const shareTitle = post.title;
@@ -33,23 +66,28 @@ const BlogPost = () => {
       case "linkedin":
         url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
         break;
-      case "email":
-        url = `mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareUrl)}`;
-        break;
     }
     if (url) window.open(url, "_blank", "width=600,height=400");
+  };
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   };
 
   return (
     <>
       <Helmet>
         <title>{post.title} - Optimarz Properties Blog</title>
-        <meta name="description" content={post.excerpt} />
+        <meta name="description" content={post.description} />
       </Helmet>
       <PageLayout>
         <div className="py-12 bg-background">
           <article className="container mx-auto px-4 max-w-4xl">
-            <Button asChild variant="ghost" className="mb-8 hover:bg-muted">
+            <Button asChild variant="ghost" className="mb-8 ">
               <Link to="/blog">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Blog
@@ -59,20 +97,60 @@ const BlogPost = () => {
             {/* Featured Image */}
             <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden mb-8 shadow-lg">
               <img
-                src={post.image}
+                src={post.featuredImage}
                 alt={post.title}
                 className="w-full h-full object-cover"
               />
             </div>
 
+            {/* Category Badge */}
+            <div className="mb-4">
+              <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                {post.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+              </span>
+            </div>
+
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight text-foreground">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-foreground">
               {post.title}
             </h1>
 
+            {/* Meta Info */}
+            <div className="flex items-center gap-6 text-muted-foreground mb-8">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm">{formatDate(post.createdAt)}</span>
+              </div>
+              {post.readingTime && (
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  <span className="text-sm">{post.readingTime} min read</span>
+                </div>
+              )}
+              <div className="flex items-center gap-2">
+                <span className="text-sm">By {post.author.fullname}</span>
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              {post.description}
+            </p>
+
+            <Separator className="my-8" />
+
             {/* Content */}
             <div
-              className="prose prose-lg max-w-none mb-12 dark:prose-invert prose-headings:text-foreground prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:text-muted-foreground"
+              className="prose prose-lg max-w-none mb-12 dark:prose-invert 
+                prose-headings:text-foreground prose-headings:font-bold 
+                prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 
+                prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 
+                prose-strong:text-foreground 
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline 
+                prose-li:text-muted-foreground prose-li:mb-2
+                prose-ul:my-6 prose-ol:my-6
+                prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
@@ -82,7 +160,7 @@ const BlogPost = () => {
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-4">
                 <Share2 className="w-5 h-5 text-muted-foreground" />
-                <h3 className="text-xl font-bold">Share Post</h3>
+                <h3 className="text-xl font-bold">Share this post</h3>
               </div>
               <div className="flex items-center gap-3">
                 <Button
@@ -112,15 +190,6 @@ const BlogPost = () => {
                 >
                   <Linkedin className="w-5 h-5" />
                 </Button>
-                {/* <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => handleShare("email")}
-                  className="hover:bg-gray-600 hover:text-white hover:border-gray-600 transition-colors"
-                  aria-label="Share via Email"
-                >
-                  <Mail className="w-5 h-5" />
-                </Button> */}
               </div>
             </div>
 
@@ -129,10 +198,12 @@ const BlogPost = () => {
             {/* Navigation */}
             <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 mb-12">
               {previousPost ? (
-                <Button asChild variant="outline" className="w-1/3 justify-center group">
+                <Button asChild variant="outline" className="w-fit px-5 justify-start group">
                   <Link to={`/blog/${previousPost.slug}`} className="flex items-center gap-2">
-                    <ArrowLeft className="text-lg group-hover:-translate-x-1 transition-transform" />
-                      <div className="text-base">Previous</div>
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <div className="text-left">
+                      <div className="text-xs text-muted-foreground">Previous</div>
+                    </div>
                   </Link>
                 </Button>
               ) : (
@@ -140,10 +211,13 @@ const BlogPost = () => {
               )}
 
               {nextPost ? (
-                <Button asChild variant="outline" className="w-1/3 justify-center items-center group">
+                <Button asChild variant="outline" className="w-fit px-5 justify-end group">
                   <Link to={`/blog/${nextPost.slug}`} className="flex items-center gap-2">
-                    <div className="text-base">Next</div>
-                    <ArrowRight className=" text-lg group-hover:translate-x-1 transition-transform" />
+                    <div className="text-center">
+                      <div className="text-xs text-muted-foreground">Next</div>
+                      {/* <div className="font-medium line-clamp-1">{nextPost.title}</div> */}
+                    </div>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
               ) : (
@@ -153,9 +227,12 @@ const BlogPost = () => {
 
             {/* CTA */}
             <div className="bg-card border border-border rounded-xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4 text-card-foreground">Interested in Learning More?</h3>
+              <h3 className="text-2xl font-bold mb-4 text-card-foreground">
+                Interested in Learning More?
+              </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Connect with our team to explore investment opportunities and discover how Optimarz Properties can help you achieve your land investment goals.
+                Connect with our team to explore investment opportunities and discover how
+                Optimarz Properties can help you achieve your land investment goals.
               </p>
               <Button asChild size="lg">
                 <Link to="/contact">Get in Touch</Link>

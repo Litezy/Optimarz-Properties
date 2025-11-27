@@ -1,16 +1,17 @@
 import { handleApiError } from "@/lib/ApiError";
-import { ApiResponse, Apis, AuthPostApi, AuthPutApi, GetApi } from "./Apis.service";
+import { ApiResponse, Apis, AuthFormDataPostApi, AuthFormDataPutApi, AuthPostApi, AuthPutApi, GetApi } from "./Apis.service";
 
 export class BlogService {
 
 
     async createBlog(formdata: Record<string, any>) {
         try {
-            const response: ApiResponse = await AuthPostApi(Apis.blogs.create_blog, formdata)
+            const response: ApiResponse = await AuthFormDataPostApi(Apis.blogs.create_blog, formdata)
             if (response.status === 'success' && !response.error) {
                 return {
                     message: response.message,
-                    data: response.data
+                    data: response.data,
+                    status:response.statusCode
                 }
             }
             throw new Error(response.message || 'failed to fetch blogs');
@@ -20,12 +21,14 @@ export class BlogService {
     }
 
 
-    async updateBlog(id: number) {
+    async updateBlog(id: number,formdata:Record<string,any>) {
         try {
-            const response: ApiResponse = await AuthPutApi(`${Apis.blogs.update_blog}/${id}`)
+            const response: ApiResponse = await AuthFormDataPutApi(`${Apis.blogs.update_blog}/${id}`,formdata)
             if (response.status === 'success' && !response.error) {
                 return {
                     message: response.message,
+                    data:response.data,
+                    status:response.status
                 }
             }
             throw new Error(response.message || 'failed to pdate blog');
@@ -67,8 +70,22 @@ export class BlogService {
             throw handleApiError(error)
         }
     }
+    async fetchSingleBlogBySlug(slug: string) {
+        try {
+            const response: ApiResponse = await GetApi(`${Apis.blogs.fetch_by_slug}/${slug}`)
+            if (response.status === 'success' && !response.error) {
+                return {
+                    message: response.message,
+                    data: response.data
+                }
+            }
+            throw new Error(response.message || 'failed to fetch blog');
+        } catch (error) {
+            throw handleApiError(error)
+        }
+    }
 
-    async fetchByCaegory(category: string) {
+    async fetchByCategory(category: string) {
         try {
             const response: ApiResponse = await AuthPutApi(`${Apis.blogs.fetch_by_category}/${category}`)
             if (response.status === 'success' && !response.error) {

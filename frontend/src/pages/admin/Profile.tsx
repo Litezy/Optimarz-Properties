@@ -186,7 +186,7 @@ const AdminProfile = () => {
       <AdminLayout>
         <div className="max-w-4xl mx-auto space-y-6">
           <div>
-            <h1 className="text-3xl font-bold mb-2">Profile Settings</h1>
+            <h1 className="lg:text-3xl text-2xl font-bold mb-2">Profile Settings</h1>
             <p className="text-muted-foreground">
               Manage your account settings and profile information
             </p>
@@ -194,7 +194,7 @@ const AdminProfile = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>Profile Information</CardTitle>
+              <h1 className="lg:text-3xl text-2xl font-bold mb-2">Profile Information</h1>
               <CardDescription>
                 Update your personal details. You'll be logged out after updating.
               </CardDescription>
