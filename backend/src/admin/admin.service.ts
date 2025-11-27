@@ -117,19 +117,27 @@ export class AdminService {
     // }
 
     async updateAdmin(updateAdminDto: UpdateAdminDto) {
-        const { email, password, ...data } = updateAdminDto;
+        const { oldEmail, newEmail, password, ...data } = updateAdminDto;
 
-        if (!email) {
-            throw new BadRequestException('Email is required to update admin');
+        if (!oldEmail) {
+            throw new BadRequestException('Old email is required to update admin');
         }
 
-        // If password is being updated, hash it
-        const updateData = password
-            ? { ...data, password: await this.hashPassword(password) }
-            : data;
+        // Prepare the update payload
+        const updateData: any = { ...data };
+
+        // If changing email
+        if (newEmail) {
+            updateData.email = newEmail;
+        }
+
+        // If updating password
+        if (password) {
+            updateData.password = await this.hashPassword(password);
+        }
 
         const updatedAdmin = await prisma.admin.update({
-            where: { email },
+            where: { email: oldEmail },
             data: updateData,
             select: {
                 id: true,
@@ -143,6 +151,7 @@ export class AdminService {
 
         return updatedAdmin;
     }
+
 
     async findByEmail(email: string) {
         const admin = await prisma.admin.findUnique({

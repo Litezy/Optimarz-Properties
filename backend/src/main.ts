@@ -7,14 +7,38 @@ import rateLimit from 'express-rate-limit';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+
+  // CORS Configuration
+  app.enableCors({
+    origin: [
+      'http://localhost:5173',      // Vite default dev server
+      'http://localhost:5174',      // Alternative dev port
+      'http://localhost:4173',      // Vite preview
+      'https://yourdomain.com',     // Production domain
+      'https://www.yourdomain.com', // Production www domain
+    ],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Requested-With',
+      'Accept',
+      'Origin',
+    ],
+    credentials: true, 
+    optionsSuccessStatus: 200,
+  });
+
+  // Set global API prefix (all routes will be prefixed with /api/v1)
+  app.setGlobalPrefix('api/v1');
+
   // Global exception filter
   app.useGlobalFilters(new AllExceptionsFilter());
-  
+
   // Rate limiting
   const limiter = rateLimit({
-    windowMs: 3 * 1000, // 15 minutes
-    max: 2, // Limit each IP to 100 requests per windowMs
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 50,
     message: {
       statusCode: 429,
       error: 'Too Many Requests',
@@ -45,7 +69,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  
+
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

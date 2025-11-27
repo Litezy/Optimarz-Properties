@@ -1,5 +1,5 @@
 import { PartialType } from '@nestjs/mapped-types'
-import { IsEmail, IsString, IsNotEmpty } from 'class-validator'
+import { IsEmail, IsString, IsNotEmpty, IsOptional } from 'class-validator'
 export class CreateAdminDto {
     @IsEmail()
     email: string
@@ -21,4 +21,20 @@ export class LoginDto {
     password: string
 }
 
-export class UpdateAdminDto extends PartialType(CreateAdminDto) { }
+export class UpdateAdminDto  {
+    @IsOptional()
+    @IsEmail()
+    newEmail?: string
+
+    @IsEmail()
+    oldEmail: string
+
+    @IsString()
+    @IsNotEmpty()
+    fullname: string
+
+
+    @IsOptional()
+    @IsString()
+    password?: string
+ }
