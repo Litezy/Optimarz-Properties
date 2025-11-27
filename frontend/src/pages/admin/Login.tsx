@@ -6,12 +6,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lock } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
-import { setCookie, getCookie, ADMIN_AUTH_COOKIE, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
 import ApiLoader from "@/components/ApiLoader";
+import { delayApiCall } from "@/lib/utils";
+import { adminService } from "@/services/admin.service";
+import { useAdminStore } from "@/store/admin.store";
+import Cookies from 'js-cookie'
+import { ADMIN_AUTH_COOKIE } from "@/utils/cookies";
 
 const AdminLogin = () => {
+  // const setAdmin = useAdminStore(state => state.setAdmin);
+  const setAdmin = useAdminStore((state) => state.setAdmin);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +24,7 @@ const AdminLogin = () => {
 
   useEffect(() => {
     // Check if already logged in
-    const authCookie = getCookie(ADMIN_AUTH_COOKIE);
+    const authCookie = Cookies.get(ADMIN_AUTH_COOKIE)
     if (authCookie) {
       navigate("/admin/profile");
     }
@@ -27,39 +32,19 @@ const AdminLogin = () => {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Mock authentication - replace with actual auth later
-    if (email === "admin@optimarz.com" && password === "admin123") {
-      // Mock admin profile data
-      const mockProfile = {
-        name: "Admin User",
-        email: "admin@optimarz.com",
-        bio: "Administrator at Optimarz Properties",
-        avatar: ""
-      };
-
-      // Set cookies
-      setCookie(ADMIN_AUTH_COOKIE, "true", 7);
-      setCookie(ADMIN_PROFILE_COOKIE, JSON.stringify(mockProfile), 7);
-      
-      toast({
-        title: "Login successful",
-        description: "Welcome back to the admin dashboard",
-      });
+    if (!email || !password) return ("email and password missing")
+    setIsLoading(true)
+    try {
+      const res = await adminService.loginAdmin({ email, password });
+      await delayApiCall()
+      setAdmin(res.admin)
+      Cookies.set(ADMIN_AUTH_COOKIE, res.access_token);
+      localStorage.setItem('refresh_token', res.refresh_token)
       navigate("/admin/profile");
-    } else {
-      toast({
-        title: "Login failed",
-        description: "Invalid email or password",
-        variant: "destructive",
-      });
+    } catch (error) {
+      console.error('Login failed');
     }
-    
-    setIsLoading(false);
+    finally { setIsLoading(false) }
   };
 
   return (
@@ -110,9 +95,9 @@ const AdminLogin = () => {
               <Button type="submit" className="w-full">
                 Sign In
               </Button>
-              <p className="text-sm text-muted-foreground text-center mt-4">
+              {/* <p className="text-sm text-muted-foreground text-center mt-4">
                 Demo credentials: admin@optimarz.com / admin123
-              </p>
+              </p> */}
             </form>
           </CardContent>
         </Card>

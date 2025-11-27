@@ -21,7 +21,8 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-300 ${
+      className={`
+        fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-300 ${
         isLoading ? 'opacity-100' : 'opacity-0'
       }`}
     >

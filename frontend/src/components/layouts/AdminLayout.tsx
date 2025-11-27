@@ -1,51 +1,126 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, FileEdit, Mail, Users, Moon, Sun } from "lucide-react";
+import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
-import { deleteCookie, getCookie, ADMIN_AUTH_COOKIE, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
-import type { AdminProfile } from "@/components/guards/AdminAuthGuard";
+import { deleteCookie, ADMIN_AUTH_COOKIE } from "@/utils/cookies";
+import { useAdminStore } from "@/store/admin.store";
+import { useBlogsStore } from "@/store/blogs.store";
+import { useMessagesStore } from "@/store/contactMessages.store";
+import { useWaitlistStore } from "@/store/waitlist.store";
+import { blogService } from "@/services/blog.service";
+import { contactService } from "@/services/contact.service";
+import { waitlistService } from "@/services/waitlist.service";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
 }
 
 const AdminLayout = ({ children }: AdminLayoutProps) => {
+  const setBlogs = useBlogsStore(state => state.setBlogs);
+  const setContactMessages = useMessagesStore(state => state.setMessages);
+  const setWaitList = useWaitlistStore(state => state.setWaitlist);
+
   const navigate = useNavigate();
   const location = useLocation();
-  const [adminProfile, setAdminProfile] = useState<AdminProfile | null>(null);
+  const { admin, clearAdmin } = useAdminStore();
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       return document.documentElement.classList.contains('dark');
     }
     return false;
   });
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  useEffect(() => {
-    // Verify authentication
-    const authCookie = getCookie(ADMIN_AUTH_COOKIE);
-    if (!authCookie) {
-      navigate("/admin/login");
-      return;
-    }
+  const fetchAdminValues = async (showToast = false) => {
+    setIsRefreshing(true);
+    try {
+      // Fetch all data in parallel
+      const [blogResponse, messagesResponse, waitlistResponse] = await Promise.allSettled([
+        blogService.fetchBlogs(),
+        contactService.fetchContactMessages(),
+        waitlistService.fetchWaitlist(),
+      ]);
 
-    // Fetch admin profile data from cookie
-    const profileData = getCookie(ADMIN_PROFILE_COOKIE);
-    if (profileData) {
-      try {
-        const profile = JSON.parse(profileData);
-        setAdminProfile(profile);
-      } catch (error) {
-        console.error("Failed to parse admin profile", error);
-        navigate("/admin/login");
+      let successCount = 0;
+      let failCount = 0;
+
+      // Handle blogs
+      if (blogResponse.status === 'fulfilled' && blogResponse.value.status === 200) {
+        setBlogs(blogResponse.value.data);
+        successCount++;
+      } else {
+        console.error('Failed to fetch blogs');
+        failCount++;
       }
+
+      // Handle contact messages
+      if (messagesResponse.status === 'fulfilled' && messagesResponse.value.status === 200) {
+        setContactMessages(messagesResponse.value.data);
+        successCount++;
+      } else {
+        console.error('Failed to fetch messages');
+        failCount++;
+      }
+
+      // Handle waitlist
+      if (waitlistResponse.status === 'fulfilled' && waitlistResponse.value.status === 200) {
+        setWaitList(waitlistResponse.value.data);
+        successCount++;
+      } else {
+        console.error('Failed to fetch waitlist');
+        failCount++;
+      }
+
+      // Show toast notification if requested
+      if (showToast) {
+        if (failCount === 0) {
+          toast({
+            title: "Data refreshed",
+            description: "All data has been successfully updated",
+          });
+        } else if (successCount > 0) {
+          toast({
+            title: "Partial refresh",
+            description: `${successCount} of 3 data sources updated successfully`,
+            variant: "default",
+          });
+        } else {
+          toast({
+            title: "Refresh failed",
+            description: "Failed to update data. Please try again.",
+            variant: "destructive",
+          });
+        }
+      }
+
+    } catch (error) {
+      console.error('Error fetching admin data:', error);
+      if (showToast) {
+        toast({
+          title: "Error",
+          description: "An unexpected error occurred while refreshing data",
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setIsRefreshing(false);
     }
-  }, [navigate]);
+  };
+
+  // Initial data fetch on mount
+  // useEffect(() => {
+  //   fetchAdminValues(false);
+  // }, []);
+
+  // const handleRefresh = () => {
+  //   fetchAdminValues(true);
+  // };
 
   const handleLogout = () => {
     deleteCookie(ADMIN_AUTH_COOKIE);
-    deleteCookie(ADMIN_PROFILE_COOKIE);
+    clearAdmin();
     toast({
       title: "Logged out",
       description: "You have been successfully logged out",
@@ -80,12 +155,23 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
               <img src={optimarzLogo} alt="Optimarz Properties" className="h-8 w-auto" />
               <div>
                 <span className="text-xl font-bold">Admin Dashboard</span>
-                {adminProfile && (
-                  <p className="text-xs text-muted-foreground">{adminProfile.email}</p>
+                {admin && (
+                  <p className="text-xs text-muted-foreground">{admin.email}</p>
                 )}
               </div>
             </div>
             <div className="flex items-center gap-2">
+              {/* Refresh Button */}
+              <Button
+                variant="outline"
+                size="icon"
+                // onClick={handleRefresh}
+                disabled={isRefreshing}
+                aria-label="Refresh data"
+              >
+                <RefreshCw className={`h-5 w-5 ${isRefreshing ? 'animate-spin' : ''}`} />
+              </Button>
+              
               <Button
                 variant="outline"
                 size="icon"
@@ -98,6 +184,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
                   <Moon className="h-5 w-5" />
                 )}
               </Button>
+              
               <Button variant="outline" onClick={handleLogout} size="sm">
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout

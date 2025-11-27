@@ -4,57 +4,176 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "@/hooks/use-toast";
-import { useState, useEffect } from "react";
-import { getCookie, setCookie, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAdminStore } from "@/store/admin.store";
+import { adminService } from "@/services/admin.service";
+import { deleteCookie, ADMIN_AUTH_COOKIE } from "@/utils/cookies";
 import ApiLoader from "@/components/ApiLoader";
+import { handleApiError } from "@/lib/ApiError";
 
 const AdminProfile = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [bio, setBio] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const { admin, clearAdmin } = useAdminStore();
 
-  useEffect(() => {
-    // Load profile from cookie
-    const profileData = getCookie(ADMIN_PROFILE_COOKIE);
-    if (profileData) {
-      try {
-        const profile = JSON.parse(profileData);
-        setName(profile.name);
-        setEmail(profile.email);
-        setBio(profile.bio);
-      } catch (error) {
-        console.error("Failed to parse profile data", error);
-      }
-    }
-  }, []);
+  const [fullname, setFullname] = useState(admin?.fullname || "");
+  const [email, setEmail] = useState(admin?.email || "");
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSave = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Update profile in cookie
-    // TODO: Replace with AuthPutApi from Apis.service.ts
-    const updatedProfile = {
-      name,
-      email,
-      bio,
-      avatar: ""
-    };
-    setCookie(ADMIN_PROFILE_COOKIE, JSON.stringify(updatedProfile), 7);
-    
+  const [isUpdatingProfile, setIsUpdatingProfile] = useState(false);
+  const [isUpdatingPassword, setIsUpdatingPassword] = useState(false);
+
+  const handleLogout = () => {
+    deleteCookie(ADMIN_AUTH_COOKIE);
+    clearAdmin();
     toast({
-      title: "Profile updated",
-      description: "Your profile has been updated successfully",
+      title: "Logged out",
+      description: "Profile updated. Please login again with your new credentials",
     });
-    
-    setIsLoading(false);
+    navigate("/admin/login");
+  };
+
+  const handleUpdateProfile = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!fullname.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Full name is required",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!email.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Email is required",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsUpdatingProfile(true);
+
+    try {
+      const payload = {
+        newEmail: email.trim(),
+        oldEmail:admin.email,
+        fullname: fullname.trim(),
+      };
+
+      const response = await adminService.updateAdminProfile(payload);
+
+      if (response.status === 'success') {
+        toast({
+          title: "Profile Updated",
+          description: "Your profile has been updated successfully. Please login again.",
+        });
+
+        // Wait a moment before logging out
+        setTimeout(() => {
+          handleLogout();
+        }, 1500);
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsUpdatingProfile(false);
+    }
+  };
+
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validation
+    if (!currentPassword) {
+      toast({
+        title: "Validation Error",
+        description: "Current password is required",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!newPassword) {
+      toast({
+        title: "Validation Error",
+        description: "New password is required",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      toast({
+        title: "Validation Error",
+        description: "Password must be at least 8 characters long",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      toast({
+        title: "Validation Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (currentPassword === newPassword) {
+      toast({
+        title: "Validation Error",
+        description: "New password must be different from current password",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsUpdatingPassword(true);
+
+    try {
+      const payload = {
+        email: admin?.email || email,
+        fullname: admin?.fullname || fullname,
+        oldEmail:admin.email,
+        password: newPassword,
+      };
+
+      const response = await adminService.updateAdminProfile(payload);
+
+      if (response.status === 'success') {
+        toast({
+          title: "Password Updated",
+          description: "Your password has been changed successfully. Please login again.",
+        });
+
+        // Wait a moment before logging out
+        setTimeout(() => {
+          handleLogout();
+        }, 1500);
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsUpdatingPassword(false);
+    }
   };
 
   return (
@@ -63,7 +182,7 @@ const AdminProfile = () => {
         <title>Admin Profile - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <ApiLoader isLoading={isLoading} message="Saving profile..." />
+      <ApiLoader isLoading={isUpdatingProfile || isUpdatingPassword} message="Updating..." />
       <AdminLayout>
         <div className="max-w-4xl mx-auto space-y-6">
           <div>
@@ -77,34 +196,20 @@ const AdminProfile = () => {
             <CardHeader>
               <CardTitle>Profile Information</CardTitle>
               <CardDescription>
-                Update your personal details and profile picture
+                Update your personal details. You'll be logged out after updating.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSave} className="space-y-6">
-                <div className="flex items-center gap-6">
-                  <Avatar className="w-24 h-24">
-                    <AvatarImage src="" />
-                    <AvatarFallback className="text-2xl">AU</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <Button type="button" variant="outline" size="sm">
-                      Change Photo
-                    </Button>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      JPG, PNG or GIF. Max size 2MB
-                    </p>
-                  </div>
-                </div>
-
+              <form onSubmit={handleUpdateProfile} className="space-y-6">
                 <div className="grid gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
+                    <Label htmlFor="fullname">Full Name</Label>
                     <Input
-                      id="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Enter your name"
+                      id="fullname"
+                      value={fullname}
+                      onChange={(e) => setFullname(e.target.value)}
+                      placeholder="Enter your full name"
+                      required
                     />
                   </div>
 
@@ -116,25 +221,25 @@ const AdminProfile = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="bio">Bio</Label>
-                    <Textarea
-                      id="bio"
-                      value={bio}
-                      onChange={(e) => setBio(e.target.value)}
-                      placeholder="Tell us about yourself"
-                      rows={4}
+                      required
                     />
                   </div>
                 </div>
 
                 <div className="flex gap-4">
-                  <Button type="submit">Save Changes</Button>
-                  <Button type="button" variant="outline">
-                    Cancel
+                  <Button type="submit" disabled={isUpdatingProfile}>
+                    {isUpdatingProfile ? "Saving..." : "Save Changes"}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      setFullname(admin?.fullname || "");
+                      setEmail(admin?.email || "");
+                    }}
+                    disabled={isUpdatingProfile}
+                  >
+                    Reset
                   </Button>
                 </div>
               </form>
@@ -145,24 +250,48 @@ const AdminProfile = () => {
             <CardHeader>
               <CardTitle>Change Password</CardTitle>
               <CardDescription>
-                Update your password to keep your account secure
+                Update your password to keep your account secure. You'll be logged out after updating.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
+              <form onSubmit={handleUpdatePassword} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="current-password">Current Password</Label>
-                  <Input id="current-password" type="password" />
+                  <Input
+                    id="current-password"
+                    type="password"
+                    value={currentPassword}
+                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    placeholder="Enter current password"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="new-password">New Password</Label>
-                  <Input id="new-password" type="password" />
+                  <Input
+                    id="new-password"
+                    type="password"
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    placeholder="Enter new password (min. 8 characters)"
+                    minLength={8}
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="confirm-password">Confirm New Password</Label>
-                  <Input id="confirm-password" type="password" />
+                  <Input
+                    id="confirm-password"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Confirm new password"
+                    required
+                  />
                 </div>
-                <Button type="button">Update Password</Button>
+                <Button type="submit" disabled={isUpdatingPassword}>
+                  {isUpdatingPassword ? "Updating..." : "Update Password"}
+                </Button>
               </form>
             </CardContent>
           </Card>

@@ -34,7 +34,7 @@ export const ClientPages = [
     { component: BlogPost, path: "/blog/:slug" },
     { component: Contact, path: "/contact" },
     { component: NotFound, path: "*" },
-     { component: AdminLogin, path: "/admin/login" },
+    { component: AdminLogin, path: "/admin/login" },
 ]
 
 

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import optimarzLogoDark from "@/assets/logo.png";
+import optimarzLogoDark from "@/assets/dark-logo.png";
 
 export const Footer = () => {
   return (
@@ -11,7 +11,7 @@ export const Footer = () => {
             <img 
               src={optimarzLogoDark} 
               alt="Optimarz Properties" 
-              className="h-10 w-auto mb-4"
+              className="h-16 w-auto mb-4"
             />
             <p className="text-base opacity-90">
               Your trusted partner in land investment and exploration opportunities. Have more questions or need more information? Reach out to us today and take the first step towards securing your finacial future with Optimarz

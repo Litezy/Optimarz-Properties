@@ -1,11 +1,13 @@
 
-import { CookieName } from "@/utils/cookies";
+import { ADMIN_AUTH_COOKIE } from "@/utils/cookies";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { adminUrls, blogUrls, contactUrls, waitlistUrls } from "./Apis";
 
-// = import.meta.env.VITE_LIVE_BASE_URL
+
+
 let BASEURL = import.meta.env.VITE_BASE_URL || `No url`
+// console.log('BASEURL:', BASEURL);
 
 
 export const Apis = {
@@ -15,6 +17,15 @@ export const Apis = {
     waitlist: waitlistUrls
 };
 
+
+// Base API response structure
+export interface ApiResponse<T = any> {
+    status: 'success' | 'error';
+    error: boolean;
+    statusCode: number;
+    message: string;
+    data: T;
+}
 // ---------------- GENERIC REQUESTS ----------------
 
 // Generic GET
@@ -44,7 +55,7 @@ export const PutApi = async <T = any>(endpoint: string, data: any): Promise<T> =
 
 // ---------------- AUTH REQUESTS ----------------
 const authHeader = () => {
-    const token = Cookies.get(CookieName);
+    const token = Cookies.get(ADMIN_AUTH_COOKIE);
     return { Authorization: `Bearer ${token}` };
 };
 

@@ -1,55 +1,51 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCookie, ADMIN_AUTH_COOKIE, ADMIN_PROFILE_COOKIE } from "@/utils/cookies";
+import { useAdminStore } from "@/store/admin.store";
+import { ADMIN_AUTH_COOKIE,  deleteCookie,  getCookie } from "@/utils/cookies";
+import Cookies from "js-cookie";
 
 interface AdminAuthGuardProps {
   children: React.ReactNode;
 }
 
-export interface AdminProfile {
-  name: string;
-  email: string;
-  bio: string;
-  avatar: string;
-}
-
 const AdminAuthGuard = ({ children }: AdminAuthGuardProps) => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { admin, isAuthenticated } = useAdminStore();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkAuth = () => {
-      const authCookie = getCookie(ADMIN_AUTH_COOKIE);
+      const authCookie = getCookie(ADMIN_AUTH_COOKIE)
       
+      // Check if auth token exists
       if (!authCookie) {
-        navigate("/admin/login");
+        navigate("/admin/login", { replace: true });
+        deleteCookie(ADMIN_AUTH_COOKIE)
         return;
       }
 
-      // Verify admin data exists
-      const profileData = getCookie(ADMIN_PROFILE_COOKIE);
-      if (!profileData) {
-        navigate("/admin/login");
+      // Check if admin data exists in Zustand store
+      if (!admin || !isAuthenticated) {
+        navigate("/admin/login", { replace: true });
         return;
       }
 
-      setIsAuthenticated(true);
       setIsLoading(false);
     };
 
     checkAuth();
-  }, [navigate]);
+  }, [navigate, admin, isAuthenticated]);
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-      </div>
+      <div className=""></div>
+      // <div className="min-h-screen flex items-center justify-center bg-background">
+      //   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      // </div>
     );
   }
 
-  return isAuthenticated ? <>{children}</> : null;
+  return isAuthenticated && admin ? <>{children}</> : null;
 };
 
 export default AdminAuthGuard;

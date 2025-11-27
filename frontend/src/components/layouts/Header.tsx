@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 import optimarzLogo from "@/assets/logo.png";
-import optimarzLogoDark from "@/assets/logo.png";
+import optimarzLogoDark from "@/assets/dark-logo.png";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -52,7 +52,7 @@ export const Header = () => {
             <img
               src={isDarkMode ? optimarzLogoDark : optimarzLogo}
               alt="Optimarz Properties"
-              className="h-16 w-auto"
+              className={`h-16 w-auto`}
             />
           </Link>
 
