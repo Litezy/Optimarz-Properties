@@ -33,12 +33,12 @@ export const Header = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Projects", path: "/projects" },
+    { label: "Projects", path: "/projects" ,trail:"projects"},
     // { label: "Summer Program", path: "/summer-program" },
     // { label: "Resources", path: "/resources" },
-    { label: "Blog", path: "/blog" },
-    { label: "About Us", path: "/about" },
-    { label: "Contact Us", path: "/contact" },
+    { label: "Blog", path: "/blog" ,trail:"blog"},
+    { label: "About Us", path: "/about",trail:"about" },
+    { label: "Contact Us", path: "/contact",trail:"contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -62,13 +62,13 @@ export const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-base capitalize font-medium transition-colors relative group ${isActive(item.path)
+                className={`text-base capitalize font-medium transition-colors relative group ${(isActive(item.path) || location.pathname.includes(item.trail))
                     ? "text-primary"
                     : "text-foreground hover:text-primary"
                   }`}
               >
                 {item.label}
-                {isActive(item.path) && (
+                {(isActive(item.path) || location.pathname.includes(item.trail)) && (
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"></span>
                 )}
               </Link>
