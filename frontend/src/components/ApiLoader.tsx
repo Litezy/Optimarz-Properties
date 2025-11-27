@@ -11,10 +11,10 @@ const ApiLoader = ({ isLoading, message = 'Loading...', overlay = true }: ApiLoa
 
   if (overlay) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-[2px]">
         <div className="flex flex-col items-center gap-3 rounded-lg bg-card p-6 shadow-lg border border-border">
           <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-sm text-muted-foreground">{message}</p>
+          <p className="text-sm text-foreground font-medium">{message}</p>
         </div>
       </div>
     );
