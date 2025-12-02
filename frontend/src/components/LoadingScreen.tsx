@@ -21,11 +21,11 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-background/60 backdrop-blur-sm transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 flex items-center bg-white rounded-md p-5 justify-center bg-background/60 backdrop-blur-sm transition-opacity duration-300 ${
         isLoading ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="flex flex-col items-center gap-4 ">
+      <div className="flex flex-col items-center   gap-4 ">
         <img
           src={logo}
           alt="Optimarz Properties"
