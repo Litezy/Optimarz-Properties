@@ -5,9 +5,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { X } from "lucide-react";
 import ebookCover from "@/assets/ebook-cover.jpg";
+import { delayApiCall, ErrorMessage, SuccessMessage } from "@/lib/utils";
+import ApiLoader from "../ApiLoader";
+import { downloadsService } from "@/services/downloads.service";
 
 export const DownloadModal = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,11 +27,23 @@ export const DownloadModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be added later
-    console.log("Form submitted:", formData);
+    if (!formData.email.trim() || !formData.firstName.trim() || !formData.lastName) return ErrorMessage('Please fill out all fields')
     setIsOpen(false);
+    setLoading(true)
+    try {
+      const response = await downloadsService.createDownload(formData)
+      if (response.status === 'success') {
+        await delayApiCall(2000)
+        SuccessMessage(response.message)
+      }
+    } catch (error) {
+      console.error('download error:', error);
+    } finally {
+      setLoading(false)
+    }
+
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,13 +54,15 @@ export const DownloadModal = () => {
   };
 
   const dateNow = new Date()
-   const month = dateNow.toLocaleDateString('default',{ month : 'long'});
+  const month = dateNow.toLocaleDateString('default', { month: 'long' });
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <ApiLoader isLoading={loading} message="downloading e-book" />
+
       <DialogContent className="max-w-4xl w-[95vw] md:w-full p-5 gap-0 overflow-hidden animate-slide-in-right max-h-[90vh]  overflow-y-auto">
-        
-        
+
+
         <div className="grid md:grid-cols-2 gap-0">
           {/* Left side - eBook cover */}
           <div className="bg-primary/10 p-4 md:p-8 flex items-center justify-center">

@@ -228,14 +228,14 @@ export type DownloadsOrderByWithRelationInput = {
 
 export type DownloadsWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  email?: string
   AND?: Prisma.DownloadsWhereInput | Prisma.DownloadsWhereInput[]
   OR?: Prisma.DownloadsWhereInput[]
   NOT?: Prisma.DownloadsWhereInput | Prisma.DownloadsWhereInput[]
+  email?: Prisma.StringFilter<"Downloads"> | string
   firstName?: Prisma.StringFilter<"Downloads"> | string
   lastName?: Prisma.StringFilter<"Downloads"> | string
   createdAt?: Prisma.DateTimeFilter<"Downloads"> | Date | string
-}, "id" | "email">
+}, "id">
 
 export type DownloadsOrderByWithAggregationInput = {
   id?: Prisma.SortOrder

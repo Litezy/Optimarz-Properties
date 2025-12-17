@@ -12,6 +12,8 @@ import { useWaitlistStore } from "@/store/waitlist.store";
 import { blogService } from "@/services/blog.service";
 import { contactService } from "@/services/contact.service";
 import { waitlistService } from "@/services/waitlist.service";
+import { downloadsService } from "@/services/downloads.service";
+import { useDownloadsStore } from "@/store/downloads.store";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -21,6 +23,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   const setBlogs = useBlogsStore(state => state.setBlogs);
   const setContactMessages = useMessagesStore(state => state.setMessages);
   const setWaitList = useWaitlistStore(state => state.setWaitlist);
+  const setDownloads = useDownloadsStore(state => state.setDownloads)
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,10 +41,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     setIsRefreshing(true);
     try {
       // Fetch all data in parallel
-      const [blogResponse, messagesResponse, waitlistResponse] = await Promise.allSettled([
+      const [blogResponse, messagesResponse, waitlistResponse,downloadResponse] = await Promise.allSettled([
         blogService.fetchBlogs(),
         contactService.fetchContactMessages(),
         waitlistService.fetchWaitlist(),
+        downloadsService.fetchDownloads()
       ]);
 
       let successCount = 0;
@@ -71,6 +75,14 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         successCount++;
       } else {
         console.error('Failed to fetch waitlist');
+        failCount++;
+      }
+      // Handle waitlist
+      if (downloadResponse.status === 'fulfilled' && downloadResponse.value.status === 200) {
+        setDownloads(downloadResponse.value.data);
+        successCount++;
+      } else {
+        console.error('Failed to fetch downloads');
         failCount++;
       }
 

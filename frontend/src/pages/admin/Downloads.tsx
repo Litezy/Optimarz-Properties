@@ -11,7 +11,7 @@ import { useDownloadsStore } from "@/store/downloads.store";
 const Downloads = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const downloads = useDownloadsStore(state => state.downloads);
-
+   console.log(downloads)
   const filteredDownloads = downloads.filter(
     (person) =>
       person.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
