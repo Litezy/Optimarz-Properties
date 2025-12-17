@@ -27,6 +27,34 @@ export const DownloadModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const downloadPdf = () => {
+    // Placeholder PDF content - replace with real PDF URL/data later
+    const pdfContent = `
+      %PDF-1.4
+      1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+      2 0 obj << /Type /Pages /Kids [3 0 R] /Count 1 >> endobj
+      3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >> endobj
+      4 0 obj << /Length 44 >> stream
+      BT /F1 24 Tf 100 700 Td (Optimarz E-Magazine) Tj ET
+      endstream endobj
+      xref
+      0 5
+      trailer << /Size 5 /Root 1 0 R >>
+      startxref
+      %%EOF
+    `;
+    
+    const blob = new Blob([pdfContent], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `optimarz-emagazine-${month.toLowerCase()}-edition.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email.trim() || !formData.firstName.trim() || !formData.lastName) return ErrorMessage('Please fill out all fields')
@@ -36,6 +64,7 @@ export const DownloadModal = () => {
       const response = await downloadsService.createDownload(formData)
       if (response.status === 'success') {
         await delayApiCall(2000)
+        downloadPdf();
         SuccessMessage(response.message)
       }
     } catch (error) {
