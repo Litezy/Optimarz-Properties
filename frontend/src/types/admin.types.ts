@@ -46,3 +46,11 @@ export interface WaitlistEntry {
     phoneNumber: string;
     createdAt: string;
 }
+
+export interface DownloadEntry {
+    id: number;
+    email: string;
+    firstName: string;
+    lastName: string;
+    createdAt: string;
+}

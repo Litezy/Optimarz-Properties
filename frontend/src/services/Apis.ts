@@ -34,3 +34,9 @@ export const waitlistUrls = {
     fetch_wls: "waitlist/all",
     delete_wl: "waitlist/delete",
 }
+
+export const downloadsUrls = {
+    create: "downloads/create",
+    fetch_all: "downloads/all",
+    delete: "downloads/delete",
+}
