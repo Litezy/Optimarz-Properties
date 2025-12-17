@@ -2,7 +2,7 @@
 import { ADMIN_AUTH_COOKIE } from "@/utils/cookies";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { adminUrls, blogUrls, contactUrls, waitlistUrls } from "./Apis";
+import { adminUrls, blogUrls, contactUrls, downloadsUrls, waitlistUrls } from "./Apis";
 
 
 
@@ -14,7 +14,8 @@ export const Apis = {
     admin: adminUrls,
     contact: contactUrls,
     blogs: blogUrls,
-    waitlist: waitlistUrls
+    waitlist: waitlistUrls,
+    downloads: downloadsUrls
 };
 
 
