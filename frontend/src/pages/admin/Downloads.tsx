@@ -66,7 +66,7 @@ const Downloads = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl lg:text-3xl font-bold mb-2">eBook Downloads</h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-sm md:text-base">
               Track and manage all eBook download requests
             </p>
           </div>
@@ -147,7 +147,7 @@ const Downloads = () => {
               <BookOpen className="w-5 h-5 text-primary" />
               All eBook Downloads
             </CardTitle>
-            <CardDescription>
+            <CardDescription >
               View and manage all users who have downloaded the eBook
             </CardDescription>
             <div className="pt-4">
@@ -174,14 +174,14 @@ const Downloads = () => {
                     <TableRow className="hover:bg-transparent">
                       <TableHead className="font-semibold">Name</TableHead>
                       <TableHead className="font-semibold">Email</TableHead>
-                      <TableHead className="font-semibold">Download Date</TableHead>
+                      <TableHead className="font-semibold truncate">Download Date</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {filteredDownloads.map((person) => (
                       <TableRow key={person.id} className="hover:bg-muted/50">
                         <TableCell className="font-medium">
-                          <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-3 truncate">
                             <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                               <span className="text-sm font-semibold text-primary">
                                 {person.firstName[0]}{person.lastName[0]}
@@ -190,14 +190,14 @@ const Downloads = () => {
                             <span>{person.firstName} {person.lastName}</span>
                           </div>
                         </TableCell>
-                        <TableCell>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <TableCell className="">
+                          <div className="flex items-center truncate gap-2 text-sm text-muted-foreground">
                             <Mail className="w-3 h-3" />
                             {person.email}
                           </div>
                         </TableCell>
                         <TableCell>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div className="flex truncate items-center gap-2 text-sm text-muted-foreground">
                             <Calendar className="w-3 h-3" />
                             {new Date(person.createdAt).toLocaleDateString('en-US', {
                               month: 'short',
