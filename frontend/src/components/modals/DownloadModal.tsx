@@ -3,7 +3,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { X } from "lucide-react";
 import ebookCover from "@/assets/ebook-cover.jpg";
 import { delayApiCall, ErrorMessage, SuccessMessage } from "@/lib/utils";
 import ApiLoader from "../ApiLoader";
@@ -27,6 +26,9 @@ export const DownloadModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const dateNow = new Date()
+  const month = dateNow.toLocaleDateString('default', { month: 'long' });
+
   const downloadPdf = () => {
     // Placeholder PDF content - replace with real PDF URL/data later
     const pdfContent = `
@@ -43,7 +45,7 @@ export const DownloadModal = () => {
       startxref
       %%EOF
     `;
-    
+
     const blob = new Blob([pdfContent], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -82,8 +84,7 @@ export const DownloadModal = () => {
     });
   };
 
-  const dateNow = new Date()
-  const month = dateNow.toLocaleDateString('default', { month: 'long' });
+
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
