@@ -9,7 +9,7 @@ import { RoleGuard } from 'src/guards/role.guard';
 export class WaitlistController {
     constructor(private readonly waitListService: WaitlistService) { }
 
-
+    @SuccessMessage('Successfully added to waitlist')
     @Post('create')
     async createWaitlist(@Body(ValidationPipe) waitlistDto: WaitListDto) {
         return await this.waitListService.createWaitlist(waitlistDto)

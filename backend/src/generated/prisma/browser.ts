@@ -37,3 +37,8 @@ export type ContactMessage = Prisma.ContactMessageModel
  * 
  */
 export type Waitlist = Prisma.WaitlistModel
+/**
+ * Model Downloads
+ * 
+ */
+export type Downloads = Prisma.DownloadsModel

@@ -10,9 +10,10 @@ import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
 import { AllExceptionsFilter } from './common/filters/http-exception.filter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 import { BlogModule } from './blog/blog.module';
+import { DownloadsModule } from './downloads/downloads.module';
 
 @Module({
-  imports: [AdminModule, ContactModule, WaitlistModule, DatabaseModule, BlogModule],
+  imports: [AdminModule, ContactModule, WaitlistModule, DatabaseModule, BlogModule, DownloadsModule,DownloadsModule],
   controllers: [AppController],
   providers: [
     {

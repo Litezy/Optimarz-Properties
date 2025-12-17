@@ -54,7 +54,8 @@ export const ModelName = {
   Admin: 'Admin',
   Blog: 'Blog',
   ContactMessage: 'ContactMessage',
-  Waitlist: 'Waitlist'
+  Waitlist: 'Waitlist',
+  Downloads: 'Downloads'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -125,6 +126,17 @@ export const WaitlistScalarFieldEnum = {
 } as const
 
 export type WaitlistScalarFieldEnum = (typeof WaitlistScalarFieldEnum)[keyof typeof WaitlistScalarFieldEnum]
+
+
+export const DownloadsScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  createdAt: 'createdAt'
+} as const
+
+export type DownloadsScalarFieldEnum = (typeof DownloadsScalarFieldEnum)[keyof typeof DownloadsScalarFieldEnum]
 
 
 export const SortOrder = {

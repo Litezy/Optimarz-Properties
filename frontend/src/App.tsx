@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import { AdminPages, ClientPages } from "./utils/pageLinks";
 import AdminAuthGuard from "./components/guards/AdminAuthGuard";
+import AdminLayout from "./components/layouts/AdminLayout";
 
 const queryClient = new QueryClient();
 
@@ -49,7 +50,7 @@ const AppContent = () => {
           <Route
             key={index}
             path={item.path}
-            element={<AdminAuthGuard><item.component/></AdminAuthGuard>}
+            element={<AdminAuthGuard><AdminLayout><item.component/></AdminLayout></AdminAuthGuard>}
           />
         ))}
       </Routes>

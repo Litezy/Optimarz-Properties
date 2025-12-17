@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw, File, Menu, X } from "lucide-react";
+import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw, File, Menu, X, DownloadCloud } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
 import { deleteCookie, ADMIN_AUTH_COOKIE } from "@/utils/cookies";
@@ -154,12 +154,13 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     { path: "/admin/create-blog", label: "Create Blog", icon: FileEdit },
     { path: "/admin/contacts", label: "Contacts", icon: Mail },
     { path: "/admin/waitlist", label: "Waitlist", icon: Users },
+    { path: "/admin/downloads", label: "Dowloads", icon: DownloadCloud },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden ">
       {/* Top Navigation */}
-      <header className="bg-card border-b border-border sticky top-0 z-50">
+      <header className="bg-card fixed w-full top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
@@ -293,7 +294,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       )}
 
       {/* Navigation Tabs - Hidden on mobile, shown on desktop */}
-      <div className="bg-muted border-b border-border hidden md:block">
+      <div className="bg-muted border-b mt-16 fixed m w-full border-border hidden md:block">
         <div className="container mx-auto px-4">
           <nav className="flex gap-1 overflow-x-auto">
             {navItems.map((item) => {
@@ -319,7 +320,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       </div>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 lg:mt-[8rem] mt-[3.5rem]">
         {children}
       </main>
     </div>

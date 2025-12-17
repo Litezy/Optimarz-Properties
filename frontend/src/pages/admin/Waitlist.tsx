@@ -1,5 +1,4 @@
-import { Helmet } from "react-helmet";
-import AdminLayout from "@/components/layouts/AdminLayout";
+import { Helmet } from "react-helmet"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
@@ -56,7 +55,6 @@ const AdminWaitlist = () => {
         <title>Waitlist - Admin - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <AdminLayout>
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
@@ -175,7 +173,6 @@ const AdminWaitlist = () => {
             </CardContent>
           </Card>
         </div>
-      </AdminLayout>
     </>
   );
 };

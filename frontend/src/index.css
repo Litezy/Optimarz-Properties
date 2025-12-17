@@ -1,179 +1,181 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @font-face {
-  font-family: 'Cabinet';
-  src: url('./fonts/cabinet/CabinetGrotesk-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Cabinet';
+    src: url('./fonts/cabinet/CabinetGrotesk-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Cabinet';
-  src: url('./fonts/cabinet/CabinetGrotesk-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
+    font-family: 'Cabinet';
+    src: url('./fonts/cabinet/CabinetGrotesk-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Cabinet';
-  src: url('./fonts/cabinet/CabinetGrotesk-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'Cabinet';
+    src: url('./fonts/cabinet/CabinetGrotesk-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('./fonts/satoshi/Satoshi-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'Satoshi';
+    src: url('./fonts/satoshi/Satoshi-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('./fonts/satoshi/Satoshi-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
+    font-family: 'Satoshi';
+    src: url('./fonts/satoshi/Satoshi-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('./fonts/satoshi/Satoshi-Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'Satoshi';
+    src: url('./fonts/satoshi/Satoshi-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
 }
 
 .cabinet {
-  font-family: 'Cabinet', sans-serif;
+    font-family: 'Cabinet', sans-serif;
 }
 
 .satoshi {
-  font-family: 'Satoshi', sans-serif;
+    font-family: 'Satoshi', sans-serif;
 }
 
 @layer base {
-  :root {
-    --background: 42 40% 98%;
-    --foreground: 90 25% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 90 25% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 90 25% 15%;
-    --primary: 76 70% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 42 35% 65%;
-    --secondary-foreground: 90 25% 15%;
-    --muted: 40 15% 85%;
-    --muted-foreground: 90 10% 45%;
-    --accent: 76 70% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 40 15% 90%;
-    --input: 40 15% 90%;
-    --ring: 76 70% 50%;
-    --radius: 0.5rem;
-    --gold: 42 35% 65%;
-    --dark-green: 90 25% 15%;
-    --light-cream: 42 40% 98%;
-    --footer-bg: 90 25% 15%;
-    --footer-text: 42 40% 98%;
-  }
-  .dark {
-    --background: 90 35% 12%;
-    --foreground: 42 40% 98%;
-    --card: 90 30% 18%;
-    --card-foreground: 42 40% 98%;
-    --popover: 90 30% 18%;
-    --popover-foreground: 42 40% 98%;
-    --primary: 76 75% 60%;
-    --primary-foreground: 90 35% 12%;
-    --secondary: 42 40% 70%;
-    --secondary-foreground: 90 35% 12%;
-    --muted: 90 25% 20%;
-    --muted-foreground: 42 25% 85%;
-    --accent: 76 75% 60%;
-    --accent-foreground: 90 35% 12%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 90 20% 30%;
-    --input: 90 20% 30%;
-    --ring: 76 75% 60%;
-    --gold: 42 40% 70%;
-    --dark-green: 42 40% 98%;
-    --light-cream: 90 35% 12%;
-  }
+     :root {
+        --background: 42 40% 98%;
+        --foreground: 90 25% 15%;
+        --card: 0 0% 100%;
+        --card-foreground: 90 25% 15%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 90 25% 15%;
+        --primary: 76 70% 50%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 42 35% 65%;
+        --secondary-foreground: 90 25% 15%;
+        --muted: 40 15% 85%;
+        --muted-foreground: 90 10% 45%;
+        --accent: 76 70% 50%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 40 15% 90%;
+        --input: 40 15% 90%;
+        --ring: 76 70% 50%;
+        --radius: 0.5rem;
+        --gold: 42 35% 65%;
+        --dark-green: 90 25% 15%;
+        --light-cream: 42 40% 98%;
+        --footer-bg: 90 25% 15%;
+        --footer-text: 42 40% 98%;
+    }
+    .dark {
+        --background: 90 35% 12%;
+        --foreground: 42 40% 98%;
+        --card: 90 30% 18%;
+        --card-foreground: 42 40% 98%;
+        --popover: 90 30% 18%;
+        --popover-foreground: 42 40% 98%;
+        --primary: 76 75% 60%;
+        --primary-foreground: 90 35% 12%;
+        --secondary: 42 40% 70%;
+        --secondary-foreground: 90 35% 12%;
+        --muted: 90 25% 20%;
+        --muted-foreground: 42 25% 85%;
+        --accent: 76 75% 60%;
+        --accent-foreground: 90 35% 12%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 90 20% 30%;
+        --input: 90 20% 30%;
+        --ring: 76 75% 60%;
+        --gold: 42 40% 70%;
+        --dark-green: 42 40% 98%;
+        --light-cream: 90 35% 12%;
+    }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+    .animate-fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
     }
-    to {
-      opacity: 1;
+    .animate-slide-up {
+        animation: slideUp 0.8s ease-out forwards;
     }
-  }
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-  }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground font-satoshi;
-  }
-  h1 {
-    @apply font-bold mb-6 text-foreground;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-cabinet;
-    text-transform: none !important;
-  }
-  .prose h2 {
-    @apply text-3xl font-semibold mt-8 mb-4 text-foreground;
-  }
-  .prose h3 {
-    @apply text-2xl font-semibold mt-6 mb-3 text-foreground;
-  }
-  .prose p {
-    @apply text-muted-foreground text-base leading-relaxed mb-4;
-  }
-  .prose ul {
-    @apply list-disc list-inside mb-4 text-base text-muted-foreground;
-  }
-  .prose ol {
-    @apply list-decimal list-inside text-base mb-4 text-muted-foreground;
-  }
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground font-satoshi;
+    }
+    h1 {
+        @apply font-bold mb-6 text-foreground;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-cabinet;
+        text-transform: none !important;
+    }
+    .prose h2 {
+        @apply text-3xl font-semibold mt-8 mb-4 text-foreground;
+    }
+    .prose h3 {
+        @apply text-2xl font-semibold mt-6 mb-3 text-foreground;
+    }
+    .prose p {
+        @apply text-muted-foreground text-base leading-relaxed mb-4;
+    }
+    .prose ul {
+        @apply list-disc list-inside mb-4 text-base text-muted-foreground;
+    }
+    .prose ol {
+        @apply list-decimal list-inside text-base mb-4 text-muted-foreground;
+    }
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }

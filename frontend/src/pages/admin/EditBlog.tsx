@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import AdminLayout from "@/components/layouts/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -197,14 +196,12 @@ const EditBlog = () => {
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
         <ApiLoader isLoading={true} message="Loading blog data..." />
-        <AdminLayout>
           <div className="flex items-center justify-center min-h-[60vh]">
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
               <p className="mt-4 text-gray-600">Loading blog data...</p>
             </div>
           </div>
-        </AdminLayout>
       </>
     );
   }
@@ -218,7 +215,6 @@ const EditBlog = () => {
 
       <ApiLoader isLoading={isLoading} message="Updating..." />
 
-      <AdminLayout>
         <div className="max-w-5xl mx-auto space-y-5">
           <div className="flex items-center justify-between">
             <div>
@@ -393,7 +389,6 @@ const EditBlog = () => {
             </div>
           </form>
         </div>
-      </AdminLayout>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import AdminLayout from "@/components/layouts/AdminLayout";
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
@@ -115,7 +115,6 @@ const AdminContacts = () => {
         <title>Contacts - Admin - Optimarz Properties</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <AdminLayout>
         <div className="space-y-6">
           {/* Message View Modal */}
           {view.status && (
@@ -355,7 +354,6 @@ const AdminContacts = () => {
             </CardContent>
           </Card>
         </div>
-      </AdminLayout>
     </>
   );
 };

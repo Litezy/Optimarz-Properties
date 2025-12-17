@@ -20,6 +20,7 @@ import AdminWaitlist from "@/pages/admin/Waitlist";
 import AdminAuthGuard from "@/components/guards/AdminAuthGuard";
 import AllBlogs from "@/pages/admin/AllBlogs";
 import EditBlog from "@/pages/admin/EditBlog";
+import Downloads from "@/pages/admin/Downloads";
 
 export const ClientPages = [
     { component: Index, path: "/" },
@@ -48,4 +49,5 @@ export const AdminPages = [
     { component: EditBlog, path: "/admin/edit-blog" },
     { component: AdminContacts, path: "/admin/contacts" },
     { component: AdminWaitlist, path: "/admin/waitlist" },
+    { component: Downloads, path: "/admin/downloads" },
 ]

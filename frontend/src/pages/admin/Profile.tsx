@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet";
-import AdminLayout from "@/components/layouts/AdminLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -183,7 +182,6 @@ const AdminProfile = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <ApiLoader isLoading={isUpdatingProfile || isUpdatingPassword} message="Updating..." />
-      <AdminLayout>
         <div className="max-w-4xl mx-auto space-y-6">
           <div>
             <h1 className="lg:text-3xl text-2xl font-bold mb-2">Profile Settings</h1>
@@ -296,7 +294,6 @@ const AdminProfile = () => {
             </CardContent>
           </Card>
         </div>
-      </AdminLayout>
     </>
   );
 };

@@ -387,7 +387,8 @@ export const ModelName = {
   Admin: 'Admin',
   Blog: 'Blog',
   ContactMessage: 'ContactMessage',
-  Waitlist: 'Waitlist'
+  Waitlist: 'Waitlist',
+  Downloads: 'Downloads'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -403,7 +404,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "admin" | "blog" | "contactMessage" | "waitlist"
+    modelProps: "admin" | "blog" | "contactMessage" | "waitlist" | "downloads"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -703,6 +704,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Downloads: {
+      payload: Prisma.$DownloadsPayload<ExtArgs>
+      fields: Prisma.DownloadsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DownloadsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DownloadsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>
+        }
+        findFirst: {
+          args: Prisma.DownloadsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DownloadsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>
+        }
+        findMany: {
+          args: Prisma.DownloadsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>[]
+        }
+        create: {
+          args: Prisma.DownloadsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>
+        }
+        createMany: {
+          args: Prisma.DownloadsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DownloadsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>[]
+        }
+        delete: {
+          args: Prisma.DownloadsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>
+        }
+        update: {
+          args: Prisma.DownloadsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>
+        }
+        deleteMany: {
+          args: Prisma.DownloadsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DownloadsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DownloadsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>[]
+        }
+        upsert: {
+          args: Prisma.DownloadsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DownloadsPayload>
+        }
+        aggregate: {
+          args: Prisma.DownloadsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDownloads>
+        }
+        groupBy: {
+          args: Prisma.DownloadsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DownloadsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DownloadsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DownloadsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -794,6 +869,17 @@ export const WaitlistScalarFieldEnum = {
 } as const
 
 export type WaitlistScalarFieldEnum = (typeof WaitlistScalarFieldEnum)[keyof typeof WaitlistScalarFieldEnum]
+
+
+export const DownloadsScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  createdAt: 'createdAt'
+} as const
+
+export type DownloadsScalarFieldEnum = (typeof DownloadsScalarFieldEnum)[keyof typeof DownloadsScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -964,6 +1050,7 @@ export type GlobalOmitConfig = {
   blog?: Prisma.BlogOmit
   contactMessage?: Prisma.ContactMessageOmit
   waitlist?: Prisma.WaitlistOmit
+  downloads?: Prisma.DownloadsOmit
 }
 
 /* Types for Logging */

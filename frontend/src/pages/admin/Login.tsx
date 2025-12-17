@@ -15,7 +15,6 @@ import Cookies from 'js-cookie'
 import { ADMIN_AUTH_COOKIE } from "@/utils/cookies";
 
 const AdminLogin = () => {
-  // const setAdmin = useAdminStore(state => state.setAdmin);
   const setAdmin = useAdminStore((state) => state.setAdmin);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,10 +53,14 @@ const AdminLogin = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <ApiLoader isLoading={isLoading} message="Logging in..." />
-      <div className="min-h-screen flex items-center justify-center bg-background px-4">
-        <Card className="w-full max-w-md">
+      <div className="min-h-screen flex items-center justify-center bg-background p-4">
+        <Card className="w-full max-w-sm">
           <CardHeader className="space-y-4 text-center">
-            <img src={optimarzLogo} alt="Optimarz Properties" className="h-12 w-auto mx-auto" />
+            <img 
+              src={optimarzLogo} 
+              alt="Optimarz Properties" 
+              className="h-12 w-auto mx-auto object-contain" 
+            />
             <div className="flex justify-center">
               <div className="bg-primary/10 p-3 rounded-full">
                 <Lock className="w-6 h-6 text-primary" />
@@ -95,9 +98,6 @@ const AdminLogin = () => {
               <Button type="submit" className="w-full">
                 Sign In
               </Button>
-              {/* <p className="text-sm text-muted-foreground text-center mt-4">
-                Demo credentials: admin@optimarz.com / admin123
-              </p> */}
             </form>
           </CardContent>
         </Card>

@@ -53,3 +53,11 @@ model Waitlist {
   phoneNumber String
   createdAt   DateTime @default(now())
 }
+
+model Downloads {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  firstName String
+  lastName  String
+  createdAt DateTime @default(now())
+}

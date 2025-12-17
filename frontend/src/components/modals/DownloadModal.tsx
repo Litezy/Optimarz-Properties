@@ -37,38 +37,35 @@ export const DownloadModal = () => {
     });
   };
 
+  const dateNow = new Date()
+   const month = dateNow.toLocaleDateString('default',{ month : 'long'});
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="max-w-4xl p-0 gap-0 overflow-hidden animate-slide-in-right">
-        <button
-          onClick={() => setIsOpen(false)}
-          className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground z-10"
-        >
-          <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
-        </button>
+      <DialogContent className="max-w-4xl w-[95vw] md:w-full p-5 gap-0 overflow-hidden animate-slide-in-right max-h-[90vh]  overflow-y-auto">
+        
         
         <div className="grid md:grid-cols-2 gap-0">
           {/* Left side - eBook cover */}
-          <div className="bg-primary/10 p-8 flex items-center justify-center">
+          <div className="bg-primary/10 p-4 md:p-8 flex items-center justify-center">
             <img
               src={ebookCover}
               alt="I AM LAND: THE POWER OF PLACE"
-              className="w-full max-w-sm rounded-lg shadow-lg"
+              className="w-full max-w-[150px] md:max-w-sm rounded-lg shadow-lg"
             />
           </div>
 
           {/* Right side - Form */}
-          <div className="p-8 bg-background">
-            <DialogHeader className="mb-6">
-              <DialogTitle className="text-2xl md:text-xl font-bold text-foreground">
-                Download Optimarz's e-Magazine (October Edition)
+          <div className="p-4 md:p-8 bg-background">
+            <DialogHeader className="mb-4 md:mb-6">
+              <DialogTitle className="text-lg md:text-2xl font-bold text-foreground">
+                Download Optimarz's e-Magazine ({month} Edition)
               </DialogTitle>
             </DialogHeader>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
               <div>
-                <Label htmlFor="firstName" className="text-foreground">
+                <Label htmlFor="firstName" className="text-foreground text-sm">
                   First Name
                 </Label>
                 <Input
@@ -77,12 +74,12 @@ export const DownloadModal = () => {
                   onChange={handleChange}
                   placeholder="First Name"
                   required
-                  className="mt-1"
+                  className="mt-1 h-10 md:h-11"
                 />
               </div>
 
               <div>
-                <Label htmlFor="lastName" className="text-foreground">
+                <Label htmlFor="lastName" className="text-foreground text-sm">
                   Last Name
                 </Label>
                 <Input
@@ -91,12 +88,12 @@ export const DownloadModal = () => {
                   onChange={handleChange}
                   placeholder="Last Name"
                   required
-                  className="mt-1"
+                  className="mt-1 h-10 md:h-11"
                 />
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-foreground">
+                <Label htmlFor="email" className="text-foreground text-sm">
                   Email
                 </Label>
                 <Input
@@ -106,13 +103,13 @@ export const DownloadModal = () => {
                   onChange={handleChange}
                   placeholder="Email"
                   required
-                  className="mt-1"
+                  className="mt-1 h-10 md:h-11"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 text-lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-5 md:py-6 text-base md:text-lg mt-4"
                 size="lg"
               >
                 Download EBook
