@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -160,143 +159,140 @@ const CreateBlog = () => {
       </Helmet>
 
       <ApiLoader isLoading={isLoading} message="Processing..." />
-
-      <AdminLayout>
-        <div className="max-w-5xl mx-auto space-y-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl lg:text-3xl font-bold mb-2">Create Blog Post</h1>
-              <p className="text-muted-foreground">Write and publish engaging content.</p>
-            </div>
-
-            <Button variant="outline" size="sm">
-              <Eye className="w-4 h-4 mr-2" />
-              Preview
-            </Button>
+      <div className="max-w-5xl mx-auto space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl lg:text-3xl font-bold mb-2">Create Blog Post</h1>
+            <p className="text-muted-foreground">Write and publish engaging content.</p>
           </div>
 
-          <form className="space-y-6">
-            {/* BASIC INFO */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Basic Information</CardTitle>
-                <CardDescription>Enter the basic details of your blog.</CardDescription>
-              </CardHeader>
+          <Button variant="outline" size="sm">
+            <Eye className="w-4 h-4 mr-2" />
+            Preview
+          </Button>
+        </div>
 
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="title">Title</Label>
-                  <Input
-                    id="title"
-                    name="title"
-                    value={form.title}
-                    onChange={handleChange}
-                    placeholder="Enter blog post title"
-                    required
-                  />
-                </div>
+        <form className="space-y-6">
+          {/* BASIC INFO */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Basic Information</CardTitle>
+              <CardDescription>Enter the basic details of your blog.</CardDescription>
+            </CardHeader>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="space-y-2">
-                    <Label>Category</Label>
-                    <Select value={form.category} onValueChange={handleCategoryChange}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select category" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="land-investment">Land Investment</SelectItem>
-                        <SelectItem value="market-trends">Market Trends</SelectItem>
-                        <SelectItem value="tips">Tips & Guides</SelectItem>
-                        <SelectItem value="news">News</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="readTime">Read Time</Label>
-                    <Input
-                      id="readTime"
-                      name="readTime"
-                      value={form.readTime}
-                      onChange={handleChange}
-                      placeholder="5 min read"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="description">Description</Label>
-                  <Textarea
-                    id="description"
-                    name="description"
-                    value={form.description}
-                    onChange={handleChange}
-                    placeholder="Brief summary of the blog post (150–200 chars)"
-                    rows={3}
-                    required
-                  />
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* IMAGE UPLOAD */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Featured Image</CardTitle>
-                <CardDescription>Upload the main image for this post.</CardDescription>
-              </CardHeader>
-
-              <CardContent>
-                <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
-                  <input type="file" accept="image/*" className="hidden" id="imageUpload" onChange={handleImage} />
-                  <label htmlFor="imageUpload">
-                    <Button type="button" variant="outline" asChild>
-                      <span>Choose Image</span>
-                    </Button>
-                  </label>
-
-                  {image && (
-                    <p className="text-sm mt-3">
-                      Selected: <b>{image.name}</b>
-                    </p>
-                  )}
-
-                  <p className="text-sm text-muted-foreground mt-2">
-                    JPG, PNG, WebP. Max 5MB. Recommended 1200×630px.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* CONTENT */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Content</CardTitle>
-                <CardDescription>Write your full blog content (HTML supported).</CardDescription>
-              </CardHeader>
-
-              <CardContent>
-                <Textarea
-                  name="content"
-                  value={form.content}
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="title">Title</Label>
+                <Input
+                  id="title"
+                  name="title"
+                  value={form.title}
                   onChange={handleChange}
-                  placeholder="Write your blog post here. HTML tags supported."
-                  rows={20}
-                  className="font-mono text-sm"
+                  placeholder="Enter blog post title"
                   required
                 />
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* ACTIONS */}
-            <div className="w-fit ml-auto flex gap-3">
-              <Button type="button" onClick={handlePublish}>
-                Publish Now
-              </Button>
-            </div>
-          </form>
-        </div>
-      </AdminLayout>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <Label>Category</Label>
+                  <Select value={form.category} onValueChange={handleCategoryChange}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="land-investment">Land Investment</SelectItem>
+                      <SelectItem value="market-trends">Market Trends</SelectItem>
+                      <SelectItem value="tips">Tips & Guides</SelectItem>
+                      <SelectItem value="news">News</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="readTime">Read Time</Label>
+                  <Input
+                    id="readTime"
+                    name="readTime"
+                    value={form.readTime}
+                    onChange={handleChange}
+                    placeholder="5 min read"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="description">Description</Label>
+                <Textarea
+                  id="description"
+                  name="description"
+                  value={form.description}
+                  onChange={handleChange}
+                  placeholder="Brief summary of the blog post (150–200 chars)"
+                  rows={3}
+                  required
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* IMAGE UPLOAD */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Featured Image</CardTitle>
+              <CardDescription>Upload the main image for this post.</CardDescription>
+            </CardHeader>
+
+            <CardContent>
+              <div className="border-2 border-dashed border-border rounded-lg p-8 text-center">
+                <input type="file" accept="image/*" className="hidden" id="imageUpload" onChange={handleImage} />
+                <label htmlFor="imageUpload">
+                  <Button type="button" variant="outline" asChild>
+                    <span>Choose Image</span>
+                  </Button>
+                </label>
+
+                {image && (
+                  <p className="text-sm mt-3">
+                    Selected: <b>{image.name}</b>
+                  </p>
+                )}
+
+                <p className="text-sm text-muted-foreground mt-2">
+                  JPG, PNG, WebP. Max 5MB. Recommended 1200×630px.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* CONTENT */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Content</CardTitle>
+              <CardDescription>Write your full blog content (HTML supported).</CardDescription>
+            </CardHeader>
+
+            <CardContent>
+              <Textarea
+                name="content"
+                value={form.content}
+                onChange={handleChange}
+                placeholder="Write your blog post here. HTML tags supported."
+                rows={20}
+                className="font-mono text-sm"
+                required
+              />
+            </CardContent>
+          </Card>
+
+          {/* ACTIONS */}
+          <div className="w-fit ml-auto flex gap-3">
+            <Button type="button" onClick={handlePublish}>
+              Publish Now
+            </Button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
