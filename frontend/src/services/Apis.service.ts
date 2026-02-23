@@ -6,7 +6,7 @@ import { adminUrls, blogUrls, contactUrls, downloadsUrls, waitlistUrls } from ".
 
 
 
-let BASEURL = import.meta.env.VITE_BASE_URL || `No url`
+let BASEURL = window.origin.includes(`localhost`) ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_LIVE_BASE_URL;
 // console.log('BASEURL:', BASEURL);
 
 

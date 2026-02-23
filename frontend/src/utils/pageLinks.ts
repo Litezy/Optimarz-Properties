@@ -17,7 +17,6 @@ import AdminProfile from "@/pages/admin/Profile";
 import CreateBlog from "@/pages/admin/CreateBlog";
 import AdminContacts from "@/pages/admin/Contacts";
 import AdminWaitlist from "@/pages/admin/Waitlist";
-import AdminAuthGuard from "@/components/guards/AdminAuthGuard";
 import AllBlogs from "@/pages/admin/AllBlogs";
 import EditBlog from "@/pages/admin/EditBlog";
 import Downloads from "@/pages/admin/Downloads";

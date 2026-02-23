@@ -66,7 +66,7 @@ const About = () => {
       </Helmet>
       <PageLayout>
         <div className="w-full">
-          <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          <section className="relative lg:h-screen min-h-[50dvh] flex items-center justify-center overflow-hidden">
             {/* Background Images with Transition */}
             <div
               className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 `}
@@ -93,7 +93,7 @@ const About = () => {
             <div className="space-y-5 my-10">
               <div className="flex items-center flex-col gap-3">
                 <h1 className="font-bold text-2xl lg:text-4xl ">Our Values in Action</h1>
-                <p className="max-w-4xl text-lg">
+                <p className="w-11/12 mx-auto text-lg">
                   At {CompanyName}, our values are more than guiding words; they are the heartbeat of everything we do. They shape how we research, how we serve, and how we help families and investors turn land into legacy.
                 </p>
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -139,7 +139,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="my-10 w-11/12 mx-auto flex items-start gap-5">
+            <div className="my-10 w-11/12 mx-auto flex flex-col lg:flex-row items-start gap-5">
               <div className="w-full lg:w-1/2 relative overflow-hidden rounded-lg">
                 {/* Image */}
                 <img
