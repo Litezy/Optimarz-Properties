@@ -4,9 +4,9 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { adminUrls, blogUrls, contactUrls, downloadsUrls, waitlistUrls } from "./Apis";
 
+// /home/u530686180/domains/optimarzproperties.com/public_html
 
-
-let BASEURL = window.origin.includes(`localhost`) ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_LIVE_BASE_URL;
+let BASEURL = window.origin.includes(`localhost`) ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_API_URL;
 // console.log('BASEURL:', BASEURL);
 
 
