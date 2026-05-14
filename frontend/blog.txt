@@ -78,6 +78,7 @@
       <span style="font-size:0.8rem;font-weight:600;color:hsl(90,10%,38%);background:hsl(90,10%,91%);padding:3px 10px;border-radius:999px;border:1px solid hsl(90,10%,80%);display:inline-block;width:fit-content;">Moderate</span>
     </div>
   </div>
+  //oo
 
   <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">What makes Fannin County different?</h2>
 
