@@ -3,8 +3,18 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import PageLayout from "@/components/layouts/PageLayout";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Facebook, Twitter, Linkedin, Share2, Clock, Calendar } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Share2,
+  Clock,
+  Calendar,
+} from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useBlogsStore } from "@/store/blogs.store";
 import { blogService } from "@/services/blog.service";
 
@@ -22,7 +32,7 @@ const BlogPost = () => {
           const data = await blogService.fetchBlogs();
           setBlogs(data.data);
         } catch (error) {
-          console.error('Failed to fetch blogs:', error);
+          console.error("Failed to fetch blogs:", error);
         } finally {
           setIsLoading(false);
         }
@@ -35,7 +45,8 @@ const BlogPost = () => {
   const post = getBlogBySlug(slug || "");
   const currentIndex = blogs.findIndex((p) => p.slug === slug);
   const previousPost = currentIndex > 0 ? blogs[currentIndex - 1] : null;
-  const nextPost = currentIndex < blogs.length - 1 ? blogs[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < blogs.length - 1 ? blogs[currentIndex + 1] : null;
 
   if (isLoading) {
     return (
@@ -71,11 +82,27 @@ const BlogPost = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
+  };
+
+  const inlineImages = [post.image_1, post.image_2, post.image_3].filter(
+    Boolean,
+  ) as string[];
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isImageOpen, setIsImageOpen] = useState(false);
+
+  const openImage = (imageUrl: string) => {
+    setSelectedImage(imageUrl);
+    setIsImageOpen(true);
+  };
+
+  const closeImage = () => {
+    setIsImageOpen(false);
+    setSelectedImage(null);
   };
 
   return (
@@ -85,7 +112,7 @@ const BlogPost = () => {
         <meta name="description" content={post.description} />
       </Helmet>
       <PageLayout>
-        <div className="py-12 bg-background">
+        <div className="py-12 border bg-background">
           <article className="container mx-auto px-4 max-w-4xl">
             <Button asChild variant="ghost" className="mb-8 ">
               <Link to="/blog">
@@ -106,7 +133,9 @@ const BlogPost = () => {
             {/* Category Badge */}
             <div className="mb-4">
               <span className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                {post.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                {post.category
+                  .replace("-", " ")
+                  .replace(/\b\w/g, (l) => l.toUpperCase())}
               </span>
             </div>
 
@@ -142,17 +171,41 @@ const BlogPost = () => {
             {/* Content */}
             <div
               className="prose prose-lg max-w-none mb-12 dark:prose-invert 
-                prose-headings:text-foreground prose-headings:font-bold 
-                prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 
-                prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 
-                prose-strong:text-foreground 
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline 
-                prose-li:text-muted-foreground prose-li:mb-2
-                prose-ul:my-6 prose-ol:my-6
-                prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded"
+  prose-headings:text-foreground prose-headings:font-bold 
+  prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 
+  prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 
+  prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4 
+  prose-strong:text-foreground 
+  prose-a:text-primary prose-a:no-underline hover:prose-a:underline 
+  prose-li:text-muted-foreground prose-li:mb-2
+  prose-ul:my-6 prose-ol:my-6
+  prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+  prose-img:rounded-xl prose-img:shadow-md prose-img:mx-auto prose-img:max-w-full
+  [&_div[style]]:!block [&_div[style]]:!p-0 [&_div[style]]:!m-0 [&_div[style]]:!border-0 [&_div[style]]:!bg-transparent
+  [&_table]:!w-full [&_table]:!border-collapse [&_table]:!table
+  [&_span[style]]:!inline [&_figure]:!my-4 [&_figure]:!block [&_figure_img]:!my-0"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            <Dialog
+              open={isImageOpen}
+              onOpenChange={(open) => {
+                if (!open) closeImage();
+                setIsImageOpen(open);
+              }}
+            >
+              <DialogContent className="max-w-5xl w p-0 overflow-hidden bg-transparent shadow-none">
+                <div className="relative rounded-3xl overflow-hidden bg-background">
+                  {selectedImage ? (
+                    <img
+                      src={selectedImage}
+                      alt={`${post.title} full-size preview`}
+                      className="h-[80vh] w-full object-contain "
+                    />
+                  ) : null}
+                </div>
+              </DialogContent>
+            </Dialog>
 
             <Separator className="my-8" />
 
@@ -198,11 +251,20 @@ const BlogPost = () => {
             {/* Navigation */}
             <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 mb-12">
               {previousPost ? (
-                <Button asChild variant="outline" className="w-fit px-5 justify-start group">
-                  <Link to={`/blog/${previousPost.slug}`} className="flex items-center gap-2">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-fit px-5 justify-start group"
+                >
+                  <Link
+                    to={`/blog/${previousPost.slug}`}
+                    className="flex items-center gap-2"
+                  >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                     <div className="text-left">
-                      <div className="text-xs text-muted-foreground">Previous</div>
+                      <div className="text-xs text-muted-foreground">
+                        Previous
+                      </div>
                     </div>
                   </Link>
                 </Button>
@@ -211,8 +273,15 @@ const BlogPost = () => {
               )}
 
               {nextPost ? (
-                <Button asChild variant="outline" className="w-fit px-5 justify-end group">
-                  <Link to={`/blog/${nextPost.slug}`} className="flex items-center gap-2">
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-fit px-5 justify-end group"
+                >
+                  <Link
+                    to={`/blog/${nextPost.slug}`}
+                    className="flex items-center gap-2"
+                  >
                     <div className="text-center">
                       <div className="text-xs text-muted-foreground">Next</div>
                       {/* <div className="font-medium line-clamp-1">{nextPost.title}</div> */}
@@ -231,8 +300,9 @@ const BlogPost = () => {
                 Interested in Learning More?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Connect with our team to explore investment opportunities and discover how
-                Optimarz Properties can help you achieve your land investment goals.
+                Connect with our team to explore investment opportunities and
+                discover how Optimarz Properties can help you achieve your land
+                investment goals.
               </p>
               <Button asChild size="lg">
                 <Link to="/contact">Get in Touch</Link>

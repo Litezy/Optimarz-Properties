@@ -1,0 +1,94 @@
+<div style="max-width:100%;font-family:inherit;line-height:1.8;color:inherit;">
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">North Texas growth is no longer limited to Dallas, Frisco, McKinney, or Sherman. Expansion is moving outward — and Fannin County sits directly in the path of that momentum. As the Dallas–Fort Worth metroplex continues pushing northward, Fannin County is emerging as one of the most strategically positioned growth regions in the state, drawing the attention of investors, developers, businesses, and families seeking real opportunity beyond the crowded and increasingly expensive DFW core.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Once known primarily for agriculture and rural trade, the county is now attracting serious interest across residential expansion, commercial development, logistics growth, industrial spillover, and long-term land investment. With direct highway access, lower development costs, and growing regional connectivity, the case for Fannin County has never been stronger.</p>
+
+  <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200&q=80" alt="Open Texas landscape with wide skies and green fields" style="width:100%;height:340px;object-fit:cover;border-radius:12px;margin:2rem 0;display:block;" />
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">The forces reshaping the region</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Several converging economic forces are driving momentum into Fannin County, each reinforcing the other in ways that are beginning to reshape the region's identity.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 0.875rem;"><strong style="color:hsl(90,25%,15%);font-weight:600;">DFW expansion.</strong> As housing costs continue rising across Collin and Denton Counties, both residents and businesses are searching for more affordable alternatives with room to grow. That search is increasingly leading them northeast — into Fannin County.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 0.875rem;"><strong style="color:hsl(90,25%,15%);font-weight:600;">Sherman's manufacturing boom.</strong> The rapid expansion of semiconductor and advanced manufacturing industries in Sherman is generating workforce housing demand, supplier relocation opportunities, increased logistics activity, and commercial growth pressure that is now spilling northward into Fannin County.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 0.875rem;"><strong style="color:hsl(90,25%,15%);font-weight:600;">Affordable land availability.</strong> Compared to surrounding North Texas counties, Fannin County offers lower acquisition costs, larger development parcels, lower operating expenses, and stronger long-term appreciation potential — a combination that is increasingly difficult to find this close to a major metro area.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;"><strong style="color:hsl(90,25%,15%);font-weight:600;">Transportation infrastructure.</strong> Highway 82 and Highway 121 continue strengthening regional accessibility across Northeast Texas and the expanding DFW corridor, positioning Fannin County as a natural next stop along a well-connected growth axis.</p>
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">Bonham: the economic engine of Fannin County</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Bonham continues to establish itself as the county's dominant commercial and economic center. Strategically positioned at the intersection of Highway 82 and Highway 121, it benefits from regional accessibility, ongoing infrastructure investment, and direct proximity to Sherman's expanding technology corridor — making it the strongest long-term investment market within Fannin County.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">A broad wave of development is already underway across the city: airport modernization projects, downtown revitalization efforts, expanding healthcare services, commercial and retail development, industrial recruitment initiatives, and logistics and distribution infrastructure. Looking further ahead, Bonham is well positioned to absorb significant growth across logistics and warehousing, residential communities, healthcare expansion, aviation-related services, commercial retail, and light manufacturing.</p>
+
+  <img src="https://images.unsplash.com/photo-1464082354059-27db6ce50048?w=1200&q=80" alt="American highway stretching through rural landscape" style="width:100%;height:300px;object-fit:cover;border-radius:12px;margin:2rem 0;display:block;" />
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">Leonard: positioned for residential expansion</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Leonard is quickly becoming one of the county's most attractive residential growth markets. Its southern location near Collin County creates strong long-term appeal — particularly for families leaving higher-cost suburbs, commuters seeking affordability, and developers pursuing residential expansion opportunities at a scale that is no longer feasible further south.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Lower housing costs, rural lifestyle appeal, increasing commuter accessibility, rising land values, and new subdivision development potential are all converging to make Leonard a market worth serious attention. As DFW growth continues moving northward, Leonard is well positioned to benefit from increasing residential demand for years to come.</p>
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">Honey Grove: a future logistics and transportation opportunity</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Located along Highway 82 between Bonham and Paris, Honey Grove holds long-term strategic potential tied to transportation and regional commerce. Historically an agricultural and railroad trade center, the city now offers opportunities connected to logistics, warehousing, highway commercial services, tourism development, and agricultural support industries.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Its direct Highway 82 access, affordable commercial land, historic downtown character, and strong regional transportation positioning make Honey Grove a compelling long-term play for businesses tied to freight movement and regional development as North Texas infrastructure investment continues to expand eastward.</p>
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">Emerging communities across the county</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Communities including Trenton, Savoy, Ector, Ladonia, Dodd City, and Windom continue benefiting from the broader regional growth trends reshaping North Texas. These markets offer affordable land opportunities, rural residential appeal, agricultural business potential, and small-scale development opportunities. As infrastructure investment expands across the region, these communities may experience gradual but meaningful long-term appreciation and population growth.</p>
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">Investment outlook at a glance</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Across Fannin County's key markets, the investment outlook varies by type and timeline — but the overall direction is consistent.</p>
+
+  <div style="border:1px solid hsl(40,15%,90%);border-radius:12px;overflow:hidden;margin:1.5rem 0;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;background:hsl(90,25%,15%);padding:0.75rem 1.25rem;gap:0.5rem;">
+      <span style="font-size:0.75rem;font-weight:600;color:hsl(42,40%,85%);text-transform:uppercase;letter-spacing:0.07em;">Market</span>
+      <span style="font-size:0.75rem;font-weight:600;color:hsl(42,40%,85%);text-transform:uppercase;letter-spacing:0.07em;">Primary Opportunity</span>
+      <span style="font-size:0.75rem;font-weight:600;color:hsl(42,40%,85%);text-transform:uppercase;letter-spacing:0.07em;">Growth Outlook</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:0.875rem 1.25rem;border-bottom:1px solid hsl(40,15%,93%);gap:0.5rem;align-items:center;background:hsl(42,40%,99%);">
+      <span style="font-size:0.95rem;font-weight:600;color:hsl(90,25%,15%);">Bonham</span>
+      <span style="font-size:0.875rem;color:hsl(90,10%,42%);">Commercial &amp; Logistics</span>
+      <span style="font-size:0.8rem;font-weight:600;color:hsl(76,50%,28%);background:hsl(76,70%,50%,0.12);padding:3px 10px;border-radius:999px;border:1px solid hsl(76,70%,50%,0.3);display:inline-block;width:fit-content;">Very High</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:0.875rem 1.25rem;border-bottom:1px solid hsl(40,15%,93%);gap:0.5rem;align-items:center;background:#fff;">
+      <span style="font-size:0.95rem;font-weight:600;color:hsl(90,25%,15%);">Leonard</span>
+      <span style="font-size:0.875rem;color:hsl(90,10%,42%);">Residential Development</span>
+      <span style="font-size:0.8rem;font-weight:600;color:hsl(76,50%,28%);background:hsl(76,70%,50%,0.12);padding:3px 10px;border-radius:999px;border:1px solid hsl(76,70%,50%,0.3);display:inline-block;width:fit-content;">High</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:0.875rem 1.25rem;border-bottom:1px solid hsl(40,15%,93%);gap:0.5rem;align-items:center;background:hsl(42,40%,99%);">
+      <span style="font-size:0.95rem;font-weight:600;color:hsl(90,25%,15%);">Honey Grove</span>
+      <span style="font-size:0.875rem;color:hsl(90,10%,42%);">Logistics &amp; Tourism</span>
+      <span style="font-size:0.8rem;font-weight:600;color:hsl(42,28%,33%);background:hsl(42,35%,65%,0.15);padding:3px 10px;border-radius:999px;border:1px solid hsl(42,35%,65%,0.3);display:inline-block;width:fit-content;">Moderate–High</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:0.875rem 1.25rem;border-bottom:1px solid hsl(40,15%,93%);gap:0.5rem;align-items:center;background:#fff;">
+      <span style="font-size:0.95rem;font-weight:600;color:hsl(90,25%,15%);">Trenton</span>
+      <span style="font-size:0.875rem;color:hsl(90,10%,42%);">Residential Expansion</span>
+      <span style="font-size:0.8rem;font-weight:600;color:hsl(42,28%,33%);background:hsl(42,35%,65%,0.15);padding:3px 10px;border-radius:999px;border:1px solid hsl(42,35%,65%,0.3);display:inline-block;width:fit-content;">Moderate–High</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:0.875rem 1.25rem;gap:0.5rem;align-items:center;background:hsl(42,40%,99%);">
+      <span style="font-size:0.95rem;font-weight:600;color:hsl(90,25%,15%);">Savoy</span>
+      <span style="font-size:0.875rem;color:hsl(90,10%,42%);">Stable Residential</span>
+      <span style="font-size:0.8rem;font-weight:600;color:hsl(90,10%,38%);background:hsl(90,10%,91%);padding:3px 10px;border-radius:999px;border:1px solid hsl(90,10%,80%);display:inline-block;width:fit-content;">Moderate</span>
+    </div>
+  </div>
+
+  <h2 style="font-size:1.375rem;font-weight:700;color:hsl(90,25%,15%);margin:2.25rem 0 0.875rem;padding-bottom:0.5rem;border-bottom:2px solid hsl(76,70%,50%);">What makes Fannin County different?</h2>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Unlike many saturated North Texas markets, Fannin County still offers what most investors can no longer find closer to DFW — scalable development opportunities, competitive land pricing, genuine expansion flexibility, and lower-density living appeal, all with strategic positioning near major growth corridors.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.25rem;">Fannin County is no longer simply a rural agricultural region. It is evolving into an emerging extension of the North Texas economic corridor. Bonham remains the county's strongest economic anchor. Leonard continues gaining momentum as a residential growth market. Honey Grove's transportation access positions it for future logistics and commercial opportunity. And the broader county — from Trenton to Savoy to Ladonia — is quietly building a foundation for long-term value.</p>
+
+  <p style="font-size:1.0625rem;line-height:1.9;color:hsl(90,10%,40%);margin:0 0 1.5rem;">For investors seeking long-term upside before full market maturity, the county represents a rare opportunity within the broader North Texas growth story — the kind that tends to look obvious only in hindsight.</p>
+
+  <blockquote style="border-left:4px solid hsl(76,70%,50%);background:hsl(76,70%,50%,0.06);border-radius:0 10px 10px 0;padding:1.25rem 1.5rem;margin:2rem 0 0;">
+    <p style="font-size:1.05rem;font-style:italic;color:hsl(90,20%,30%);line-height:1.85;margin:0;">As regional expansion accelerates, strategic positioning today may create significant long-term value tomorrow.</p>
+  </blockquote>
+
+</div>

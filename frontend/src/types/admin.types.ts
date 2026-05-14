@@ -28,6 +28,9 @@ export interface Blog {
     title: string;
     content: string;
     featuredImage: string;
+    image_1?: string | null;
+    image_2?: string | null;
+    image_3?: string | null;
     slug: string;
     category: string;
     readingTime: string;

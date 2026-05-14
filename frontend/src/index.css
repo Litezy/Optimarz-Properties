@@ -166,10 +166,13 @@ All colors MUST be HSL.
         @apply text-muted-foreground text-base leading-relaxed mb-4;
     }
     .prose ul {
-        @apply list-disc list-inside mb-4 text-base text-muted-foreground;
+        @apply list-disc list-outside pl-6 mb-6 text-base text-muted-foreground;
     }
     .prose ol {
-        @apply list-decimal list-inside text-base mb-4 text-muted-foreground;
+        @apply list-decimal list-outside pl-6 mb-6 text-base text-muted-foreground;
+    }
+    .prose li {
+        @apply mb-2;
     }
 }
 

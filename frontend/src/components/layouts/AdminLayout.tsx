@@ -306,7 +306,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       )}
 
       {/* Navigation Tabs - Hidden on mobile, shown on desktop */}
-      <div className="bg-muted border-b mt-16 fixed m w-full border-border hidden md:block">
+      <div className="bg-muted fixed z-50 border-b mt-16 fixed m w-full border-border hidden md:block">
         <div className="container mx-auto px-4">
           <nav className="flex gap-1 overflow-x-auto">
             {navItems.map((item) => {
