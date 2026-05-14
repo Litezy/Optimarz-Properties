@@ -35,6 +35,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          local-dir: ./dist/
+          local-dir: ./frontend/dist/
           server-dir: /home/u530686180/domains/optimarzproperties.com/public_html/
           dangerous-clean-slate: false
