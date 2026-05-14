@@ -43,6 +43,13 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./frontend/dist/
-          server-dir: /home/u530686180/domains/optimarzproperties.com/public_html/
+          server-dir: domains/optimarzproperties.com/public_html/
           dangerous-clean-slate: false
           log-level: verbose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            api/**
+            **/api/**
+            .htaccess
