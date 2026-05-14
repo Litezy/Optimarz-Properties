@@ -36,7 +36,7 @@ export const Header = () => {
     { label: "Projects", path: "/projects" ,trail:"projects"},
     // { label: "Summer Program", path: "/summer-program" },
     // { label: "Resources", path: "/resources" },
-    { label: "Blog", path: "/blog" ,trail:"blog"},
+    { label: "Blogs", path: "/blogs" ,trail:"blogs"},
     { label: "About Us", path: "/about",trail:"about" },
     { label: "Contact Us", path: "/contact",trail:"contact" },
   ];

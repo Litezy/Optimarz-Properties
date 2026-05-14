@@ -8,7 +8,7 @@ import { blogService } from "@/services/blog.service";
 import { useBlogsStore } from "@/store/blogs.store";
 import ApiLoader from "@/components/ApiLoader";
 
-const Blog = () => {
+const Blogs = () => {
   const {blogs,setBlogs}= useBlogsStore()
   const [isLoading,setIsLoading] = useState(false)
 
@@ -44,14 +44,14 @@ const Blog = () => {
           <div className="absolute inset-0">
             <img
               src={heroImage}
-              alt="Blog"
+              alt="Blogs"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/70 dark:bg-black/80" />
           </div>
           <div className="relative z-10">
             <h1 className="text-5xl md:text-6xl font-bold text-white text-center">
-              Blog
+              Blogs
             </h1>
           </div>
         </div>
@@ -77,4 +77,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Blogs;

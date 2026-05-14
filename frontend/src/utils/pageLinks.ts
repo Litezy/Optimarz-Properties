@@ -1,5 +1,4 @@
 import About from "@/pages/About";
-import Blog from "@/pages/Blog";
 import Contact from "@/pages/Contact";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
@@ -20,6 +19,7 @@ import AdminWaitlist from "@/pages/admin/Waitlist";
 import AllBlogs from "@/pages/admin/AllBlogs";
 import EditBlog from "@/pages/admin/EditBlog";
 import Downloads from "@/pages/admin/Downloads";
+import Blogs from "@/pages/Blogs";
 
 export const ClientPages = [
     { component: Index, path: "/" },
@@ -32,7 +32,7 @@ export const ClientPages = [
     { component: Resources, path: "/resources" },
     { component: About, path: "/about" },
     { component: Waitlist, path: "/waitlist" },
-    { component: Blog, path: "/blog" },
+    { component: Blogs, path: "/blogs" },
     { component: BlogPost, path: "/blog/:slug" },
     { component: Contact, path: "/contact" },
     { component: NotFound, path: "*" },

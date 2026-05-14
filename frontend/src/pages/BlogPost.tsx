@@ -115,9 +115,9 @@ const BlogPost = () => {
         <div className="py-12 border bg-background">
           <article className="container mx-auto px-4 max-w-4xl">
             <Button asChild variant="ghost" className="mb-8 ">
-              <Link to="/blog">
+              <Link to="/blogs">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Blog
+                Back to Blogs
               </Link>
             </Button>
 
