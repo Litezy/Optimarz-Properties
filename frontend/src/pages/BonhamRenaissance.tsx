@@ -55,7 +55,7 @@ const BonhamRenaissance = () => {
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${bonhamHero})` }}
+            style={{ backgroundImage: `url(${landTwo})` }}
           >
             <div className="absolute inset-0 bg-black/60" />
           </div>
