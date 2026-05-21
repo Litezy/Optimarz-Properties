@@ -125,7 +125,7 @@ const BonhamRenaissance = () => {
                 <div className="mt-12 space-y-10">
                   <div>
                     <h3 className="mb-4 text-2xl font-bold text-foreground">Why Bonham?</h3>
-                    <ul className="space-y-3 pl-5 text-sm leading-7 text-muted-foreground marker:text-primary md:text-base">
+                    <ul className="space-y-3  text-sm leading-7 text-muted-foreground marker:text-primary md:text-base">
                       <li>
                         The &quot;Hole in the Donut&quot; appreciation: while the edges of Fannin
                         County surge, Bonham remains one of the last undervalued entry
@@ -148,7 +148,7 @@ const BonhamRenaissance = () => {
                     <h3 className="mb-4 text-2xl font-bold text-foreground">
                       Amenities &amp; Public Services
                     </h3>
-                    <ul className="space-y-3 pl-5 text-sm leading-7 text-muted-foreground marker:text-primary md:text-base">
+                    <ul className="space-y-3  text-sm leading-7 text-muted-foreground marker:text-primary md:text-base">
                       <li>
                         Education: families benefit from strong school access and nearby
                         higher-learning opportunities that support long-term residential
@@ -182,19 +182,19 @@ const BonhamRenaissance = () => {
                     </p>
                     <ul className="space-y-3 pl-5 text-sm leading-7 text-muted-foreground marker:text-primary md:text-base">
                       <li>
-                        Legacy estates: from 1-acre tracts for multi-generational family
+                        <span className="font-semibold">Legacy estates</span>: from 1-acre tracts for multi-generational family
                         holdings to larger buy-and-hold positions poised for future demand.
                       </li>
                       <li>
-                        Lake-proxy portfolios: land plays tied to recreation growth and
+                        <span className="font-semibold">Lake-proxy portfolios</span>: land plays tied to recreation growth and
                         waterfront spillover without the premium of direct shoreline pricing.
                       </li>
                       <li>
-                        Tech-commuter housing: residential parcels positioned for the
+                        <span className="font-semibold">Tech-commuter housing</span>: residential parcels positioned for the
                         high-income workforce flowing out of the Silicon Prairie.
                       </li>
                       <li>
-                        Ag-exempt holds: low-carrying-cost land banking strategies built
+                        <span className="font-semibold">Ag-exempt holds</span>: low-carrying-cost land banking strategies built
                         for the next phase of regional expansion.
                       </li>
                     </ul>
