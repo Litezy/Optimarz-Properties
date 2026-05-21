@@ -17,6 +17,7 @@ import { Separator } from "@/components/ui/separator";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useBlogsStore } from "@/store/blogs.store";
 import { blogService } from "@/services/blog.service";
+import { BlogImage } from "@/components/blog/BlogImage";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -123,9 +124,11 @@ const BlogPost = () => {
 
             {/* Featured Image */}
             <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden mb-8 shadow-lg">
-              <img
+              <BlogImage
                 src={post.featuredImage}
                 alt={post.title}
+                loading="eager"
+                fetchPriority="high"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -187,6 +190,26 @@ const BlogPost = () => {
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
+            {inlineImages.length > 0 && (
+              <div className="mb-12 space-y-8">
+                {inlineImages.map((imageUrl, index) => (
+                  <button
+                    key={`${imageUrl}-${index}`}
+                    type="button"
+                    onClick={() => openImage(imageUrl)}
+                    className="block w-full overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform hover:scale-[1.01]"
+                  >
+                    <BlogImage
+                      src={imageUrl}
+                      alt={`${post.title} supporting visual ${index + 1}`}
+                      loading="lazy"
+                      className="h-[260px] w-full object-cover md:h-[420px]"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+
             <Dialog
               open={isImageOpen}
               onOpenChange={(open) => {
@@ -197,9 +220,10 @@ const BlogPost = () => {
               <DialogContent className="max-w-5xl w p-0 overflow-hidden bg-transparent shadow-none">
                 <div className="relative rounded-3xl overflow-hidden bg-background">
                   {selectedImage ? (
-                    <img
+                    <BlogImage
                       src={selectedImage}
                       alt={`${post.title} full-size preview`}
+                      loading="eager"
                       className="h-[80vh] w-full object-contain "
                     />
                   ) : null}

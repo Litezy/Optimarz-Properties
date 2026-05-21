@@ -21,19 +21,21 @@ import EditBlog from "@/pages/admin/EditBlog";
 import Downloads from "@/pages/admin/Downloads";
 import Blogs from "@/pages/Blogs";
 
+const projectRoute = (slug: string) => `/projects/${slug}`;
+const blogRoute = (slug: string) => `/blogs/${slug}`;
 export const ClientPages = [
     { component: Index, path: "/" },
     { component: Projects, path: "/projects" },
-    { component: HeritageBloom, path: "/heritage-bloom" },
-    { component: TranquilRetreat, path: "/tranquil-retreat" },
-    { component: BonhamRenaissance, path: "/bonham-renaissance" },
-    { component: SmallTownCharm, path: "/small-town-charm" },
+    { component: HeritageBloom, path: projectRoute("heritage-bloom") },
+    { component: TranquilRetreat, path: projectRoute("tranquil-retreat")},
+    { component: BonhamRenaissance, path: projectRoute("bonham-renaissance") },
+    { component: SmallTownCharm, path: projectRoute("small-town-charm") },
     { component: SummerProgram, path: "/summer-program" },
     { component: Resources, path: "/resources" },
     { component: About, path: "/about" },
     { component: Waitlist, path: "/waitlist" },
     { component: Blogs, path: "/blogs" },
-    { component: BlogPost, path: "/blog/:slug" },
+    { component: BlogPost, path: blogRoute(":slug") },
     { component: Contact, path: "/contact" },
     { component: NotFound, path: "*" },
     { component: AdminLogin, path: "/admin/login" },

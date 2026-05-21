@@ -2,21 +2,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Maximize2 } from "lucide-react";
 import { landHoldings } from "@/data/landHoldings";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LandHoldingsGallery = () => {
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "available":
-        return "bg-primary text-white";
-      case "pending":
-        return "bg-yellow-500 text-white";
-      case "sold":
-        return "bg-gray-500 text-white";
-      default:
-        return "bg-gray-500 text-white";
-    }
-  };
+  // const getStatusColor = (status: string) => {
+  //   switch (status) {
+  //     case "available":
+  //       return "bg-primary text-white";
+  //     case "pending":
+  //       return "bg-yellow-500 text-white";
+  //     case "sold":
+  //       return "bg-gray-500 text-white";
+  //     default:
+  //       return "bg-gray-500 text-white";
+  //   }
+  // };
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 bg-muted/30">
@@ -47,7 +48,7 @@ export const LandHoldingsGallery = () => {
                 </Badge> */}
               </div>
 
-              <CardContent className="p-4">
+              <CardContent onClick={()=>navigate(property.url)} className="p-4 cursor-pointer">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold mb-2 text-foreground">{property.title}</h3>

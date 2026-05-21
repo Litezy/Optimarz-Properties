@@ -13,7 +13,7 @@ import project3 from "@/assets/opti6.jpg";
 const projectAreas = [
   {
     title: "Fannin County",
-    description: "Delve into the enchanting beauty of Fannin County, where rolling hills meet picturesque landscapes and explore the historical significance that makes Fannin County a true treasure for investors.",
+    description: "Explore the enchanting beauty of Fannin County, where rolling hills meet picturesque landscapes and explore the historical significance that makes Fannin County a true treasure for investors.",
     image: project1,
     features: ["Historic Districts", "Growing Economy", "Excellent Schools", "Low Tax Rates"]
   },

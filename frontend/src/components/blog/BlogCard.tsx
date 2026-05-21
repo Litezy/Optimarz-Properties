@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Blog } from "@/types/admin.types";
+import { BlogImage } from "@/components/blog/BlogImage";
 
 interface BlogCardProps {
   post: Blog;
@@ -11,11 +12,12 @@ interface BlogCardProps {
 export const BlogCard = ({ post, auth = false }: BlogCardProps) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col group bg-card border-border">
-      <Link to={auth ? `/admin/edit-blog?id=${post.id}` : `/blog/${post.slug}`} className="flex flex-col h-full">
+      <Link to={auth ? `/admin/edit-blog?id=${post.id}` : `/blogs/${post.slug}`} className="flex flex-col h-full">
         <div className="relative h-56 overflow-hidden bg-muted">
-          <img
+          <BlogImage
             src={post.featuredImage}
             alt={post.title}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
