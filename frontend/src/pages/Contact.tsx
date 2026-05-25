@@ -53,7 +53,7 @@ const Contact = () => {
     {
       icon: <PhoneCall className="w-8 h-8 text-primary" />,
       title: "Phone",
-      details: "+1 (555) 123-4567"
+      details: "+1 (214) 509-7441"
     },
     {
       icon: <MailIcon className="w-8 h-8 text-primary" />,
@@ -63,7 +63,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-8 h-8 text-primary" />,
       title: "Address",
-      details: "2150 south central highway, McKinney, Texas"
+      details: "1308 Teasley lane, Denton, Texas 76205"
     }
   ]
   return (
