@@ -10,11 +10,60 @@ const TranquilRetreat = () => {
   return (
     <>
       <Helmet>
-        <title>Tranquil Retreat - Honey Grove, TX | Optimarz Properties</title>
-        <meta
-          name="description"
-          content="Invest in Honey Grove, TX – High-growth land opportunities in Fannin County with Optimarz Properties. Discover the sweetest investment in North Texas."
-        />
+        <title>Land for Sale in Honey Grove, TX | Fannin County | Optimarz Properties</title>
+        <meta name="description" content="Buy land in Honey Grove, TX — just 8 miles from Bois d'Arc Lake, North Texas's newest reservoir. Affordable Fannin County acreage with strong recreation-driven demand and appreciation." />
+        <meta name="keywords" content="land for sale Honey Grove TX, Honey Grove Texas real estate, Fannin County land investment, land near Bois d'Arc Lake, affordable North Texas land, Honey Grove TX property, rural Texas land investment, Fannin County acreage, buy land Honey Grove Texas, sweetest town Texas" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/projects/tranquil-retreat" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/projects/tranquil-retreat" />
+        <meta property="og:title" content="Land for Sale in Honey Grove, TX | Fannin County | Optimarz Properties" />
+        <meta property="og:description" content="Buy land in Honey Grove, TX — 8 miles from Bois d'Arc Lake. Affordable Fannin County acreage with strong recreation-driven demand and long-term appreciation potential." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Land for Sale in Honey Grove, TX | Fannin County | Optimarz Properties" />
+        <meta name="twitter:description" content="Buy land in Honey Grove, TX — 8 miles from Bois d'Arc Lake. Affordable Fannin County acreage with strong recreation-driven demand and long-term appreciation." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://optimarzproperties.com/projects/tranquil-retreat",
+              "url": "https://optimarzproperties.com/projects/tranquil-retreat",
+              "name": "Land for Sale in Honey Grove, TX | Fannin County | Optimarz Properties",
+              "description": "Buy land in Honey Grove, TX — just 8 miles from Bois d'Arc Lake in Fannin County, North Texas.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://optimarzproperties.com/projects" },
+                  { "@type": "ListItem", "position": 3, "name": "Tranquil Retreat — Honey Grove TX", "item": "https://optimarzproperties.com/projects/tranquil-retreat" }
+                ]
+              }
+            },
+            {
+              "@type": "RealEstateListing",
+              "name": "Tranquil Retreat — Land Investment in Honey Grove, TX",
+              "description": "Well-located land parcels in Honey Grove, Texas — the Sweetest Town in Texas. Just 8 miles from Bois d'Arc Lake, North Texas's first major reservoir in 30 years, and positioned in a high-growth Fannin County corridor.",
+              "url": "https://optimarzproperties.com/projects/tranquil-retreat",
+              "provider": {
+                "@type": "RealEstateAgent",
+                "name": "Optimarz Properties",
+                "url": "https://optimarzproperties.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Honey Grove",
+                "addressRegion": "TX",
+                "postalCode": "75446",
+                "addressCountry": "US"
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
       <PageLayout>
         {/* Hero Section */}

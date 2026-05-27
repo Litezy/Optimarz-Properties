@@ -61,8 +61,50 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us - Optimarz Properties</title>
-        <meta name="description" content="Learn about Optimarz Properties and our mission to provide premier land investment opportunities." />
+        <title>About Optimarz Properties | North Texas Land Investment Company</title>
+        <meta name="description" content="Optimarz Properties helps investors find prime land in North Texas — Bonham, Gainesville, Honey Grove & Wolfe City. Learn our story, mission, and investment philosophy." />
+        <meta name="keywords" content="Optimarz Properties, North Texas land investment company, Texas land investment firm, land investment company Texas, North Texas real estate company, buy land Texas, Texas acreage investment" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/about" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/about" />
+        <meta property="og:title" content="About Optimarz Properties | North Texas Land Investment Company" />
+        <meta property="og:description" content="Optimarz Properties helps investors find prime land in North Texas — Bonham, Gainesville, Honey Grove & Wolfe City. Learn our story, mission, and investment philosophy." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Optimarz Properties | North Texas Land Investment Company" />
+        <meta name="twitter:description" content="Optimarz Properties helps investors find prime land in North Texas — Bonham, Gainesville, Honey Grove & Wolfe City. Our mission, values, and investment philosophy." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": "https://optimarzproperties.com/about",
+              "url": "https://optimarzproperties.com/about",
+              "name": "About Optimarz Properties | North Texas Land Investment Company",
+              "description": "Learn about Optimarz Properties — a North Texas land investment company dedicated to helping investors find prime acreage in Bonham, Gainesville, Honey Grove, and Wolfe City.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "About", "item": "https://optimarzproperties.com/about" }
+                ]
+              }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://optimarzproperties.com/#organization",
+              "name": "Optimarz Properties",
+              "url": "https://optimarzproperties.com",
+              "logo": { "@type": "ImageObject", "url": "https://optimarzproperties.com/logo.png" },
+              "description": "Premier land investment company offering curated acreage opportunities across North Texas — operating with integrity, diligence, and excellence.",
+              "foundingLocation": { "@type": "Place", "name": "Texas, United States" }
+            }
+          ]
+        })}</script>
       </Helmet>
       <PageLayout>
         <div className="w-full">

@@ -35,8 +35,76 @@ const Projects = () => {
   return (
     <>
       <Helmet>
-        <title>Projects - Optimarz properties</title>
-        <meta name="description" content="Explore our curated land projects and investment opportunities across prime locations." />
+        <title>Investment Land Projects in North Texas | Optimarz Properties</title>
+        <meta name="description" content="Explore curated land investment projects in Bonham, Gainesville, Honey Grove & Wolfe City, TX. Affordable North Texas acreage near the DFW corridor with strong appreciation potential." />
+        <meta name="keywords" content="Texas land investment projects, North Texas land for sale, buy land near Dallas, Bonham TX land, Gainesville TX land, Honey Grove TX land, Wolfe City TX, Fannin County land, Cooke County land, Hunt County Texas land, North Texas investment properties, rural land Texas" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/projects" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/projects" />
+        <meta property="og:title" content="Investment Land Projects in North Texas | Optimarz Properties" />
+        <meta property="og:description" content="Explore curated land investment projects in Bonham, Gainesville, Honey Grove & Wolfe City, TX. Affordable North Texas acreage near DFW with strong appreciation potential." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Investment Land Projects in North Texas | Optimarz Properties" />
+        <meta name="twitter:description" content="Explore curated land investment projects in Bonham, Gainesville, Honey Grove & Wolfe City, TX. Affordable North Texas acreage near DFW with strong appreciation." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://optimarzproperties.com/projects",
+              "url": "https://optimarzproperties.com/projects",
+              "name": "Investment Land Projects in North Texas | Optimarz Properties",
+              "description": "Curated land investment projects across North Texas — Fannnin County, Hunt County, and Cooke County.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://optimarzproperties.com/projects" }
+                ]
+              }
+            },
+            {
+              "@type": "ItemList",
+              "name": "North Texas Land Investment Projects",
+              "description": "Curated land investment opportunities across North Texas",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Bonham Renaissance — Bonham, TX",
+                  "url": "https://optimarzproperties.com/projects/bonham-renaissance",
+                  "description": "Prime land in Bonham, TX — 60 min from Dallas, adjacent to Bois d'Arc Lake and Powder Creek Ranch"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Heritage Bloom — Gainesville, TX",
+                  "url": "https://optimarzproperties.com/projects/heritage-bloom",
+                  "description": "Prime land in Gainesville, TX — Cooke County seat on the I-35 corridor"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Tranquil Retreat — Honey Grove, TX",
+                  "url": "https://optimarzproperties.com/projects/tranquil-retreat",
+                  "description": "Affordable land in Honey Grove, TX — 8 miles from Bois d'Arc Lake in Fannin County"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Small Town Charm — Wolfe City, TX",
+                  "url": "https://optimarzproperties.com/projects/small-town-charm",
+                  "description": "Affordable land in Wolfe City, TX — Hunt County's rising heritage market"
+                }
+              ]
+            }
+          ]
+        })}</script>
       </Helmet>
       <div className="min-h-screen">
         <Header />

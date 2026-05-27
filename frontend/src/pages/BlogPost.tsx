@@ -109,8 +109,47 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} - Optimarz Properties Blog</title>
+        <title>{post.title} | Optimarz Properties</title>
         <meta name="description" content={post.description} />
+        <meta name="keywords" content="Texas land investment, North Texas real estate, land investing, Optimarz Properties blog" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`https://optimarzproperties.com/blogs/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content={`https://optimarzproperties.com/blogs/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.description} />
+        <meta property="og:image" content={post.featuredImage || "https://optimarzproperties.com/logo.png"} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.description} />
+        <meta name="twitter:image" content={post.featuredImage || "https://optimarzproperties.com/logo.png"} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.description,
+          "image": post.featuredImage,
+          "url": `https://optimarzproperties.com/blogs/${post.slug}`,
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://optimarzproperties.com/blogs/${post.slug}`
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Optimarz Properties",
+            "logo": { "@type": "ImageObject", "url": "https://optimarzproperties.com/logo.png" }
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://optimarzproperties.com/blogs" },
+              { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://optimarzproperties.com/blogs/${post.slug}` }
+            ]
+          }
+        })}</script>
       </Helmet>
       <PageLayout>
         <div className="py-12 border bg-background">

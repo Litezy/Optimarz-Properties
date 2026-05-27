@@ -42,8 +42,37 @@ const Resources = () => {
   return (
     <>
       <Helmet>
-        <title>Resources - Optimarz Properties</title>
-        <meta name="description" content="Access valuable resources, guides, and tools for land investment success." />
+        <title>Texas Land Investment Resources & Guides | Optimarz Properties</title>
+        <meta name="description" content="Free guides, ROI calculators, and market reports for North Texas land investors. Learn to evaluate, buy, and profit from land in Bonham, Gainesville & Honey Grove, TX." />
+        <meta name="keywords" content="Texas land investment guide, North Texas real estate resources, land investment ROI calculator, how to buy land Texas, Texas land market report, land investment glossary, North Texas investment guide, land due diligence Texas" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/resources" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/resources" />
+        <meta property="og:title" content="Texas Land Investment Resources & Guides | Optimarz Properties" />
+        <meta property="og:description" content="Free guides, ROI calculators, and market reports for North Texas land investors. Learn to evaluate, buy, and profit from land in Bonham, Gainesville & Honey Grove, TX." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Texas Land Investment Resources & Guides | Optimarz Properties" />
+        <meta name="twitter:description" content="Free guides, ROI calculators, and market reports for North Texas land investors. Learn to evaluate, buy, and profit from Texas land opportunities." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://optimarzproperties.com/resources",
+          "url": "https://optimarzproperties.com/resources",
+          "name": "Texas Land Investment Resources & Guides | Optimarz Properties",
+          "description": "Free guides, ROI calculators, and market reports for North Texas land investors.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://optimarzproperties.com/resources" }
+            ]
+          }
+        })}</script>
       </Helmet>
       <PageLayout>
         <div className="py-20">

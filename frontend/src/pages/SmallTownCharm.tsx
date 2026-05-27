@@ -10,11 +10,60 @@ const SmallTownCharm = () => {
   return (
     <>
       <Helmet>
-        <title>Small Town Charm - Wolfe City, TX | Optimarz Properties</title>
-        <meta
-          name="description"
-          content="Invest in Wolfe City, TX – Small town charm meets rising opportunity. Discover affordable land investments in Hunt County with Optimarz Properties."
-        />
+        <title>Land for Sale in Wolfe City, TX | Hunt County | Optimarz Properties</title>
+        <meta name="description" content="Buy affordable land in Wolfe City, TX — Hunt County's rising market. Small-town character, growing property demand, and ideal positioning for long-term Texas land banking." />
+        <meta name="keywords" content="land for sale Wolfe City TX, Wolfe City Texas real estate, Hunt County land investment, affordable Texas land, Wolfe City TX property, East Texas acreage, Hunt County Texas, land banking Texas, buy land Wolfe City, rural Texas property investment, Hunt County acreage" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/projects/small-town-charm" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/projects/small-town-charm" />
+        <meta property="og:title" content="Land for Sale in Wolfe City, TX | Hunt County | Optimarz Properties" />
+        <meta property="og:description" content="Buy affordable land in Wolfe City, TX — Hunt County's rising market. Small-town character with growing property demand and ideal positioning for long-term Texas land banking." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Land for Sale in Wolfe City, TX | Hunt County | Optimarz Properties" />
+        <meta name="twitter:description" content="Buy affordable land in Wolfe City, TX — Hunt County's rising market. Small-town character with growing property demand and ideal positioning for Texas land banking." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://optimarzproperties.com/projects/small-town-charm",
+              "url": "https://optimarzproperties.com/projects/small-town-charm",
+              "name": "Land for Sale in Wolfe City, TX | Hunt County | Optimarz Properties",
+              "description": "Affordable land investment opportunity in Wolfe City, Texas — Hunt County's rising market with small-town character and growing property demand.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://optimarzproperties.com/projects" },
+                  { "@type": "ListItem", "position": 3, "name": "Small Town Charm — Wolfe City TX", "item": "https://optimarzproperties.com/projects/small-town-charm" }
+                ]
+              }
+            },
+            {
+              "@type": "RealEstateListing",
+              "name": "Small Town Charm — Land Investment in Wolfe City, TX",
+              "description": "Affordable land parcels in Wolfe City, Texas — Hunt County's heritage town poised for growth. Once centered around small farms and local commerce, Wolfe City is seeing growing property demand and investor attention.",
+              "url": "https://optimarzproperties.com/projects/small-town-charm",
+              "provider": {
+                "@type": "RealEstateAgent",
+                "name": "Optimarz Properties",
+                "url": "https://optimarzproperties.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Wolfe City",
+                "addressRegion": "TX",
+                "postalCode": "75496",
+                "addressCountry": "US"
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
       <PageLayout>
         {/* Hero Section */}

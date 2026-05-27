@@ -10,11 +10,60 @@ const HeritageBloom = () => {
   return (
     <>
       <Helmet>
-        <title>Heritage Bloom - Gainesville, TX | Optimarz Properties</title>
-        <meta
-          name="description"
-          content="Invest in Gainesville, TX – Prime land opportunities in Cooke County with Optimarz Properties. Explore strategic locations with high growth potential."
-        />
+        <title>Land for Sale in Gainesville, TX | Cooke County | Optimarz Properties</title>
+        <meta name="description" content="Buy prime land in Gainesville, TX — county seat of Cooke County on the I-35 corridor. Affordable North Texas acreage with DFW growth spillover and strong long-term appreciation." />
+        <meta name="keywords" content="land for sale Gainesville TX, Gainesville Texas real estate, Cooke County land investment, buy acreage Gainesville Texas, I-35 corridor land Texas, North Texas land for sale, Cooke County property Texas, land near DFW Texas, Gainesville TX investment property, North Texas acreage" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/projects/heritage-bloom" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/projects/heritage-bloom" />
+        <meta property="og:title" content="Land for Sale in Gainesville, TX | Cooke County | Optimarz Properties" />
+        <meta property="og:description" content="Buy prime land in Gainesville, TX — Cooke County seat on the I-35 corridor. Affordable North Texas acreage with DFW growth spillover and strong long-term appreciation potential." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Land for Sale in Gainesville, TX | Cooke County | Optimarz Properties" />
+        <meta name="twitter:description" content="Buy prime land in Gainesville, TX — Cooke County seat on the I-35 corridor. Affordable North Texas acreage with DFW growth spillover and strong appreciation potential." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://optimarzproperties.com/projects/heritage-bloom",
+              "url": "https://optimarzproperties.com/projects/heritage-bloom",
+              "name": "Land for Sale in Gainesville, TX | Cooke County | Optimarz Properties",
+              "description": "Prime land investment opportunity in Gainesville, Texas — county seat of Cooke County on the I-35 corridor.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://optimarzproperties.com/projects" },
+                  { "@type": "ListItem", "position": 3, "name": "Heritage Bloom — Gainesville TX", "item": "https://optimarzproperties.com/projects/heritage-bloom" }
+                ]
+              }
+            },
+            {
+              "@type": "RealEstateListing",
+              "name": "Heritage Bloom — Land Investment in Gainesville, TX",
+              "description": "Prime land parcels in Gainesville, Texas — the county seat of Cooke County. Positioned on the I-35 corridor with direct access to the Dallas-Fort Worth metro and strong long-term growth fundamentals.",
+              "url": "https://optimarzproperties.com/projects/heritage-bloom",
+              "provider": {
+                "@type": "RealEstateAgent",
+                "name": "Optimarz Properties",
+                "url": "https://optimarzproperties.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Gainesville",
+                "addressRegion": "TX",
+                "postalCode": "76240",
+                "addressCountry": "US"
+              }
+            }
+          ]
+        })}</script>
       </Helmet>
       <PageLayout>
         {/* Hero Section */}

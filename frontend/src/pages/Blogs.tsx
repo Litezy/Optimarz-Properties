@@ -33,8 +33,43 @@ const Blogs = () => {
   return (
     <>
       <Helmet>
-        <title>Blog - Optimarz Properties</title>
-        <meta name="description" content="Read the latest insights, news, and updates about land investment and real estate." />
+        <title>Land Investment Blog | North Texas Real Estate Insights | Optimarz</title>
+        <meta name="description" content="Expert insights on Texas land investing, North Texas market trends, and land acquisition strategies. Read the latest from the Optimarz Properties team." />
+        <meta name="keywords" content="Texas land investment blog, North Texas real estate insights, land investing tips Texas, Bonham TX real estate news, Gainesville TX land market, Texas land market trends, land investment strategies, North Texas property market" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/blogs" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/blogs" />
+        <meta property="og:title" content="Land Investment Blog | North Texas Real Estate Insights | Optimarz" />
+        <meta property="og:description" content="Expert insights on Texas land investing, North Texas market trends, and land acquisition strategies from the Optimarz Properties team." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Land Investment Blog | North Texas Real Estate Insights | Optimarz" />
+        <meta name="twitter:description" content="Expert insights on Texas land investing, North Texas market trends, and land acquisition strategies from the Optimarz Properties team." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "@id": "https://optimarzproperties.com/blogs",
+          "url": "https://optimarzproperties.com/blogs",
+          "name": "Optimarz Properties Land Investment Blog",
+          "description": "Expert insights on Texas land investing, North Texas market trends, and land acquisition strategies.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Optimarz Properties",
+            "url": "https://optimarzproperties.com",
+            "logo": { "@type": "ImageObject", "url": "https://optimarzproperties.com/logo.png" }
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://optimarzproperties.com/blogs" }
+            ]
+          }
+        })}</script>
       </Helmet>
       <PageLayout>
         {/* Hero Section */}

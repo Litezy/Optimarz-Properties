@@ -69,8 +69,52 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us - Optimarz Properties</title>
-        <meta name="description" content="Get in touch with Optimarz Properties for inquiries about land investment opportunities." />
+        <title>Contact Optimarz Properties | North Texas Land Investment</title>
+        <meta name="description" content="Contact Optimarz Properties about land investment in Bonham, Gainesville, Honey Grove & Wolfe City, TX. Our team is ready to help you find the right North Texas acreage." />
+        <meta name="keywords" content="contact Optimarz Properties, Texas land investment consultation, buy land North Texas contact, Optimarz Properties email, land investment inquiry Texas, North Texas land agent" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/contact" />
+        <meta property="og:title" content="Contact Optimarz Properties | North Texas Land Investment" />
+        <meta property="og:description" content="Contact Optimarz Properties about land investment in Bonham, Gainesville, Honey Grove & Wolfe City, TX. Our team is ready to help you find the right North Texas acreage." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Optimarz Properties | North Texas Land Investment" />
+        <meta name="twitter:description" content="Contact Optimarz Properties about land investment in Bonham, Gainesville, Honey Grove & Wolfe City, TX. Our team responds to all inquiries promptly." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://optimarzproperties.com/contact",
+              "url": "https://optimarzproperties.com/contact",
+              "name": "Contact Optimarz Properties",
+              "description": "Get in touch with Optimarz Properties about land investment opportunities across North Texas.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://optimarzproperties.com/contact" }
+                ]
+              }
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": "https://optimarzproperties.com/#localbusiness",
+              "name": "Optimarz Properties",
+              "url": "https://optimarzproperties.com",
+              "email": "info@optimarzproperties.com",
+              "logo": { "@type": "ImageObject", "url": "https://optimarzproperties.com/logo.png" },
+              "description": "North Texas land investment company specializing in Bonham, Gainesville, Honey Grove, and Wolfe City, TX.",
+              "areaServed": { "@type": "State", "name": "Texas" },
+              "priceRange": "$$"
+            }
+          ]
+        })}</script>
       </Helmet>
       <PageLayout>
         <div className="py-20 lg:py-12">

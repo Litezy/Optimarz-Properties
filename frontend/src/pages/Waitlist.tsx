@@ -51,8 +51,37 @@ const Waitlist = () => {
   return (
     <>
       <Helmet>
-        <title>Join VIP Waitlist - Optimarz Properties</title>
-        <meta name="description" content="Join our VIP waitlist for exclusive early access to premium land investment opportunities." />
+        <title>Join VIP Waitlist | Exclusive North Texas Land Investment Deals</title>
+        <meta name="description" content="Get first access to pre-market land deals in Bonham, Gainesville & across North Texas. Join the Optimarz Properties VIP waitlist — limited early-access spots available." />
+        <meta name="keywords" content="Texas land investment waitlist, exclusive land deals Texas, early access land investment, VIP land investment Texas, pre-market land deals North Texas, Optimarz Properties waitlist, buy land early Texas" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/waitlist" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/waitlist" />
+        <meta property="og:title" content="Join VIP Waitlist | Exclusive North Texas Land Investment Deals" />
+        <meta property="og:description" content="Get first access to pre-market land deals in Bonham, Gainesville & across North Texas. Join the Optimarz Properties VIP waitlist — limited early-access spots available." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Join VIP Waitlist | Exclusive North Texas Land Investment Deals" />
+        <meta name="twitter:description" content="Get first access to pre-market land deals in Bonham, Gainesville & across North Texas. Limited early-access spots — join the Optimarz Properties VIP waitlist." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": "https://optimarzproperties.com/waitlist",
+          "url": "https://optimarzproperties.com/waitlist",
+          "name": "Join VIP Waitlist | Exclusive North Texas Land Investment Deals",
+          "description": "Get first access to pre-market land deals in North Texas. Limited early-access spots.",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+              { "@type": "ListItem", "position": 2, "name": "VIP Waitlist", "item": "https://optimarzproperties.com/waitlist" }
+            ]
+          }
+        })}</script>
       </Helmet>
       <PageLayout>
         <div className="py-20">

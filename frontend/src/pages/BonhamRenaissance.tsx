@@ -43,11 +43,97 @@ const BonhamRenaissance = () => {
   return (
     <>
       <Helmet>
-        <title>Bonham Renaissance - Bonham, TX | Optimarz Properties</title>
-        <meta
-          name="description"
-          content="Invest in Bonham, TX – A historic city reimagined. Discover prime land opportunities in one of North Texas's most exciting destinations with Optimarz Properties."
-        />
+        <title>Land for Sale in Bonham, TX | Bois d'Arc Lake Area | Optimarz Properties</title>
+        <meta name="description" content="Buy land in Bonham, TX — 60 min from Dallas. Adjacent to Bois d'Arc Lake & Powder Creek Ranch's 3,000-home development. Affordable North Texas acreage with proven appreciation." />
+        <meta name="keywords" content="land for sale Bonham TX, Bonham Texas land investment, buy land Bonham Texas, Bois d'Arc Lake property, Fannin County land, North Texas acreage, land near Dallas Texas, Powder Creek Ranch Bonham, rural Texas land investment, Texas land banking, Bonham TX real estate, investment land Texas" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://optimarzproperties.com/projects/bonham-renaissance" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Optimarz Properties" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://optimarzproperties.com/projects/bonham-renaissance" />
+        <meta property="og:title" content="Land for Sale in Bonham, TX | Bois d'Arc Lake | Optimarz Properties" />
+        <meta property="og:description" content="Buy land in Bonham, TX — 60 min from Dallas. Adjacent to Bois d'Arc Lake & Powder Creek Ranch. Affordable North Texas acreage with strong appreciation catalysts and major growth drivers." />
+        <meta property="og:image" content="https://optimarzproperties.com/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Land for Sale in Bonham, TX | Bois d'Arc Lake | Optimarz Properties" />
+        <meta name="twitter:description" content="Buy land in Bonham, TX — 60 min from Dallas. Adjacent to Bois d'Arc Lake & Powder Creek Ranch. Affordable North Texas acreage with strong appreciation catalysts." />
+        <meta name="twitter:image" content="https://optimarzproperties.com/logo.png" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://optimarzproperties.com/projects/bonham-renaissance",
+              "url": "https://optimarzproperties.com/projects/bonham-renaissance",
+              "name": "Land for Sale in Bonham, TX | Bois d'Arc Lake | Optimarz Properties",
+              "description": "Buy land in Bonham, TX — 60 min from Dallas. Adjacent to Bois d'Arc Lake and Powder Creek Ranch's 3,000-home master-planned community.",
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optimarzproperties.com" },
+                  { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://optimarzproperties.com/projects" },
+                  { "@type": "ListItem", "position": 3, "name": "Bonham Renaissance", "item": "https://optimarzproperties.com/projects/bonham-renaissance" }
+                ]
+              }
+            },
+            {
+              "@type": "RealEstateListing",
+              "name": "Bonham Renaissance — Land Investment in Bonham, TX",
+              "description": "Prime land parcels in Bonham, Texas. 60 minutes northeast of Dallas on US Highway 82. Adjacent to Bois d'Arc Lake — North Texas's newest reservoir — and Powder Creek Ranch, a 3,000-home master-planned community extending through 2035.",
+              "url": "https://optimarzproperties.com/projects/bonham-renaissance",
+              "provider": {
+                "@type": "RealEstateAgent",
+                "name": "Optimarz Properties",
+                "url": "https://optimarzproperties.com"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bonham",
+                "addressRegion": "TX",
+                "postalCode": "75418",
+                "addressCountry": "US"
+              }
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Why invest in Bonham, Texas real estate?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bonham offers affordable land prices, major infrastructure growth, the Bois d'Arc Lake development corridor, proximity to the Dallas-Fort Worth economic corridor, and Powder Creek Ranch — a 3,000-home master-planned community with a development timeline through 2035."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How far is Bonham, TX from Dallas?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bonham is approximately 60 minutes (about 70 miles) northeast of Dallas via US Highway 82, with direct connectivity to McKinney, Sherman, Paris, and the wider DFW corridor."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is Bois d'Arc Lake and how does it impact Bonham land values?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bois d'Arc Lake is the first major reservoir built in Texas in nearly 30 years, covering over 16,500 acres. It supplies water to 2 million+ North Texans and is driving significant demand for waterfront properties, tourism, short-term rentals, and recreation-driven real estate development around Bonham."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What types of land investment are available in Bonham, TX?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bonham offers residential development, land banking, lakefront and recreational real estate near Bois d'Arc Lake, commercial investment along Highway 121 and 82, and industrial/logistics development with strong highway access."
+                  }
+                }
+              ]
+            }
+          ]
+        })}</script>
       </Helmet>
       <PageLayout>
         {/* Hero Section */}
