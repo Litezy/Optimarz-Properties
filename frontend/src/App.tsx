@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import { AdminPages, ClientPages } from "./utils/pageLinks";
@@ -46,13 +46,11 @@ const AppContent = () => {
             element={<item.component/>}
           />
         ))}
-        {AdminPages.map((item, index) => (
-          <Route
-            key={index}
-            path={item.path}
-            element={<AdminAuthGuard><AdminLayout><item.component/></AdminLayout></AdminAuthGuard>}
-          />
-        ))}
+        <Route element={<AdminAuthGuard><AdminLayout><Outlet /></AdminLayout></AdminAuthGuard>}>
+          {AdminPages.map((item, index) => (
+            <Route key={index} path={item.path} element={<item.component />} />
+          ))}
+        </Route>
       </Routes>
     </>
   );
