@@ -8,28 +8,36 @@ import { blogService } from "@/services/blog.service";
 import { useBlogsStore } from "@/store/blogs.store";
 import ApiLoader from "@/components/ApiLoader";
 
-const Blogs = () => {
-  const {blogs,setBlogs}= useBlogsStore()
-  const [isLoading,setIsLoading] = useState(false)
+const STALE_TIME = 5 * 60 * 1000;
 
-  // Fetch blogs if not already loaded
-    useEffect(() => {
-      const fetchBlogs = async () => {
-        if (blogs.length === 0) {
-          setIsLoading(true);
-          try {
-            const data = await blogService.fetchBlogs();
-            setBlogs(data.data);
-          } catch (error) {
-            console.error('Failed to fetch blogs:', error);
-          } finally {
-            setIsLoading(false);
-          }
-        }
-      };
-  
-      fetchBlogs();
-    }, [blogs.length, setBlogs]);
+const Blogs = () => {
+  const { blogs, setBlogs, setLastFetched } = useBlogsStore();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchIfStale = async () => {
+    const { lastFetched } = useBlogsStore.getState();
+    if (lastFetched && Date.now() - lastFetched < STALE_TIME) return;
+    setIsLoading(true);
+    try {
+      const data = await blogService.fetchBlogs();
+      setBlogs(data.data);
+      setLastFetched(Date.now());
+    } catch (error) {
+      console.error('Failed to fetch blogs:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchIfStale();
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') fetchIfStale();
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
   return (
     <>
       <Helmet>

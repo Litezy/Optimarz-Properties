@@ -23,6 +23,7 @@ import { Eye, Trash2 } from "lucide-react";
 import ApiLoader from "@/components/ApiLoader";
 import { delayApiCall, ErrorMessage } from "@/lib/utils";
 import { blogService } from "@/services/blog.service";
+import { useBlogsStore } from "@/store/blogs.store";
 import TiptapEditor from "@/components/editor/TiptapEditor";
 import {
   Dialog,
@@ -45,6 +46,8 @@ const emptyImages: Record<ImageField, File | null> = {
 };
 
 const CreateBlog = () => {
+  const setBlogs = useBlogsStore(state => state.setBlogs);
+  const setLastFetched = useBlogsStore(state => state.setLastFetched);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -228,7 +231,7 @@ const CreateBlog = () => {
     const formData = buildFormData();
 
     for (const [key, value] of formData.entries()) {
-      console.log(key, value);
+      // console.log(key, value);
     }
     // return;
     if (!validateFormData(formData)) {
@@ -244,7 +247,11 @@ const CreateBlog = () => {
 
       if (response.status === 201) {
         deleteDraft();
-        await blogService.fetchBlogs();
+        const refreshed = await blogService.fetchBlogs();
+        if (refreshed?.data) {
+          setBlogs(refreshed.data);
+          setLastFetched(Date.now());
+        }
         await delayApiCall();
         toast({
           title: "Published",

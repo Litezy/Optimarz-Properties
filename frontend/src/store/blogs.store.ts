@@ -4,7 +4,9 @@ import { Blog } from '@/types/admin.types';
 
 interface BlogsState {
     blogs: Blog[];
+    lastFetched: number | null;
     setBlogs: (blogs: Blog[]) => void;
+    setLastFetched: (ts: number) => void;
     addBlog: (blog: Blog) => void;
     updateBlog: (id: number, updates: Partial<Blog>) => void;
     deleteBlog: (id: number) => void;
@@ -18,9 +20,13 @@ export const useBlogsStore = create<BlogsState>()(
     persist(
         (set, get) => ({
             blogs: [],
+            lastFetched: null,
 
-            setBlogs: (blogs) => 
+            setBlogs: (blogs) =>
                 set({ blogs }),
+
+            setLastFetched: (ts) =>
+                set({ lastFetched: ts }),
 
             addBlog: (blog) =>
                 set((state) => ({

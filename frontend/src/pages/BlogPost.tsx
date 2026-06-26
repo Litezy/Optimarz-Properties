@@ -19,29 +19,37 @@ import { useBlogsStore } from "@/store/blogs.store";
 import { blogService } from "@/services/blog.service";
 import { BlogImage } from "@/components/blog/BlogImage";
 
+const STALE_TIME = 5 * 60 * 1000;
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { blogs, setBlogs, getBlogBySlug } = useBlogsStore();
+  const { blogs, setBlogs, setLastFetched, getBlogBySlug } = useBlogsStore();
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch blogs if not already loaded
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      if (blogs.length === 0) {
-        setIsLoading(true);
-        try {
-          const data = await blogService.fetchBlogs();
-          setBlogs(data.data);
-        } catch (error) {
-          console.error("Failed to fetch blogs:", error);
-        } finally {
-          setIsLoading(false);
-        }
-      }
-    };
+  const fetchIfStale = async () => {
+    const { lastFetched } = useBlogsStore.getState();
+    if (lastFetched && Date.now() - lastFetched < STALE_TIME) return;
+    setIsLoading(true);
+    try {
+      const data = await blogService.fetchBlogs();
+      setBlogs(data.data);
+      setLastFetched(Date.now());
+    } catch (error) {
+      console.error("Failed to fetch blogs:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchBlogs();
-  }, [blogs.length, setBlogs]);
+  useEffect(() => {
+    fetchIfStale();
+
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') fetchIfStale();
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
 
   const post = getBlogBySlug(slug || "");
   const currentIndex = blogs.findIndex((p) => p.slug === slug);
