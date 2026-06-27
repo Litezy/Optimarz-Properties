@@ -1,35 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import optimarzLogo from "@/assets/logo.png";
-import optimarzLogoDark from "@/assets/dark-logo.png";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const isDark = localStorage.getItem("theme") === "dark" ||
-      (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
-    setIsDarkMode(isDark);
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    }
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
   }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -50,9 +32,9 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src={isDarkMode ? optimarzLogoDark : optimarzLogo}
+              src={optimarzLogo}
               alt="Optimarz Properties"
-              className={`h-16 w-auto`}
+              className="h-16 w-auto"
             />
           </Link>
 
@@ -75,37 +57,15 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button & Dark Mode Toggle */}
+          {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-md hover:bg-accent/10 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? (
-                <Sun className="h-5 w-5 text-foreground" />
-              ) : (
-                <Moon className="h-5 w-5 text-foreground" />
-              )}
-            </button>
             <Button asChild className="font-medium">
               <Link to="/waitlist">Join The VIP Waitlist</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button & Dark Mode */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-md hover:bg-accent/10 transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {isDarkMode ? (
-                <Sun className="h-5 w-5 text-foreground" />
-              ) : (
-                <Moon className="h-5 w-5 text-foreground" />
-              )}
-            </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
