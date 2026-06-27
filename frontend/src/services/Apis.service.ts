@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { adminUrls, blogUrls, contactUrls, downloadsUrls, waitlistUrls } from "./Apis";
 
 // /home/u530686180/domains/optimarzproperties.com/public_html
+//change to api url when deployed to production
 
 let BASEURL = window.origin.includes(`localhost`) ? import.meta.env.VITE_BASE_URL : import.meta.env.VITE_API_URL;
 // console.log('BASEURL:', BASEURL);
