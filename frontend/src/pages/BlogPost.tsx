@@ -328,7 +328,7 @@ const BlogPost = () => {
                   className="w-fit px-5 justify-start group"
                 >
                   <Link
-                    to={`/blog/${previousPost.slug}`}
+                    to={`/blogs/${previousPost.slug}`}
                     className="flex items-center gap-2"
                   >
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -350,7 +350,7 @@ const BlogPost = () => {
                   className="w-fit px-5 justify-end group"
                 >
                   <Link
-                    to={`/blog/${nextPost.slug}`}
+                    to={`/blogs/${nextPost.slug}`}
                     className="flex items-center gap-2"
                   >
                     <div className="text-center">
