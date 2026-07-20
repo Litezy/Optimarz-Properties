@@ -1,0 +1,111 @@
+
+
+<div class="w-full font-serif text-gray-800 dark:text-gray-200">
+
+  <!-- Intro -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-4">A Thriving City with Strong Long-Term Potential</h2>
+  <p class="text-base leading-relaxed mb-8 text-gray-700 dark:text-gray-300">
+    McKinney, the county seat of Collin County, has become one of the fastest-growing cities in the Dallas–Fort Worth (DFW) metroplex. Combining a vibrant economy, expanding infrastructure, and a high quality of life, it continues to attract residents, businesses, and investors looking for long-term opportunities.
+  </p>
+
+  <!-- Section 1 -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-10">1. Strong Population Growth</h2>
+  <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
+    McKinney's population has grown to approximately 243,000 in 2026, reflecting steady growth since 2020. As part of the rapidly expanding DFW region, the city continues to benefit from increasing demand for housing and community development.
+  </p>
+  <div class="bg-gray-50 dark:bg-emerald-950/40 border border-gray-200 dark:border-emerald-800/50 rounded-xl p-4 mb-8">
+    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <span class="font-bold text-green-700 dark:text-lime-400">Why it matters:</span> A growing population supports long-term demand for residential and commercial real estate.
+    </p>
+  </div>
+
+  <!-- Section 2 -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-10">2. A Diverse and Growing Economy</h2>
+  <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
+    McKinney's economy is supported by industries including technology, healthcare, manufacturing, and finance. Major employers, combined with the efforts of the McKinney Economic Development Corporation (MEDC), continue to strengthen job creation and business investment.
+  </p>
+  <div class="bg-gray-50 dark:bg-emerald-950/40 border border-gray-200 dark:border-emerald-800/50 rounded-xl p-4 mb-8">
+    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <span class="font-bold text-green-700 dark:text-lime-400">Why it matters:</span> A diversified economy helps support employment, housing demand, and long-term market stability.
+    </p>
+  </div>
+
+  <!-- Section 3 -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-10">3. Attractive Real Estate Market</h2>
+  <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
+    Compared to some neighboring DFW cities, McKinney remains relatively affordable while maintaining strong demand for both homeownership and rental properties. Ongoing residential and commercial development continues to create investment opportunities.
+  </p>
+  <div class="bg-gray-50 dark:bg-emerald-950/40 border border-gray-200 dark:border-emerald-800/50 rounded-xl p-4 mb-8">
+    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <span class="font-bold text-green-700 dark:text-lime-400">Why it matters:</span> A balanced market offers investors the potential for long-term appreciation and steady demand.
+    </p>
+  </div>
+
+  <!-- IMAGE 1 — After economy/real estate sections -->
+  <!-- REPLACE src WITH YOUR CLOUDINARY URL -->
+  <figure class="mb-10 rounded-2xl overflow-hidden shadow-lg">
+    <img
+      src="https://res.cloudinary.com/dtmarldxm/image/upload/v1784589035/content_1_cizhb7.png"
+      alt="Growing North Texas commercial district with new office buildings and retail centers in McKinney, Collin County"
+      class="w-full h-48 sm:h-64 md:h-80 object-cover object-center"
+    />
+    <figcaption class="text-sm text-gray-500 dark:text-gray-400 text-center pt-2 pb-1 bg-gray-50 dark:bg-emerald-950/40">McKinney's diverse economy and expanding commercial base make it one of North Texas' most attractive investment markets</figcaption>
+  </figure>
+
+  <!-- Section 4 -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-10">4. High Quality of Life</h2>
+  <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
+    Excellent schools, family-friendly neighborhoods, parks, recreational amenities, and a charming historic downtown make McKinney an attractive place to live and work.
+  </p>
+  <div class="bg-gray-50 dark:bg-emerald-950/40 border border-gray-200 dark:border-emerald-800/50 rounded-xl p-4 mb-8">
+    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <span class="font-bold text-green-700 dark:text-lime-400">Why it matters:</span> Communities with strong quality of life features often experience sustained housing demand and long-term growth.
+    </p>
+  </div>
+
+  <!-- IMAGE 2 — After quality of life section -->
+  <!-- REPLACE src WITH YOUR CLOUDINARY URL -->
+  <figure class="mb-10 rounded-2xl overflow-hidden shadow-lg">
+    <img
+      src="https://res.cloudinary.com/dtmarldxm/image/upload/v1784589031/content_2_wnihhk.png"
+      alt="Charming historic downtown McKinney Texas with boutique shops, families, and vibrant community atmosphere"
+      class="w-full h-48 sm:h-64 md:h-80 object-cover object-center"
+    />
+    <figcaption class="text-sm text-gray-500 dark:text-gray-400 text-center pt-2 pb-1 bg-gray-50 dark:bg-emerald-950/40">McKinney's historic downtown and family-friendly neighborhoods contribute to one of North Texas' most desirable quality of life profiles</figcaption>
+  </figure>
+
+  <!-- Section 5 -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-10">5. Infrastructure Supporting Future Growth</h2>
+  <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
+    Continued investment in roads, utilities, and new commercial developments is helping McKinney accommodate its growing population while supporting future residential and business expansion.
+  </p>
+  <div class="bg-gray-50 dark:bg-emerald-950/40 border border-gray-200 dark:border-emerald-800/50 rounded-xl p-4 mb-10">
+    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <span class="font-bold text-green-700 dark:text-lime-400">Why it matters:</span> Infrastructure investment helps position the city for continued economic and real estate growth.
+    </p>
+  </div>
+
+  <!-- Bottom Line -->
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50 mb-3 mt-10">The Bottom Line</h2>
+  <p class="text-base leading-relaxed mb-4 text-gray-700 dark:text-gray-300">
+    McKinney combines strong population growth, a diversified economy, expanding infrastructure, and an excellent quality of life — making it one of North Texas' most attractive real estate markets.
+  </p>
+  <p class="text-base leading-relaxed mb-8 text-gray-700 dark:text-gray-300">
+    While market conditions may change, the city's long-term fundamentals continue to make it an appealing destination for residential, commercial, and land investment.
+  </p>
+
+  <blockquote class="border-l-4 border-green-500 pl-5 py-3 my-8 bg-green-50 dark:bg-emerald-900/25 rounded-r-xl">
+    <p class="text-base italic text-green-900 dark:text-lime-200 leading-relaxed">
+      "McKinney is not just growing — it is building the economic and community foundation that attracts long-term investors, quality employers, and families looking for a place to put down roots."
+    </p>
+  </blockquote>
+
+  <!-- CTA -->
+  <div class="bg-green-600 rounded-2xl px-7 py-6 text-white text-center">
+    <p class="text-base font-medium leading-relaxed">
+      Optimarz Properties helps investors identify high-potential opportunities across McKinney and the broader North Texas market. Whether you are exploring residential, commercial, or land investment, we are here to help you make informed decisions.
+    </p>
+    <p class="mt-3 text-sm font-semibold tracking-wide uppercase text-green-100">Stay informed. Stay ahead. Grow with Optimarz Properties.</p>
+  </div>
+
+</div>
