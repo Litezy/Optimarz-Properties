@@ -2,7 +2,7 @@
 import { ADMIN_AUTH_COOKIE } from "@/utils/cookies";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { adminUrls, blogUrls, contactUrls, downloadsUrls, waitlistUrls } from "./Apis";
+import { adminUrls, analyticsUrls, blogUrls, contactUrls, downloadsUrls, waitlistUrls } from "./Apis";
 
 // /home/u530686180/domains/optimarzproperties.com/public_html
 //change to api url when deployed to production
@@ -16,7 +16,8 @@ export const Apis = {
     contact: contactUrls,
     blogs: blogUrls,
     waitlist: waitlistUrls,
-    downloads: downloadsUrls
+    downloads: downloadsUrls,
+    analytics: analyticsUrls
 };
 
 

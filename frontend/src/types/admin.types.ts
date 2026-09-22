@@ -57,3 +57,16 @@ export interface DownloadEntry {
     lastName: string;
     createdAt: string;
 }
+
+export interface VisitTrendPoint {
+    date: string;
+    visits: number;
+}
+
+export interface SiteVisitStats {
+    today: number;
+    last7Days: number;
+    last30Days: number;
+    total: number;
+    trend: VisitTrendPoint[];
+}

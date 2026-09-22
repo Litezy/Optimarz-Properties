@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw, File, Menu, X, DownloadCloud } from "lucide-react";
+import { LogOut, User, FileEdit, Mail, Users, Moon, Sun, RefreshCw, File, Menu, X, DownloadCloud, BarChart3 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import optimarzLogo from "@/assets/logo.png";
 import { deleteCookie, ADMIN_AUTH_COOKIE } from "@/utils/cookies";
@@ -162,6 +162,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
 
   const navItems = [
     { path: "/admin/profile", label: "Profile", icon: User },
+    { path: "/admin/analytics", label: "Analytics", icon: BarChart3 },
     { path: "/admin/all-blogs", label: "Blogs", icon: File },
     { path: "/admin/create-blog", label: "Create Blog", icon: FileEdit },
     { path: "/admin/contacts", label: "Contacts", icon: Mail },

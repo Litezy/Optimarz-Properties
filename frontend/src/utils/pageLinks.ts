@@ -19,6 +19,7 @@ import AdminWaitlist from "@/pages/admin/Waitlist";
 import AllBlogs from "@/pages/admin/AllBlogs";
 import EditBlog from "@/pages/admin/EditBlog";
 import Downloads from "@/pages/admin/Downloads";
+import Analytics from "@/pages/admin/Analytics";
 import Blogs from "@/pages/Blogs";
 
 const projectRoute = (slug: string) => `/projects/${slug}`;
@@ -51,4 +52,5 @@ export const AdminPages = [
     { component: AdminContacts, path: "/admin/contacts" },
     { component: AdminWaitlist, path: "/admin/waitlist" },
     { component: Downloads, path: "/admin/downloads" },
+    { component: Analytics, path: "/admin/analytics" },
 ]

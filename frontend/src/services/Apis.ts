@@ -40,3 +40,8 @@ export const downloadsUrls = {
     fetch_all: "downloads/all",
     delete: "downloads/delete",
 }
+
+export const analyticsUrls = {
+    track: "analytics/track",
+    fetch_stats: "analytics/visits",
+}
