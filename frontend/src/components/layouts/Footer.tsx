@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Instagram } from "lucide-react";
 import optimarzLogoDark from "@/assets/dark-logo.png";
 
 export const Footer = () => {
@@ -73,6 +74,15 @@ export const Footer = () => {
             <ul className="space-y-2 text-base opacity-90">
               <li>contact@optimarzproperties.com</li>
             </ul>
+            <a
+              href="https://www.instagram.com/optimarzproperties?utm_source=qr&stkn=MWNndDFqYjVzeGxoMw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Optimarz Properties on Instagram"
+              className="inline-flex items-center justify-center w-9 h-9 mt-4 rounded-full border border-[hsl(42,28%,57%)]/40 hover:bg-[hsl(42,28%,57%)]/20 transition-colors"
+            >
+              <Instagram className="w-4 h-4" />
+            </a>
           </div>
         </div>
 
